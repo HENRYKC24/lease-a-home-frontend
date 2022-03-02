@@ -1,80 +1,81 @@
 /* Styling for page layout and nav bar  */
+@media only screen and (min-width: 768px) {
+  *,
+  .navLinks {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-*,
-.navLinks {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  *,
+  .navLinks,
+  .navLinks li a {
+    list-style: none;
+    text-decoration: none;
+  }
 
-*,
-.navLinks,
-.navLinks li a {
-  list-style: none;
-  text-decoration: none;
-}
+  .navLinks li a,
+  .sign-out {
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #161616;
+    padding: 25px;
+  }
 
-.navLinks li a,
-.sign-out {
-  font-size: 1.2em;
-  font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #161616;
-  padding: 25px;
-}
+  .sign-out {
+    border: none;
+    width: 100%;
+    background-color: #f4f4f4;
+  }
 
-.sign-out {
-  border: none;
-  width: 100%;
-  background-color: #f4f4f4;
-}
+  .active,
+  .navLinks li,
+  .sign-out {
+    padding: 20px 0;
+  }
 
-.active,
-.navLinks li,
-.sign-out {
-  padding: 20px 0;
-}
+  .active,
+  .navLinks li:hover,
+  .sign-out:hover {
+    background-color: #99c210;
+    color: #fff;
+    width: 100%;
+  }
 
-.active,
-.navLinks li:hover,
-.sign-out:hover {
-  background-color: #99c210;
-  color: #fff;
-  width: 100%;
-}
+  .active,
+  .navLinks li a:hover {
+    color: #fff;
+  }
 
-.active,
-.navLinks li a:hover {
-  color: #fff;
-}
+  .copyright {
+    padding-top: 80%;
+    color: #616c7d;
+  }
 
-.copyright {
-  padding-top: 80%;
-  color: #616c7d;
-}
+  body {
+    height: 100vh;
+  }
 
-body {
-  height: 100vh;
-}
+  #root {
+    display: flex;
+    height: 100%;
+  }
 
-#root {
-  display: flex;
-  height: 100%;
-}
+  .desktop-nav {
+    background-color: #f4f4f4;
+    width: 20%;
+    padding: 15px;
+    text-align: center;
+  }
 
-.desktop-nav {
-  background-color: #f4f4f4;
-  width: 20%;
-  padding: 15px;
-  text-align: center;
-}
+  .logo-container {
+    padding-bottom: 50px;
+  }
 
-.logo-container {
-  padding-bottom: 50px;
-}
-
-.logo {
-  width: 50%;
+  .logo {
+    width: 50%;
+  }
 }
 
 /* Styling for page layout and nav bar  */
