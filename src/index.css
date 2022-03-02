@@ -20,6 +20,7 @@
   font-weight: bold;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #161616;
+  padding: 25px;
 }
 
 .sign-out {
@@ -28,24 +29,27 @@
   background-color: #f4f4f4;
 }
 
+.active,
 .navLinks li,
 .sign-out {
-  padding: 20px 0 20px 0;
+  padding: 20px 0;
 }
 
+.active,
 .navLinks li:hover,
 .sign-out:hover {
   background-color: #99C210;
   color: #fff;
+  width: 100%
 }
 
+.active,
 .navLinks li a:hover {
   color: #fff;
 }
 
 .copyright {
   padding-top: 80%;
-  font-weight: bold;
   color: #616C7D;
 }
 
