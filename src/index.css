@@ -1,5 +1,45 @@
-/* when someone is styling you need to add a comment  */
+/* Styling for page layout and nav bar  */
+
+*,
+ul {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+ul,
+li a {
+  list-style: none;
+  text-decoration: none;
+}
+
+li a {
+  
+}
 
 body {
-  padding: 0;
+  height: 100vh
 }
+
+#root {
+  display: flex;
+  height: 100%;
+}
+
+.desktop-nav {
+  background-color: #f4f4f4;
+  width: 20%;
+  padding: 15px;
+  text-align: center;
+}
+
+.logo-container {
+  padding-bottom: 50px;
+}
+
+.logo {
+  width: 50%
+}
+
+/* Styling for page layout and nav bar  */
