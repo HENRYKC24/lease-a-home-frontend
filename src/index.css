@@ -1,21 +1,52 @@
 /* Styling for page layout and nav bar  */
 
 *,
-ul {
+.navLinks {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 *,
-ul,
-li a {
+.navLinks,
+.navLinks li a {
   list-style: none;
   text-decoration: none;
 }
 
-li a {
-  
+.navLinks li a,
+.sign-out {
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #161616;
+}
+
+.sign-out {
+  border: none;
+  width: 100%;
+  background-color: #f4f4f4;
+}
+
+.navLinks li,
+.sign-out {
+  padding: 20px 0 20px 0;
+}
+
+.navLinks li:hover,
+.sign-out:hover {
+  background-color: #99C210;
+  color: #fff;
+}
+
+.navLinks li a:hover {
+  color: #fff;
+}
+
+.copyright {
+  padding-top: 80%;
+  font-weight: bold;
+  color: #616C7D;
 }
 
 body {
