@@ -5,7 +5,6 @@ import Apartments from './pages/Apartments';
 import LeaseForm from './pages/LeaseForm';
 import MyLeases from './pages/MyLeases';
 import DeleteLeases from './pages/DeleteLeases';
-import SignOut from './pages/SignOut';
 
 const App = () => (
   <Router>
@@ -21,9 +20,6 @@ const App = () => (
     </Routes>
     <Routes>
       <Route exact path="/delete_leases" element={<DeleteLeases />} />
-    </Routes>
-    <Routes>
-      <Route exact path="/sign_out" element={<SignOut />} />
     </Routes>
   </Router>
 );
