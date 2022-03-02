@@ -7,32 +7,26 @@ const NavBar = () => {
     {
       id: 1,
       path: '/',
-      text: 'Apartments',
+      text: 'APARTMENTS',
       name: 'apartments',
     },
     {
       id: 2,
       path: '/lease_form',
-      text: 'Lease Form',
+      text: 'LEASE FORM',
       name: 'lease_form',
     },
     {
       id: 3,
       path: '/my_leases',
-      text: 'My Leases',
+      text: 'MY LEASES',
       name: 'my_leases',
     },
     {
       id: 4,
       path: '/delete_leases',
-      text: 'Delete Leases',
+      text: 'DELETE LEASES',
       name: 'delete_leases',
-    },
-    {
-      id: 5,
-      path: '/sign_out',
-      text: 'Sign Out',
-      name: 'sign_out',
     },
   ];
 
@@ -41,7 +35,7 @@ const NavBar = () => {
       <div className="logo-container">
         <img src={logo} alt="App logo" className="logo" />
       </div>
-      <ul className="navLinks">
+      <div className="navLinks">
         {links.map((link) => (
           <li key={link.id} className={link.name}>
             <NavLink exact="true" to={link.path} activeClassName="active-link">
@@ -49,7 +43,11 @@ const NavBar = () => {
             </NavLink>
           </li>
         ))}
-      </ul>
+        <button type="button" className="sign-out">SIGN OUT</button>
+      </div>
+      <div className="copyright">
+        <p>© 2022 ACHT.</p>
+      </div>
     </nav>
   );
 };
