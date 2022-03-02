@@ -38,9 +38,9 @@
 .active,
 .navLinks li:hover,
 .sign-out:hover {
-  background-color: #99C210;
+  background-color: #99c210;
   color: #fff;
-  width: 100%
+  width: 100%;
 }
 
 .active,
@@ -50,11 +50,11 @@
 
 .copyright {
   padding-top: 80%;
-  color: #616C7D;
+  color: #616c7d;
 }
 
 body {
-  height: 100vh
+  height: 100vh;
 }
 
 #root {
@@ -74,7 +74,7 @@ body {
 }
 
 .logo {
-  width: 50%
+  width: 50%;
 }
 
 /* Styling for page layout and nav bar  */
