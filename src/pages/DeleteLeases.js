@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DeleteLeases = () => (
-  <h1>DeleteLeases</h1>
+  <h1 className="random">DeleteLeases</h1>
 );
 
 export default DeleteLeases;
