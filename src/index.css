@@ -1,60 +1,82 @@
 /* Styling for page layout and nav bar  */
+
+/* Mobile version */
+.desktop-nav {
+  display: none;
+}
+
+*,
+.navLinks {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logo-container {
+  padding-bottom: 50px;
+}
+
+.logo {
+  width: 20%;
+}
+
+*,
+.navLinks,
+.navLinks li a {
+  list-style: none;
+  text-decoration: none;
+}
+
+.navLinks li a,
+.sign-out {
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #161616;
+  padding: 25px;
+}
+
+.sign-out {
+  border: none;
+  width: 100%;
+  background-color: #f4f4f4;
+}
+
+.active,
+.navLinks li,
+.sign-out {
+  padding: 20px 0;
+}
+
+.active,
+.navLinks li:hover,
+.sign-out:hover {
+  background-color: #99c210;
+  color: #fff;
+  width: 100%;
+}
+
+.active,
+.navLinks li a:hover {
+  color: #fff;
+}
+
+.copyright {
+  padding-top: 80%;
+  color: #616c7d;
+}
+
+body {
+  height: 100vh;
+}
+
+.random {
+  padding-top: 100px;
+}
+
 @media only screen and (min-width: 768px) {
-  *,
-  .navLinks {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  *,
-  .navLinks,
-  .navLinks li a {
-    list-style: none;
-    text-decoration: none;
-  }
-
-  .navLinks li a,
-  .sign-out {
-    font-size: 1.2em;
-    font-weight: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #161616;
-    padding: 25px;
-  }
-
-  .sign-out {
-    border: none;
-    width: 100%;
-    background-color: #f4f4f4;
-  }
-
-  .active,
-  .navLinks li,
-  .sign-out {
-    padding: 20px 0;
-  }
-
-  .active,
-  .navLinks li:hover,
-  .sign-out:hover {
-    background-color: #99c210;
-    color: #fff;
-    width: 100%;
-  }
-
-  .active,
-  .navLinks li a:hover {
-    color: #fff;
-  }
-
-  .copyright {
-    padding-top: 80%;
-    color: #616c7d;
-  }
-
-  body {
-    height: 100vh;
+  .mobile {
+    display: none;
   }
 
   #root {
@@ -63,6 +85,8 @@
   }
 
   .desktop-nav {
+    display: flex;
+    flex-direction: column;
     background-color: #f4f4f4;
     width: 20%;
     padding: 15px;
