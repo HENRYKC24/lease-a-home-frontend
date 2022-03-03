@@ -156,7 +156,21 @@ const SignupPage = () => {
         </button>
       </div>
 
-      
+      <div className={cx('form-group', orGroup)}>
+        <hr className={line} />
+        <p className={or}>OR</p>
+        <hr className={line} />
+      </div>
+
+      <div className={cx('form-group', formGroup)}>
+        <button
+          style={{ backgroundColor: colorScheme.blue }}
+          type="button"
+          className={btn}
+        >
+          Login
+        </button>
+      </div>
     </form>
   );
 };
