@@ -1,4 +1,5 @@
 import React from 'react';
+import colorScheme from '../../colorScheme';
 
 const Logout = () => {
   console.log(883);
@@ -11,7 +12,7 @@ const Logout = () => {
       onClick={handleLogout}
       style={{ backgroundColor: colorScheme.blue }}
       type="button"
-      className={logoutBtn}
+      className="text"
     >
       Logout
     </button>
