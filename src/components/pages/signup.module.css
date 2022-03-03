@@ -13,3 +13,17 @@
   color: white;
   font-family: 'Cookie', cursive;
 }
+
+.formGroup {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.label {
+  width: 100%;
+}
+
+.formControl {
+  width: 100%;
+}
