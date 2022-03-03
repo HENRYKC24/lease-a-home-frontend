@@ -27,3 +27,14 @@
 .formControl {
   width: 100%;
 }
+
+.btn {
+  width: 100%;
+  border: none;
+  height: 50px;
+  color: white;
+  font-family: 'Cookie', cursive;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 20px;
+}
