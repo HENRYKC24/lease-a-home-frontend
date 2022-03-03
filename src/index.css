@@ -29,7 +29,7 @@
 
 .navLinks li a,
 .sign-out {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: bold;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #161616;
@@ -42,26 +42,20 @@
   background-color: #f4f4f4;
 }
 
-.active,
 .navLinks li,
 .sign-out {
   padding: 20px 0;
 }
 
 .active,
-.navLinks li:hover,
+.navLinks li a:hover,
 .sign-out:hover {
   background-color: #99c210;
-  color: #fff;
-  width: 100%;
-}
-
-.active,
-.navLinks li a:hover {
   color: #fff;
 }
 
 .copyright {
+  font-weight: bold;
   padding-top: 80%;
   color: #616c7d;
 }
@@ -89,12 +83,8 @@ body {
     flex-direction: column;
     background-color: #f4f4f4;
     width: 20%;
-    padding: 15px;
+    padding: 15px 0;
     text-align: center;
-  }
-
-  .logo-container {
-    padding-bottom: 50px;
   }
 
   .logo {
