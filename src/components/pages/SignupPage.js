@@ -129,6 +129,33 @@ const SignupPage = () => {
         </label>
       </div>
 
+      <div className={cx('form-group', formGroup)}>
+        <label style={{ color: colorScheme.textPale }} className={label} htmlFor="confirm_password">
+          Confirm Password
+          <span> *</span>
+          <input
+            onChange={handleInput}
+            value={input.confirmPwd}
+            type="password"
+            className={cx('form-control', formControl)}
+            name="confirmPwd"
+            id="confirm_password"
+            required="required"
+          />
+        </label>
+      </div>
+
+      <div className={cx('form-group', formGroup)}>
+        <button
+          onClick={handleSubmit}
+          style={{ backgroundColor: colorScheme.blue }}
+          type="submit"
+          className={btn}
+        >
+          Sign Up
+        </button>
+      </div>
+
       
     </form>
   );
