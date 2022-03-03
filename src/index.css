@@ -12,12 +12,8 @@
   box-sizing: border-box;
 }
 
-.logo-container {
-  padding-bottom: 50px;
-}
-
 .logo {
-  width: 20%;
+  width: 15%;
 }
 
 *,
@@ -25,6 +21,23 @@
 .navLinks li a {
   list-style: none;
   text-decoration: none;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.offcanvas {
+  background-color: #f4f4f4;
+}
+
+.menu4,
+.close {
+  font-size: 30px;
+}
+
+.offcanvas-header {
+  padding-right: 30px;
 }
 
 .navLinks li a,
@@ -56,7 +69,7 @@
 
 .copyright {
   font-weight: bold;
-  padding-top: 80%;
+  padding-top: 60%;
   color: #616c7d;
 }
 
@@ -87,8 +100,18 @@ body {
     text-align: center;
   }
 
+  .logo-container {
+    padding-bottom: 50px;
+  }
+
   .logo {
     width: 50%;
+  }
+
+  .copyright {
+    font-weight: bold;
+    padding-top: 80%;
+    color: #616c7d;
   }
 }
 
