@@ -79,6 +79,17 @@ const Login = () => {
         </label>
       </div>
 
+      <div className={cx('form-group', formGroup)}>
+        <button
+          onClick={handleSubmit}
+          style={{ backgroundColor: colorScheme.blue }}
+          type="submit"
+          className={btn}
+        >
+          Login
+        </button>
+      </div>
+
       
     </form>
   );
