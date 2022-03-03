@@ -63,6 +63,23 @@ const Login = () => {
         </label>
       </div>
 
+      <div className={cx('form-group', formGroup)}>
+        <label style={{ color: colorScheme.textPale }} className={label} htmlFor="password">
+          Password
+          <span> *</span>
+          <input
+            onChange={handleInput}
+            value={input.password}
+            type="password"
+            className={cx('form-control', formControl)}
+            name="password"
+            id="password"
+            required="required"
+          />
+        </label>
+      </div>
+
+      
     </form>
   );
 };
