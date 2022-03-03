@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import cx from 'classnames';
 import colorScheme from '../../colorScheme';
 import style from './signup.module.css';
+import { hitAPIWithSigninDetails } from '../../redux/user/user';
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+  console.log(state, 'state  from login component');
   const {
     formHeader,
     form,
@@ -11,8 +16,8 @@ const Login = () => {
     formControl,
     label,
     btn,
-    // h2,
-    p,
+    h2,
+    // p,
     or,
     line,
     orGroup,
@@ -36,15 +41,17 @@ const Login = () => {
     if (password && email) {
       event.preventDefault();
       console.log(input, 'input state>>>>');
+      dispatch(hitAPIWithSigninDetails({ email, password }));
+      return true;
     }
-    return true;
+    return false;
   };
 
   return (
     <form className={cx(colorScheme.blue, form)}>
       <div style={{ backgroundColor: colorScheme.blue }} className={cx(formHeader)}>
-        {/* <h2 className={h2}>Login</h2> */}
-        <p className={p}>Fill out this form to log in!</p>
+        <h2 className={h2}>Let&apos;s Login</h2>
+        {/* <p className={p}>Fill out this form to log in!</p> */}
       </div>
 
       <div className={cx('form-group', formGroup)}>
