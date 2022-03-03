@@ -1,1 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+.form {
+  max-width: 400px;
+  margin: auto;
+  background-color: #f0f0f0;
+  height: 100vh;
+  margin-top: 50px;
+}
+
+.formHeader {
+  text-align: center;
+  color: white;
+  font-family: 'Cookie', cursive;
+}
