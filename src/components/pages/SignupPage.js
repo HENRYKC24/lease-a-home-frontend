@@ -37,7 +37,69 @@ const SignupPage = () => {
   const [missmatch, setMissmatch] = useState('');
   const [signUpSuccess, setSignUpSucess] = useState(signedUp);
 
-  
+  const handleInput = (event) => {
+    const { name, value } = event.target;
+    if (name === 'password' || name === 'confirmPwd') setMissmatch(() => '');
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    setSignUpSucess(() => false);
+    const {
+      name,
+      email,
+      password,
+      confirmPwd,
+    } = input;
+    if (name && email && password && confirmPwd) {
+      event.preventDefault();
+      if (password !== confirmPwd) {
+        return setMissmatch(() => 'Password mismatch!');
+      }
+      if (password.length < 6) {
+        return setMissmatch(() => 'Password too short!');
+      }
+      dispatch(hitAPIWithSignupDetails(input));
+    }
+    return true;
+  };
+
+  useEffect(() => {
+    setSignUpSucess(() => signedUp);
+  }, [state]);
+
+  return (
+    <form className={cx(colorScheme.green, form)}>
+      <div style={{ backgroundColor: colorScheme.blue }} className={cx(formHeader)}>
+        <h2 className={h2}>Let&apos;s Sign Up</h2>
+        {/* <p className={p}>Fill out this form to sign up with us!</p> */}
+      </div>
+
+      <div className={cx('form-group', formGroup)}>
+        {missmatch && <p className={error}>{missmatch}</p>}
+        {signUpSuccess === 'up' && <p className={signedUpMessage}>You have succeesfully signed up!</p>}
+        {signUpSuccess === 'down' && <p className={noSignedUpMessage}>Email already exists or bad connection!</p>}
+        <label style={{ color: colorScheme.textPale }} className={label} htmlFor="name">
+          Username
+          <span> *</span>
+          <input
+            onChange={handleInput}
+            value={input.name}
+            type="text"
+            className={cx('form-control', formControl)}
+            name="name"
+            id="name"
+            required="required"
+          />
+        </label>
+      </div>
+
+      
+    </form>
+  );
 };
 
 export default SignupPage;
