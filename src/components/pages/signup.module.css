@@ -59,3 +59,25 @@
   color: #10bbb5;
 }
 
+.orGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto -10px;
+  font-family: 'Cookie', cursive;
+  font-weight: 900;
+  color: gray;
+  line-height: 30px;
+}
+
+.line {
+  width: 150px;
+  margin-top: -3px;
+  position: relative;
+  top: 20px;
+  border: 1px solid black;
+  background: black;
+  margin-bottom: 50px;
+}
