@@ -7,6 +7,36 @@ import style from './signup.module.css';
 import hitAPIWithSignupDetails from '../../redux/user/user';
 
 const SignupPage = () => {
+  const {
+    formHeader,
+    form,
+    formGroup,
+    formControl,
+    label,
+    btn,
+    h2,
+    signedUpMessage,
+    noSignedUpMessage,
+    // p,
+    error,
+    orGroup,
+    line,
+    or,
+  } = style;
+
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.user);
+  const { signedUp } = state;
+  const [input, setInput] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPwd: '',
+  });
+
+  const [missmatch, setMissmatch] = useState('');
+  const [signUpSuccess, setSignUpSucess] = useState(signedUp);
+
   
 };
 
