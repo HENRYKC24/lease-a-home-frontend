@@ -28,3 +28,19 @@ export const logout = (payload) => ({
   type: LOGOUT,
   payload,
 });
+
+// Reducesrs
+export const userReducer = (state = initialState, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case SIGN_UP:
+      return {
+        ...payload,
+      };
+    case LOGIN:
+      return payload;
+
+    default:
+      return state;
+  }
+};
