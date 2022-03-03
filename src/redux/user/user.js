@@ -38,6 +38,7 @@ export const userReducer = (state = initialState, action) => {
         ...payload,
       };
     case LOGIN:
+      console.log(`paload=${payload}, type=${type}`);
       return payload;
 
     default:
@@ -50,7 +51,7 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
   try {
     await axios({
       method: 'post',
-      url: 'http://127.0.0.1:3000/users',
+      url: `${process.env.REACT_APP_SIGN_UP_ENDPOINT2}`,
       data: {
         user: {
           email,
@@ -79,11 +80,12 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
 };
 
 export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
+  console.log(876543);
   const { email, password } = details;
   try {
     const signUpRespons = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:3000/users/sign_in',
+      url: `${process.env.REACT_APP_LOGIN_ENDPOINT2}/users/sign_in`,
       data: {
         user: {
           email,
@@ -94,24 +96,79 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
     const { data, headers } = signUpRespons;
     const { user } = data;
     const { authorization } = headers;
+
     const mainUser = {
       name: user.name,
       email: user.email,
-      id: user.id,
-      auth: authorization,
+      loggenIn: 'in',
+      userId: user.id,
+      signedUp: true,
     };
 
     localStorage.setItem('userAuth', JSON.stringify(authorization));
 
-    const appState = {
-      ...mainUser,
-    };
-    delete appState.auth;
-    dispatch(signUp({
-      ...appState,
-      loggenIn: false,
-    }));
+    // const appState = {
+    //   ...mainUser,
+    // };
+    // delete appState.auth;
+    dispatch(signUp(mainUser));
+    console.log('Login was a success');
   } catch (error) {
+    dispatch(signUp({
+      name: '',
+      email: '',
+      loggenIn: 'out',
+      userId: '',
+      signedUp: false,
+    }));
+    console.log('Something went wront');
+  }
+
+  // dispatch(fetchData(data));
+};
+
+export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
+  console.log(876543);
+  const { email, password } = details;
+  try {
+    const signUpRespons = await axios({
+      method: 'post',
+      url: `${process.env.REACT_APP_SIGN_UP_ENDPOINT2}/users/sign_in`,
+      data: {
+        user: {
+          email,
+          password,
+        },
+      },
+    });
+    const { data, headers } = signUpRespons;
+    const { user } = data;
+    const { authorization } = headers;
+
+    const mainUser = {
+      name: user.name,
+      email: user.email,
+      loggenIn: 'in',
+      userId: user.id,
+      signedUp: true,
+    };
+
+    localStorage.setItem('userAuth', JSON.stringify(authorization));
+
+    // const appState = {
+    //   ...mainUser,
+    // };
+    // delete appState.auth;
+    dispatch(signUp(mainUser));
+    console.log('Login was a success');
+  } catch (error) {
+    dispatch(signUp({
+      name: '',
+      email: '',
+      loggenIn: 'out',
+      userId: '',
+      signedUp: false,
+    }));
     console.log('Something went wront');
   }
 

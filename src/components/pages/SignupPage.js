@@ -7,6 +7,7 @@ import style from './signup.module.css';
 import hitAPIWithSignupDetails from '../../redux/user/user';
 
 const SignupPage = () => {
+  console.log(process.env, 'process.env');
   const {
     formHeader,
     form,
@@ -26,6 +27,7 @@ const SignupPage = () => {
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state.user);
+  console.log(state, 'state form signup');
   const { signedUp } = state;
   const [input, setInput] = useState({
     name: '',
