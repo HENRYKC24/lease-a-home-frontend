@@ -16,7 +16,7 @@ const App = () => (
     <Provider store={store}>
       <NavBar />
       <Routes>
-        <Route exact path="/" element={< />} />
+        <Route exact path="/" element={<Home />} />
       </Routes>
       <Routes>
         <Route exact path="/lease_form" element={<LeaseForm />} />
