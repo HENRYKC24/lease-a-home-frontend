@@ -22,6 +22,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 20px;
 }
 
 /* This allows the text to be displayed on top of the overlay */
@@ -41,6 +47,14 @@
 }
 
 .lease-text {
+  color: white;
+  text-align: center;
+}
+
+.form-control {
+  background-color: transparent;
+  border: solid white;
+  border-radius: 25px;
   color: white;
 }
 
@@ -71,7 +85,6 @@
 .navLinks li a {
   font-size: 1.1em;
   font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #161616;
   padding: 25px;
 }
@@ -88,7 +101,7 @@
 
 .copyright {
   font-weight: bold;
-  padding-top: 55%;
+  padding-top: 49%;
   color: #616c7d;
 }
 
