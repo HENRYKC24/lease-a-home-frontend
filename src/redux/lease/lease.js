@@ -11,14 +11,16 @@ export const getMyLeasesAction = () => async (dispatch, getState) => {
     dispatch({ type: GET_LEASES_REQUEST });
     const { user } = getState();
     console.log('user==>', user);
-    const { data } = await axios.get(`${baseUrl}/user/${user.id}/leases`);
+    // const { data } = await axios.get(`${baseUrl}/user/${user.id}/leases`);
+    const { data } = await axios.get(`${baseUrl}/user/3/leases`);
     console.log('data ==>', data);
+    dispatch({ type: GET_LEASES_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_LEASES_FAIL, payload: error.message });
   }
 };
 
-export default function myLeasesReducer(state = null, action) {
+export default function myLeasesReducer(state = { leases: null }, action) {
   switch (action.type) {
     case GET_LEASES_REQUEST:
       return { loading: true };

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import SignupPage from './components/pages/SignupPage';
 import Login from './components/pages/Login';
 import Logout from './components/pages/Logout';
@@ -8,8 +9,8 @@ import store from './redux/configureStore';
 import NavBar from './components/navbar/NavBar';
 import Apartments from './pages/Apartments';
 import LeaseForm from './pages/LeaseForm';
-import MyLeases from './pages/MyLeases';
 import DeleteLeases from './pages/DeleteLeases';
+import MyLeases from './pages/MyLeases';
 // require('dotenv').config()
 
 const App = () => (
@@ -33,6 +34,9 @@ const App = () => (
       </Routes>
       <Routes>
         <Route exact path="/my_leases" element={<MyLeases />} />
+      </Routes>
+      <Routes>
+        <Route exact path="/my_leases/:id" element={<MyLeases />} />
       </Routes>
       <Routes>
         <Route exact path="/delete_leases" element={<DeleteLeases />} />
