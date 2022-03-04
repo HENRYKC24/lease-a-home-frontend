@@ -17,20 +17,10 @@ const App = () => (
       <NavBar />
       <Routes>
         <Route exact path="/" element={<Apartments />} />
-      </Routes>
-      <Routes>
         <Route exact path="/lease_form" element={<LeaseForm />} />
-      </Routes>
-      <Routes>
         <Route exact path="/sign_up" element={<SignupPage />} />
-      </Routes>
-      <Routes>
         <Route exact path="/login" element={<Login />} />
-      </Routes>
-      <Routes>
         <Route exact path="/my_leases" element={<MyLeases />} />
-      </Routes>
-      <Routes>
         <Route exact path="/delete_leases" element={<DeleteLeases />} />
       </Routes>
     </Provider>
