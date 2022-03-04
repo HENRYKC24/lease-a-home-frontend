@@ -9,6 +9,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
   console.log(state, 'state  from login component');
+  const userId = useSelector((state) => state.user.id);
+  console.log('id', userId);
   const {
     formHeader,
     form,
