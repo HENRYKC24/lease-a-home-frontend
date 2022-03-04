@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 import cx from 'classnames';
 import colorScheme from '../../colorScheme';
 import style from './signup.module.css';
 import { hitAPIWithSigninDetails } from '../../redux/user/user';
 
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  console.log(state, 'state  from login component');
+  const { loggedIn } = state.user;
   const {
     formHeader,
     form,
@@ -17,10 +19,10 @@ const Login = () => {
     label,
     btn,
     h2,
-    // p,
     or,
     line,
     orGroup,
+    noSignedInMessage,
   } = style;
 
   const [input, setInput] = useState({
@@ -28,7 +30,10 @@ const Login = () => {
     password: '',
   });
 
+  const [signedInSuccess, setSignedInSuccess] = useState(loggedIn);
+
   const handleInput = (event) => {
+    setSignedInSuccess(false);
     const { name, value } = event.target;
     setInput((prevInput) => ({
       ...prevInput,
@@ -37,24 +42,33 @@ const Login = () => {
   };
 
   const handleSubmit = (event) => {
+    setSignedInSuccess(false);
     const { email, password } = input;
     if (password && email) {
       event.preventDefault();
-      console.log(input, 'input state>>>>');
       dispatch(hitAPIWithSigninDetails({ email, password }));
       return true;
     }
     return false;
   };
 
+  useEffect(() => {
+    if (loggedIn === 'in') {
+      navigate('/', { replace: true });
+    }
+    if (loggedIn === 'err') {
+      setSignedInSuccess(loggedIn);
+    }
+  }, [state]);
+
   return (
     <form className={cx(colorScheme.blue, form)}>
       <div style={{ backgroundColor: colorScheme.blue }} className={cx(formHeader)}>
         <h2 className={h2}>Let&apos;s Login</h2>
-        {/* <p className={p}>Fill out this form to log in!</p> */}
       </div>
 
       <div className={cx('form-group', formGroup)}>
+        {signedInSuccess === 'err' && <p className={noSignedInMessage}>Email/password incorrect or bad connection!</p>}
         <label style={{ color: colorScheme.textPale }} className={label} htmlFor="email">
           Email Address
           <span> *</span>
@@ -104,13 +118,15 @@ const Login = () => {
       </div>
 
       <div className={cx('form-group', formGroup)}>
-        <button
-          style={{ backgroundColor: colorScheme.blue }}
-          type="submit"
-          className={btn}
-        >
-          Sign Up
-        </button>
+        <NavLink to="/sign_up">
+          <button
+            style={{ backgroundColor: colorScheme.blue }}
+            type="button"
+            className={btn}
+          >
+            Sign Up
+          </button>
+        </NavLink>
       </div>
     </form>
   );
