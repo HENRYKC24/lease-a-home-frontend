@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useState } from 'react';
 
 const LeaseForm = () => {
+  const [date, setDate] = useState();
+
   const details = {
     heading: 'Lease a home/apartment',
-    text: 'There are 15 different homes and apartment listed',
+    text: 'There are 15 different homes and apartment listed. Ranging from two bedroom apartments to six bedrooms homes. Some located in the surburb and some in the city, feel free to pick a place to call home that fit all your needs',
   };
 
   return (
@@ -29,6 +31,9 @@ const LeaseForm = () => {
           <select id="select" className="form-select">
             <option>Lusaka</option>
           </select>
+        </div>
+        <div className="datetime">
+          <input type="datetime-local" id="date" onChange={(e) => setDate(e.target.value)} value={date} />
         </div>
         <button type="submit" className="btn btn-primary">Book Now</button>
       </form>
