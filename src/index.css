@@ -40,8 +40,7 @@
   padding-right: 30px;
 }
 
-.navLinks li a,
-.sign-out {
+.navLinks li a {
   font-size: 1.1em;
   font-weight: bold;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -49,20 +48,12 @@
   padding: 25px;
 }
 
-.sign-out {
-  border: none;
-  width: 100%;
-  background-color: #f4f4f4;
-}
-
-.navLinks li,
-.sign-out {
+.navLinks li {
   padding: 20px 0;
 }
 
 .active,
-.navLinks li a:hover,
-.sign-out:hover {
+.navLinks li a:hover {
   background-color: #99c210;
   color: #fff;
 }
@@ -71,10 +62,6 @@
   font-weight: bold;
   padding-top: 60%;
   color: #616c7d;
-}
-
-body {
-  height: 100vh;
 }
 
 .random {
@@ -88,7 +75,6 @@ body {
 
   #root {
     display: flex;
-    height: 100%;
   }
 
   .desktop-nav {
@@ -98,6 +84,7 @@ body {
     width: 20%;
     padding: 15px 0;
     text-align: center;
+    justify-content: space-between;
   }
 
   .logo-container {
@@ -110,7 +97,6 @@ body {
 
   .copyright {
     font-weight: bold;
-    padding-top: 80%;
     color: #616c7d;
   }
 }
