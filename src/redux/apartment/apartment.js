@@ -14,3 +14,8 @@ export const getAllApartments = (payload) => ({
   type: FETHCH_APARTMENTS,
   payload,
 });
+
+export const getOneApartment = (payload) => ({
+  type: FETHCH_ONE_APARTMENT,
+  payload,
+});
