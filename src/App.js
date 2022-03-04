@@ -1,16 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignupPage from './components/pages/SignupPage';
-import Login from './components/pages/Login';
-import Logout from './components/pages/Logout';
+import SignupPage from './pages/SignupPage';
+import Login from './pages/Login';
+import Logout from './pages/Logout';
 import store from './redux/configureStore';
 import NavBar from './components/navbar/NavBar';
 import Apartments from './pages/Apartments';
 import LeaseForm from './pages/LeaseForm';
 import MyLeases from './pages/MyLeases';
 import DeleteLeases from './pages/DeleteLeases';
-// require('dotenv').config()
 
 const App = () => (
   <Provider store={store}>

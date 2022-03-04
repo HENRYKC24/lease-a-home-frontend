@@ -81,6 +81,11 @@ body {
   padding-top: 100px;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 @media only screen and (min-width: 768px) {
   .mobile {
     display: none;
