@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { HiMenuAlt4 } from 'react-icons/hi';
 
 const MobileNavBar = ({ links, logo }) => (
-  <nav className="mobile navbar navbar-light bg-light fixed-top">
+  <nav className="mobile navbar navbar-light fixed-top">
     <div className="container-fluid">
       <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
         <HiMenuAlt4 className="menu4" />
