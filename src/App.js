@@ -1,15 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Provider } from 'react-redux';
-import SignupPage from './components/pages/SignupPage';
-// import Login from './components/pages/Login';
-import store from './redux/configureStore';
-
-const App = () => (
-  <Provider store={store}>
-    <SignupPage />
-  </Provider>
-=======
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/navbar/NavBar';
 import Apartments from './pages/Apartments';
@@ -33,7 +22,6 @@ const App = () => (
       <Route exact path="/delete_leases" element={<DeleteLeases />} />
     </Routes>
   </Router>
->>>>>>> 9def4c50988b25143e4fbaff54c68ead1f8357f8
 );
 
 export default App;
