@@ -5,10 +5,10 @@ import SignupPage from './components/pages/SignupPage';
 import Login from './components/pages/Login';
 import store from './redux/configureStore';
 import NavBar from './components/navbar/NavBar';
-import Apartments from './pages/Apartments';
 import LeaseForm from './pages/LeaseForm';
 import MyLeases from './pages/MyLeases';
 import DeleteLeases from './pages/DeleteLeases';
+import Home from './components/home/homepage';
 // require('dotenv').config()
 
 const App = () => (
@@ -16,7 +16,7 @@ const App = () => (
     <Provider store={store}>
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<Apartments />} />
+        <Route exact path="/" element={< />} />
       </Routes>
       <Routes>
         <Route exact path="/lease_form" element={<LeaseForm />} />
