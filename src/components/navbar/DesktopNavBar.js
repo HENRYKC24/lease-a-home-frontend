@@ -14,7 +14,6 @@ const DesktopNavBar = ({ links, logo }) => (
           </NavLink>
         </li>
       ))}
-      <button type="button" className="sign-out">SIGN OUT</button>
     </ul>
     <div className="copyright">
       <p>© 2022 ACHT.</p>
