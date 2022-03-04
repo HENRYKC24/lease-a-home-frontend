@@ -35,6 +35,12 @@ const links = [
     text: 'LOGIN',
     name: 'sign_in',
   },
+  {
+    id: 7,
+    path: '/logout',
+    text: 'LOGOUT',
+    name: 'logout',
+  },
 ];
 
 export default links;
