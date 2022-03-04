@@ -48,3 +48,5 @@ export const fetchApartments = () => (async (dispatch) => {
     },
   );
 });
+
+export default fetchApartments;
