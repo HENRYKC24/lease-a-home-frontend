@@ -1,7 +1,37 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addLeaseToAPI } from '../redux/lease/lease';
 
 const LeaseForm = () => {
-  const [date, setDate] = useState();
+  const dispatch = useDispatch();
+
+  const [date1, setDate1] = useState('');
+
+  const [date2, setDate2] = useState('');
+
+  const userId = useSelector((state) => state.user.userId);
+  const status = useSelector((state) => state.leaseReducer.lease_status);
+  console.log('status', status);
+  console.log('id', userId);
+
+  const apartmentId = 1;
+
+  const [lease] = useState({
+    from: '',
+    to: '',
+    cancelled: false,
+    userId,
+    apartmentId,
+  });
+
+  const submitLease = () => {
+    const value = dispatch(addLeaseToAPI({
+      ...lease,
+      from: date1,
+      to: date2,
+    }));
+    console.log(value);
+  };
 
   const details = {
     heading: 'Lease a home/apartment',
@@ -11,28 +41,18 @@ const LeaseForm = () => {
   return (
     <div className="lease-form">
       <div id="color-overlay" />
+      <p>{status}</p>
       <h1 className="lease-text">{details.heading}</h1>
       <hr className="lease-text" />
       <p className="lease-text">{details.text}</p>
       <form className="lease-text">
-        <div className="mb-3">
-          <input type="text" id="textInput" className="form-control" placeholder="Your name" value="Your name" />
-        </div>
-        <div className="mb-3">
-          <select id="select" className="form-select">
-            <option defaultValue="Apartment1">Apartment</option>
-            <option>Wavy</option>
-          </select>
-        </div>
-        <div className="mb-3">
-          <select id="select" className="form-select">
-            <option>Lusaka</option>
-          </select>
+        <div className="datetime">
+          <input type="datetime-local" id="date" onChange={(e) => setDate1(e.target.value)} value={date1} />
         </div>
         <div className="datetime">
-          <input type="datetime-local" id="date" onChange={(e) => setDate(e.target.value)} value={date} />
+          <input type="datetime-local" id="date" onChange={(e) => setDate2(e.target.value)} value={date2} />
         </div>
-        <button type="submit" className="btn btn-primary">Book Now</button>
+        <button type="button" className="btn btn-primary" onClick={submitLease}>Book Now</button>
       </form>
     </div>
   );
