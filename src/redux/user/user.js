@@ -38,9 +38,7 @@ export const userReducer = (state = initialState, action) => {
         ...payload,
       };
     case LOGIN:
-      console.log(`paload=${payload}, type=${type}`);
       return payload;
-
     default:
       return state;
   }
@@ -60,6 +58,7 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
         },
       },
     });
+
     dispatch(
       signUp({
         name: '',
@@ -83,7 +82,6 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
 };
 
 export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
-  console.log(876543);
   const { email, password } = details;
   try {
     const signUpRespons = await axios({
@@ -96,6 +94,7 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
         },
       },
     });
+
     const { data, headers } = signUpRespons;
     const { user } = data;
     const { authorization } = headers;
@@ -111,7 +110,6 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
     localStorage.setItem('userAuth', JSON.stringify(authorization));
 
     dispatch(signUp(mainUser));
-    console.log('Login was a success');
   } catch (error) {
     dispatch(
       signUp({
@@ -122,7 +120,6 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
         signedUp: false,
       }),
     );
-    console.log('Something went wront');
   }
 };
 
@@ -145,7 +142,7 @@ export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
       loggedIn: 'out',
       signedUp: false,
     }));
-    console.log('Logged out successfully');
+
     localStorage.removeItem('userAuth');
   } catch (error) {
     dispatch(
@@ -157,7 +154,6 @@ export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
         signedUp: false,
       }),
     );
-    console.log('Something went wront');
   }
 };
 
