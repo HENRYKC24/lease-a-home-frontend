@@ -21,9 +21,16 @@
   background-image: url("/src/images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
-/* #color-overlay {
+/* This allows the text to be displayed on top of the overlay */
+.lease-form > * {
+  position: relative;
+  z-index: 2;
+}
+
+#color-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -31,10 +38,10 @@
   height: 100%;
   background-color: #99c210;
   opacity: 0.6;
-} */
+}
 
 .lease-text {
-  color: red;
+  color: white;
 }
 
 *,
