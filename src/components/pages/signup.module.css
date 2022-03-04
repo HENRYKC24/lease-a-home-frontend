@@ -51,12 +51,15 @@
 }
 
 .error,
-.noSignedUpMessage {
+.noSignedUpMessage,
+.noSignedInMessage {
   color: rgb(197, 83, 83);
+  font-weight: 800;
 }
 
 .signedUpMessage {
-  color: #10bbb5;
+  color: #099715;
+  font-weight: 600;
 }
 
 .orGroup {
@@ -82,8 +85,71 @@
   margin-bottom: 50px;
 }
 
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.overlayInner {
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 90%;
+  height: 20%;
+}
+
+.btnWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+}
+
+.cancelBtn,
+.yesBtn {
+  display: block;
+  width: 100px;
+  color: white;
+  background-color: #10bbb5 !important;
+  border: none;
+  height: 30px;
+  font-size: 1.2rem;
+}
+
+.cancelBtn {
+  margin-right: 10px;
+}
+
+.yesBtn {
+  margin-left: 10px;
+}
+
+.areYouSure {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
 @media all and (min-width: 800px) {
   .form {
     min-width: 500px;
+  }
+
+  .overlay {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .overlayInner {
+    width: 30%;
+    height: 20%;
   }
 }
