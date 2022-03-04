@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addLeaseToAPI } from '../redux/lease/lease';
@@ -32,7 +33,7 @@ const LeaseForm = () => {
 
   const details = {
     heading: 'Lease a home/apartment',
-    text: 'There are a variety of homes and apartment listed. Ranging from two bedroom apartments to six bedrooms homes. Some located in the surburb and some in the city, feel free to pick a place to call home that fit all your needs',
+    text: 'There are a variety of homes and apartment listed. Ranging from two bedroom apartments to six bedrooms homes. Some located in the surburb and some in the city, feel free to pick a place to call home that fit all your needs.',
   };
 
   return (
@@ -44,12 +45,14 @@ const LeaseForm = () => {
       <p className="lease-text">{details.text}</p>
       <form className="lease-text">
         <div className="datetime mt-3">
-          <input type="datetime-local" id="date" className="form-control" onChange={(e) => setDate1(e.target.value)} value={date1} />
+          <h6>from: </h6>
+          <input type="date" id="date" className="form-control" onChange={(e) => setDate1(e.target.value)} value={date1} />
         </div>
         <div className="datetime mt-3">
-          <input type="datetime-local" id="date" className="form-control" onChange={(e) => setDate2(e.target.value)} value={date2} />
+          <h6>to: </h6>
+          <input type="date" id="date" className="form-control" onChange={(e) => setDate2(e.target.value)} value={date2} />
         </div>
-        <button type="button" className="btn btn-primary mt-3 form-control" onClick={submitLease}>Book Now</button>
+        <button type="button" className="mt-3 form-control submit-button" onClick={submitLease}>Book Now</button>
       </form>
     </div>
   );

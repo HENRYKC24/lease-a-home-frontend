@@ -12,6 +12,13 @@
   box-sizing: border-box;
 }
 
+*,
+.navLinks,
+.navLinks li a {
+  list-style: none;
+  text-decoration: none;
+}
+
 .logo {
   width: 15%;
 }
@@ -58,11 +65,12 @@
   color: white;
 }
 
-*,
-.navLinks,
-.navLinks li a {
-  list-style: none;
-  text-decoration: none;
+.active,
+.submit-button:hover {
+  background-color: white;
+  color: #99c210;
+  font-weight: bold;
+  border-color: #99c210;
 }
 
 .navbar-toggler {
