@@ -105,6 +105,7 @@
 .navLinks li a:hover {
   background-color: #99c210;
   color: #fff;
+  border-radius: 25px;
 }
 
 .copyright {
