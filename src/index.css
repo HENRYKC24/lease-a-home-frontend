@@ -117,3 +117,23 @@ body {
 
 /* Styling for page layout and nav bar  */
 
+/* Style for homepage */
+
+.apartment-image {
+  width: 70%;
+  height: 250px;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.apartment-heading,
+.apartmentname,
+.description {
+  color: #0dafaa;
+}
+
+/* Style for homepage */
