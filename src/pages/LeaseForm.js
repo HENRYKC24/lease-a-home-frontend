@@ -11,8 +11,6 @@ const LeaseForm = () => {
 
   const userId = useSelector((state) => state.user.userId);
   const status = useSelector((state) => state.leaseReducer.lease_status);
-  console.log('status', status);
-  console.log('id', userId);
 
   const apartmentId = 1;
 
@@ -25,12 +23,11 @@ const LeaseForm = () => {
   });
 
   const submitLease = () => {
-    const value = dispatch(addLeaseToAPI({
+    dispatch(addLeaseToAPI({
       ...lease,
       from: date1,
       to: date2,
     }));
-    console.log(value);
   };
 
   const details = {
