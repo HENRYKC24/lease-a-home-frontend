@@ -17,3 +17,16 @@ export const getMyLeasesAction = () => async (dispatch, getState) => {
     dispatch({ type: GET_LEASES_FAIL, payload: error.message });
   }
 };
+
+export default function myLeasesReducer(state = null, action) {
+  switch (action.type) {
+    case GET_LEASES_REQUEST:
+      return { loading: true };
+    case GET_LEASES_SUCCESS:
+      return { loading: false, leases: action.payload };
+    case GET_LEASES_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+}
