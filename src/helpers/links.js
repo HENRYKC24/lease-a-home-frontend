@@ -24,13 +24,13 @@ const links = [
     name: 'delete_leases',
   },
   {
-    id: 4,
+    id: 5,
     path: '/sign_up',
     text: 'SIGN UP',
     name: 'sign_up',
   },
   {
-    id: 4,
+    id: 6,
     path: '/login',
     text: 'LOGIN',
     name: 'sign_in',
