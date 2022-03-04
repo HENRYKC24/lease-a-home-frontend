@@ -37,3 +37,14 @@ export const apartmentReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export const fetchApartments = () => (async (dispatch) => {
+  const apartment = await fetchDataApartments();
+  console.log(apartment, 'newApartment');
+  dispatch(
+    {
+      type: FETHCH_APARTMENTS,
+      payload: apartment,
+    },
+  );
+});
