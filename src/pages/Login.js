@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import cx from 'classnames';
-import colorScheme from '../../colorScheme';
+import colorScheme from '../colorScheme';
 import style from './signup.module.css';
-import { hitAPIWithSigninDetails } from '../../redux/user/user';
+import { hitAPIWithSigninDetails } from '../redux/user/user';
 
 const Login = () => {
   const navigate = useNavigate();

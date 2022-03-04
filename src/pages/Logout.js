@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import colorScheme from '../../colorScheme';
+import colorScheme from '../colorScheme';
 import style from './signup.module.css';
-import { hitAPIWithLogoutDetails } from '../../redux/user/user';
+import { hitAPIWithLogoutDetails } from '../redux/user/user';
 
 const Logout = () => {
   const navigate = useNavigate();
@@ -42,6 +42,14 @@ const Logout = () => {
       navigate('/', { replace: true });
     }
   }, [user, setIsLoggedIn]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.classList.add('stop-scrolling');
+    return () => {
+      document.body.classList.remove('stop-scrolling');
+    };
+  }, []);
 
   return show ? (
     <div className={overlay}>
