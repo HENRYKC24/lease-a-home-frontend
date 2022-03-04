@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import cx from 'classnames';
-import colorScheme from '../../colorScheme';
+import colorScheme from '../colorScheme';
 import style from './signup.module.css';
-import hitAPIWithSignupDetails from '../../redux/user/user';
+import hitAPIWithSignupDetails from '../redux/user/user';
 
 const SignupPage = () => {
+  const navigate = useNavigate();
+
+  function goToHomePage() {
+    navigate('/', { replace: true });
+  }
+
   const {
     formHeader,
     form,
@@ -17,7 +23,6 @@ const SignupPage = () => {
     h2,
     signedUpMessage,
     noSignedUpMessage,
-    // p,
     error,
     orGroup,
     line,
@@ -69,13 +74,15 @@ const SignupPage = () => {
 
   useEffect(() => {
     setSignUpSucess(() => signedUp);
+    if (signedUp === 'up') {
+      setTimeout(() => goToHomePage(), 3000);
+    }
   }, [state]);
 
   return (
     <form className={cx(colorScheme.green, form)}>
       <div style={{ backgroundColor: colorScheme.blue }} className={cx(formHeader)}>
         <h2 className={h2}>Let&apos;s Sign Up</h2>
-        {/* <p className={p}>Fill out this form to sign up with us!</p> */}
       </div>
 
       <div className={cx('form-group', formGroup)}>
@@ -163,13 +170,15 @@ const SignupPage = () => {
       </div>
 
       <div className={cx('form-group', formGroup)}>
-        <button
-          style={{ backgroundColor: colorScheme.blue }}
-          type="button"
-          className={btn}
-        >
-          Login
-        </button>
+        <NavLink to="/login">
+          <button
+            style={{ backgroundColor: colorScheme.blue }}
+            type="button"
+            className={btn}
+          >
+            Login
+          </button>
+        </NavLink>
       </div>
     </form>
   );

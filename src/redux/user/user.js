@@ -3,7 +3,7 @@ import axios from 'axios';
 const initialState = {
   name: '',
   email: '',
-  loggenIn: false,
+  loggedIn: false,
   userId: '',
   signedUp: false,
 };
@@ -39,7 +39,6 @@ export const userReducer = (state = initialState, action) => {
       };
     case LOGIN:
       return payload;
-
     default:
       return state;
   }
@@ -50,7 +49,7 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
   try {
     await axios({
       method: 'post',
-      url: 'http://127.0.0.1:3000/users',
+      url: `${process.env.REACT_APP_SIGN_UP_ENDPOINT2}`,
       data: {
         user: {
           email,
@@ -59,23 +58,27 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
         },
       },
     });
-    dispatch(signUp({
-      name: '',
-      email: '',
-      loggenIn: false,
-      userId: '',
-      signedUp: 'up',
-    }));
+
+    dispatch(
+      signUp({
+        name: '',
+        email: '',
+        loggedIn: false,
+        userId: '',
+        signedUp: 'up',
+      }),
+    );
   } catch (error) {
-    dispatch(signUp({
-      name: '',
-      email: '',
-      loggenIn: false,
-      userId: '',
-      signedUp: 'down',
-    }));
+    dispatch(
+      signUp({
+        name: '',
+        email: '',
+        loggedIn: false,
+        userId: '',
+        signedUp: 'down',
+      }),
+    );
   }
-  // dispatch(fetchData(data));
 };
 
 export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
@@ -83,7 +86,7 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
   try {
     const signUpRespons = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:3000/users/sign_in',
+      url: `${process.env.REACT_APP_LOGIN_ENDPOINT2}`,
       data: {
         user: {
           email,
@@ -91,31 +94,67 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
         },
       },
     });
+
     const { data, headers } = signUpRespons;
     const { user } = data;
     const { authorization } = headers;
+
     const mainUser = {
       name: user.name,
       email: user.email,
-      id: user.id,
-      auth: authorization,
+      loggedIn: 'in',
+      userId: user.id,
+      signedUp: true,
     };
 
     localStorage.setItem('userAuth', JSON.stringify(authorization));
 
-    const appState = {
-      ...mainUser,
-    };
-    delete appState.auth;
-    dispatch(signUp({
-      ...appState,
-      loggenIn: false,
-    }));
+    dispatch(signUp(mainUser));
   } catch (error) {
-    console.log('Something went wront');
+    dispatch(
+      signUp({
+        name: '',
+        email: '',
+        loggedIn: 'err',
+        userId: '',
+        signedUp: false,
+      }),
+    );
   }
+};
 
-  // dispatch(fetchData(data));
+export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
+  const { userAuth } = details;
+  try {
+    await fetch(
+      `${process.env.REACT_APP_LOGOUT_ENDPOINT2}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `${userAuth}`,
+        },
+      },
+    );
+
+    dispatch(signUp({
+      ...initialState,
+      loggedIn: 'out',
+      signedUp: false,
+    }));
+
+    localStorage.removeItem('userAuth');
+  } catch (error) {
+    dispatch(
+      signUp({
+        name: '',
+        email: '',
+        loggedIn: 'out',
+        userId: '',
+        signedUp: false,
+      }),
+    );
+  }
 };
 
 export default hitAPIWithSignupDetails;
