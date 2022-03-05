@@ -12,7 +12,14 @@ const DELETE_LEASE_REQUEST = 'DELETE_LEASE_REQUEST';
 const DELETE_LEASE_SUCCESS = 'DELETE_LEASE_SUCCESS';
 const DELETE_LEASE_FAIL = 'DELETE_LEASE_FAIL';
 
+const CREATE_LEASE = 'lease_a_home/CREATE_LEASE';
+const LEASE_STATUS = 'lease_a_home/LEASE_STATUS';
+
 const baseUrl = process.env.REACT_APP_BASE_URL;
+
+const initialState = {
+  lease_status: '',
+};
 
 export const getMyLeasesAction = () => async (dispatch, getState) => {
   try {
@@ -64,6 +71,22 @@ export const myLeasesReducer = (state = null, action) => {
   }
 };
 
+export const leaseReducer = (state = initialState, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case CREATE_LEASE:
+      return {
+        ...payload,
+      };
+    case LEASE_STATUS:
+      return {
+        lease_status: payload,
+      };
+    default:
+      return state;
+  }
+};
+
 export const leaseDetailsReducer = (state = null, action) => {
   switch (action.type) {
     case GET_LEASE_BY_ID_REQUEST:
@@ -87,5 +110,35 @@ export const deleteLeaseReducer = (state = { lease: null }, action) => {
       return { loading: false, error: action.payload };
     default:
       return state;
+  }
+};
+
+const leaseStatusAction = (payload) => ({
+  type: LEASE_STATUS,
+  payload,
+});
+
+export const addLeaseToAPI = (details) => async (dispatch) => {
+  const {
+    from, to, cancelled, userId, apartmentId,
+  } = details;
+  const leaseURL = `https://lease-a-home-api.herokuapp.com/user/${userId}/leases`;
+  try {
+    await fetch(leaseURL, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: {
+        from,
+        to,
+        cancelled,
+        user_id: userId,
+        apartment_id: apartmentId,
+      },
+    });
+    dispatch(leaseStatusAction('Lease Successfully Created!'));
+  } catch (error) {
+    dispatch(leaseStatusAction('Lease was not Created!'));
   }
 };

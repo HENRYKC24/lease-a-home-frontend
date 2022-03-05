@@ -2,10 +2,11 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { userReducer } from './user/user';
-import { leaseDetailsReducer, myLeasesReducer } from './lease/lease';
+import { leaseDetailsReducer, leaseReducer, myLeasesReducer } from './lease/lease';
 
 const rootReducer = combineReducers({
   user: userReducer,
+  leaseReducer,
   myLeases: myLeasesReducer,
   leaseDetails: leaseDetailsReducer,
 });

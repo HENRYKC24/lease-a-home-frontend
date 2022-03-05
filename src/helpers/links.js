@@ -17,18 +17,6 @@ const links = [
     text: 'MY LEASES',
     name: 'my_leases',
   },
-  {
-    id: 4,
-    path: '/delete_leases',
-    text: 'DELETE LEASES',
-    name: 'delete_leases',
-  },
-  {
-    id: 5,
-    path: '/sign_up',
-    text: 'SIGN UP',
-    name: 'sign_up',
-  },
 ];
 
 export default links;
