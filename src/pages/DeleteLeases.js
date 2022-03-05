@@ -25,6 +25,32 @@ const DeleteLeases = () => {
     console.log('lease-id', id);
     // dispatch(deleteLeaseAction(id));
   };
+
+  const deleteModal = (leaseId) => (
+    <div>
+      <button type="button" className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Delete
+      </button>
+
+      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+            </div>
+            <div className="modal-body">
+              ...
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" onClick={() => handleDeleteLease(leaseId)} className="btn btn-danger">Yes, Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
   return (
     <div className="container p-5">
       <div className="row g-5 d-flex justify-content-center">
@@ -37,8 +63,11 @@ const DeleteLeases = () => {
                   <p>{lease.name}</p>
 
                 </div>
+
                 <div className="card-footer d-flex justify-content-center">
-                  <button type="submit" onClick={() => handleDeleteLease(lease.id)} className="btn btn-warning">Delete</button>
+                  {' '}
+                  {deleteModal(lease.id)}
+                  {' '}
                 </div>
               </div>
             </div>
