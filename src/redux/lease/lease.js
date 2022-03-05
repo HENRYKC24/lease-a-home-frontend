@@ -38,7 +38,7 @@ export const getSingleLeaseAction = (id) => async (dispatch, getState) => {
   }
 };
 
-export const cancelLeaseAction = (id) => async (dispatch, getState) => {
+export const deleteLeaseAction = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: DELETE_LEASE_REQUEST });
     const { user } = getState();
@@ -51,7 +51,7 @@ export const cancelLeaseAction = (id) => async (dispatch, getState) => {
   }
 };
 
-export const myLeasesReducer = (state = { leases: null }, action) => {
+export const myLeasesReducer = (state = null, action) => {
   switch (action.type) {
     case GET_LEASES_REQUEST:
       return { loading: true };
@@ -64,7 +64,7 @@ export const myLeasesReducer = (state = { leases: null }, action) => {
   }
 };
 
-export const leaseDetailsReducer = (state = { lease: null }, action) => {
+export const leaseDetailsReducer = (state = null, action) => {
   switch (action.type) {
     case GET_LEASE_BY_ID_REQUEST:
       return { loading: true };
