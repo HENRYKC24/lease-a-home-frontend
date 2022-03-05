@@ -8,6 +8,10 @@ const GET_LEASE_BY_ID_REQUEST = 'GET_LEASE_BY_ID_REQUEST';
 const GET_LEASE_BY_ID_SUCCESS = 'GET_LEASE_BY_ID_SUCCESS';
 const GET_LEASE_BY_ID_FAIL = 'GET_LEASE_BY_ID_FAIL';
 
+const CANCEL_LEASE_REQUEST = 'CANCEL_LEASE_REQUEST';
+const CANCEL_LEASE_SUCCESS = 'CANCEL_LEASE_SUCCESS';
+const CANCEL_LEASE_FAIL = 'CANCEL_LEASE_FAIL';
+
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const getMyLeasesAction = () => async (dispatch, getState) => {
@@ -31,6 +35,18 @@ export const getSingleLeaseAction = (id) => async (dispatch, getState) => {
     dispatch({ type: GET_LEASE_BY_ID_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_LEASE_BY_ID_FAIL, payload: error.message });
+  }
+};
+
+export const cancelLeaseAction = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: CANCEL_LEASE_REQUEST });
+    const { user } = getState();
+    const { data } = await axios.delete(`${baseUrl}/user/${user.userId}/leases/${id}`);
+    console.log('delete lease data ==>', data);
+    dispatch({ type: CANCEL_LEASE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: CANCEL_LEASE_FAIL, payload: error.message });
   }
 };
 
