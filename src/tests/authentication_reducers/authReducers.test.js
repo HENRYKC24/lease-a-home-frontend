@@ -30,5 +30,15 @@ describe('post reducer', () => {
     });
   });
 
-  
+  it('Logs out properly', () => {
+    expect(hitAPIWithLogoutDetails({
+      auth: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxNSIsInNjcCI6InVzZXIiLCJhdWQiOm51bGwsImlhdCI6MTY0NjQ5MDI3OSwiZXhwIjoxNjQ2NDkzODc5LCJqdGkiOiIyZTgzOWM1MC1hZTEwLTQ1NjUtYmY1MC04YzMzMzE2ZDQ2ODYifQ.KdGYxJUtaU7Ut9327pyTuYf2xy9oI1rJfs9qjRs8FhM',
+    })).toEqual({
+      name: '',
+      email: '',
+      loggedIn: 'out',
+      userId: '',
+      signedUp: false,
+    });
+  });
 });
