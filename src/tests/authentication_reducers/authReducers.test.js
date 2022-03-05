@@ -16,4 +16,19 @@ describe('post reducer', () => {
     });
   });
 
+  it('Signs up properly', () => {
+    expect(hitAPIWithSignupDetails({
+      name: 'Henry',
+      email: 'henry@gmail.com',
+      password: 'kkkkkk',
+    })).toEqual({
+      name: 'Henry',
+      email: 'henry@gmail.com',
+      loggedIn: '',
+      userId: 1,
+      signedUp: true,
+    });
+  });
+
+  
 });
