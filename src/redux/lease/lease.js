@@ -8,9 +8,9 @@ const GET_LEASE_BY_ID_REQUEST = 'GET_LEASE_BY_ID_REQUEST';
 const GET_LEASE_BY_ID_SUCCESS = 'GET_LEASE_BY_ID_SUCCESS';
 const GET_LEASE_BY_ID_FAIL = 'GET_LEASE_BY_ID_FAIL';
 
-const CANCEL_LEASE_REQUEST = 'CANCEL_LEASE_REQUEST';
-const CANCEL_LEASE_SUCCESS = 'CANCEL_LEASE_SUCCESS';
-const CANCEL_LEASE_FAIL = 'CANCEL_LEASE_FAIL';
+const DELETE_LEASE_REQUEST = 'DELETE_LEASE_REQUEST';
+const DELETE_LEASE_SUCCESS = 'DELETE_LEASE_SUCCESS';
+const DELETE_LEASE_FAIL = 'DELETE_LEASE_FAIL';
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -40,13 +40,14 @@ export const getSingleLeaseAction = (id) => async (dispatch, getState) => {
 
 export const cancelLeaseAction = (id) => async (dispatch, getState) => {
   try {
-    dispatch({ type: CANCEL_LEASE_REQUEST });
+    dispatch({ type: DELETE_LEASE_REQUEST });
     const { user } = getState();
     const { data } = await axios.delete(`${baseUrl}/user/${user.userId}/leases/${id}`);
     console.log('delete lease data ==>', data);
-    dispatch({ type: CANCEL_LEASE_SUCCESS, payload: data });
+    dispatch({ type: DELETE_LEASE_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: CANCEL_LEASE_FAIL, payload: error.message });
+    console.log('error', error.message);
+    dispatch({ type: DELETE_LEASE_FAIL, payload: error.message });
   }
 };
 
@@ -70,6 +71,19 @@ export const leaseDetailsReducer = (state = { lease: null }, action) => {
     case GET_LEASE_BY_ID_SUCCESS:
       return { loading: false, lease: action.payload };
     case GET_LEASE_BY_ID_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const deleteLeaseReducer = (state = { lease: null }, action) => {
+  switch (action.type) {
+    case DELETE_LEASE_REQUEST:
+      return { loading: true };
+    case DELETE_LEASE_SUCCESS:
+      return { loading: false, message: action.payload };
+    case DELETE_LEASE_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
