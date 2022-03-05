@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { HiMenuAlt4 } from 'react-icons/hi';
-import { useSelector } from 'react-redux';
 
 const MobileNavBar = ({ links, logo }) => {
   const state = useSelector((state) => (state));
