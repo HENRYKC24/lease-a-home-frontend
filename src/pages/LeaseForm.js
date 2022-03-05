@@ -33,7 +33,7 @@ const LeaseForm = () => {
 
   const details = {
     heading: 'Lease a home/apartment',
-    text: 'There are a variety of homes and apartment listed. Ranging from two bedroom apartments to six bedrooms homes. Some located in the surburb and some in the city, feel free to pick a place to call home that fit all your needs.',
+    text: 'Lease-A-Home provides you with a variety of homes and apartment. Ranging from two bedroom apartments to six bedrooms homes. Some located in the surburb and some in the city, feel free to pick a place to call home that fit all your needs.',
   };
 
   return (
@@ -41,9 +41,9 @@ const LeaseForm = () => {
       <div id="color-overlay" />
       <p>{status}</p>
       <h1 className="lease-text">{details.heading}</h1>
-      <hr className="lease-text" />
+      <hr />
       <p className="lease-text">{details.text}</p>
-      <form className="lease-text">
+      <form className="lease-text the-form">
         <div className="datetime mt-3">
           <h6>from: </h6>
           <input type="date" id="date" className="form-control" onChange={(e) => setDate1(e.target.value)} value={date1} />

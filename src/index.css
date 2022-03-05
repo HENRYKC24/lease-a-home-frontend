@@ -91,7 +91,6 @@
 }
 
 .navLinks li a {
-  font-size: 1.1em;
   font-weight: bold;
   color: #161616;
   padding: 25px;
@@ -140,6 +139,16 @@
     padding: 15px 0;
     text-align: center;
     justify-content: space-between;
+  }
+
+  .the-form {
+    display: flex;
+    align-items: self-end;
+    column-gap: 30px;
+  }
+
+  .lease-form {
+    padding: 0 100px;
   }
 
   .logo-container {
