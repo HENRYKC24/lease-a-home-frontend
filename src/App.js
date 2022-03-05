@@ -11,6 +11,7 @@ import Apartments from './pages/Apartments';
 import LeaseForm from './pages/LeaseForm';
 import DeleteLeases from './pages/DeleteLeases';
 import MyLeases from './pages/MyLeases';
+import MyLeaseDetails from './pages/MyLeaseDetails';
 // require('dotenv').config()
 
 const App = () => (
@@ -36,7 +37,7 @@ const App = () => (
         <Route exact path="/my_leases" element={<MyLeases />} />
       </Routes>
       <Routes>
-        <Route exact path="/my_leases/:id" element={<MyLeases />} />
+        <Route exact path="/my_leases/:lease_id" element={<MyLeaseDetails />} />
       </Routes>
       <Routes>
         <Route exact path="/delete_leases" element={<DeleteLeases />} />
