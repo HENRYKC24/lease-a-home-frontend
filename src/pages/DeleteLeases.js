@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMyLeasesAction } from '../redux/lease/lease';
 
 const DeleteLeases = () => {
   const dispatch = useDispatch();
+  const [id, setId] = useState('');
   const state = useSelector((state) => state);
   console.log('state ==>', state);
 
@@ -21,14 +22,19 @@ const DeleteLeases = () => {
     dispatch(getMyLeasesAction());
   }, []);
 
+  const handleSetId = (lease) => {
+    console.log(lease);
+    setId(lease);
+  };
+
   const handleDeleteLease = (id) => {
     console.log('lease-id', id);
     // dispatch(deleteLeaseAction(id));
   };
 
   const deleteModal = (leaseId) => (
-    <div>
-      <button type="button" className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <>
+      <button type="button" onClick={() => handleSetId(leaseId)} className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Delete
       </button>
 
@@ -44,12 +50,12 @@ const DeleteLeases = () => {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" onClick={() => handleDeleteLease(leaseId)} className="btn btn-danger">Yes, Delete</button>
+              <button type="submit" onClick={() => handleDeleteLease(id)} className="btn btn-danger">Yes, Delete</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
   return (
     <div className="container p-5">
@@ -67,7 +73,7 @@ const DeleteLeases = () => {
                 <div className="card-footer d-flex justify-content-center">
                   {' '}
                   {deleteModal(lease.id)}
-                  {' '}
+
                 </div>
               </div>
             </div>
