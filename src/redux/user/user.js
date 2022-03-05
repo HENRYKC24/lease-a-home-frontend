@@ -3,7 +3,7 @@ import axios from 'axios';
 const initialState = {
   name: '',
   email: '',
-  loggedIn: false,
+  loggedIn: 'out',
   userId: '',
   signedUp: false,
 };
@@ -38,6 +38,8 @@ export const userReducer = (state = initialState, action) => {
         ...payload,
       };
     case LOGIN:
+      return payload;
+    case LOGOUT:
       return payload;
     default:
       return state;
@@ -138,7 +140,7 @@ export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
       },
     );
 
-    dispatch(signUp({
+    dispatch(logout({
       ...initialState,
       loggedIn: 'out',
       signedUp: false,
@@ -148,7 +150,7 @@ export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
     localStorage.removeItem('leaseAHomeUser');
   } catch (error) {
     dispatch(
-      signUp({
+      logout({
         name: '',
         email: '',
         loggedIn: 'out',
