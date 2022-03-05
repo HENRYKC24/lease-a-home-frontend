@@ -38,6 +38,7 @@ const DesktopNavBar = ({ links, logo }) => {
               </NavLink>
             </li>
           </>
+
         )}
       </ul>
       <div className="copyright">

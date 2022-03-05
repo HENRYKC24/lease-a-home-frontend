@@ -108,6 +108,7 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
     };
 
     localStorage.setItem('userAuth', JSON.stringify(authorization));
+    localStorage.setItem('leaseAHomeUser', JSON.stringify(mainUser));
 
     dispatch(signUp(mainUser));
   } catch (error) {
@@ -144,6 +145,7 @@ export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
     }));
 
     localStorage.removeItem('userAuth');
+    localStorage.removeItem('leaseAHomeUser');
   } catch (error) {
     dispatch(
       signUp({
