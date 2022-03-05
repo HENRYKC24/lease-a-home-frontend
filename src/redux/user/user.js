@@ -49,7 +49,7 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
   try {
     await axios({
       method: 'post',
-      url: `${process.env.REACT_APP_SIGN_UP_ENDPOINT2}`,
+      url: `${process.env.REACT_APP_SIGN_UP_ENDPOINT}`,
       data: {
         user: {
           email,
@@ -86,7 +86,7 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
   try {
     const signUpRespons = await axios({
       method: 'post',
-      url: `${process.env.REACT_APP_LOGIN_ENDPOINT2}`,
+      url: `${process.env.REACT_APP_LOGIN_ENDPOINT}`,
       data: {
         user: {
           email,
@@ -108,6 +108,7 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
     };
 
     localStorage.setItem('userAuth', JSON.stringify(authorization));
+    localStorage.setItem('leaseAHomeUser', JSON.stringify(mainUser));
 
     dispatch(signUp(mainUser));
   } catch (error) {
@@ -127,7 +128,7 @@ export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
   const { userAuth } = details;
   try {
     await fetch(
-      `${process.env.REACT_APP_LOGOUT_ENDPOINT2}`,
+      `${process.env.REACT_APP_LOGOUT_ENDPOINT}`,
       {
         method: 'DELETE',
         headers: {
@@ -144,6 +145,7 @@ export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
     }));
 
     localStorage.removeItem('userAuth');
+    localStorage.removeItem('leaseAHomeUser');
   } catch (error) {
     dispatch(
       signUp({
