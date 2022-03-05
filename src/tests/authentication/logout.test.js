@@ -6,5 +6,13 @@ import Logout from '../../pages/Logout';
 import store from '../../redux/configureStore';
 
 it('Navbar renders the UI as expected', () => {
-  
+  const tree = renderer.create(
+    <Provider store={store}>
+      <Router>
+        <Logout />
+      </Router>
+      ,
+    </Provider>,
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
 });
