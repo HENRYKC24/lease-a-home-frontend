@@ -20,18 +20,18 @@ const MobileNavBar = ({ links, logo }) => {
             </div>
             <button type="button" className="btn-close text-reset close" data-bs-dismiss="offcanvas" aria-label="Close" />
           </div>
-          <div className="offcanvas-body align-self-center text-center">
+          <div className="offcanvas-body text-center">
             <ul className="navLinks">
               {
           loggedIn === 'in' ? links.filter((link) => link.id < 6).map((userlinks) => (
-            <li key={userlinks.id > 5} className={userlinks.name}>
+            <li key={userlinks.id > 5} className={userlinks.name} data-bs-toggle="offcanvas">
               <NavLink exact="true" to={userlinks.path}>
                 {userlinks.text}
               </NavLink>
             </li>
           ))
             : links.map((link) => (
-              <li key={link.id > 5} className={link.name}>
+              <li key={link.id > 5} className={link.name} data-bs-toggle="offcanvas">
                 <NavLink exact="true" to={link.path}>
                   {link.text}
                 </NavLink>
