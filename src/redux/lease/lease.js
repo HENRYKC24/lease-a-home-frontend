@@ -14,10 +14,8 @@ export const getMyLeasesAction = () => async (dispatch, getState) => {
   try {
     dispatch({ type: GET_LEASES_REQUEST });
     const { user } = getState();
-    console.log('user==>', user);
-    // const { data } = await axios.get(`${baseUrl}/user/${user.id}/leases`);
-    const { data } = await axios.get(`${baseUrl}/user/3/leases`);
-    console.log('data ==>', data);
+    const { data } = await axios.get(`${baseUrl}/user/${user.userId}/leases`);
+    console.log('all leases data ==>', data);
     dispatch({ type: GET_LEASES_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_LEASES_FAIL, payload: error.message });
@@ -28,9 +26,8 @@ export const getSingleLeaseAction = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: GET_LEASE_BY_ID_REQUEST });
     const { user } = getState();
-    console.log('user==>', user);
-    const { data } = await axios.get(`${baseUrl}/user/3/leases/${id}`);
-    console.log('data ==>', data);
+    const { data } = await axios.get(`${baseUrl}/user/${user.userId}/leases/${id}`);
+    console.log('single lease data ==>', data);
     dispatch({ type: GET_LEASE_BY_ID_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_LEASE_BY_ID_FAIL, payload: error.message });

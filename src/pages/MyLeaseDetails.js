@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import interior1 from '../images/logo.png';
 import { getSingleLeaseAction } from '../redux/lease/lease';
 
-const MyLeaseDetails = ({ match }) => {
+const MyLeaseDetails = () => {
   const dispatch = useDispatch();
-  const leaseId = match.params.lease_id;
+  const params = useParams();
   const [lease, setLease] = useState({});
   const { leaseDetails } = useSelector((state) => state);
 
   const loadLease = () => {
-    const data = dispatch(getSingleLeaseAction(leaseId));
+    const data = dispatch(getSingleLeaseAction(params.lease_id));
     console.log(data);
     setLease(data);
   };

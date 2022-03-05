@@ -49,7 +49,7 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
   try {
     await axios({
       method: 'post',
-      url: `${process.env.REACT_APP_SIGN_UP_ENDPOINT}`,
+      url: `${process.env.REACT_APP_SIGN_UP_ENDPOINT2}`,
       data: {
         user: {
           email,
@@ -86,7 +86,7 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
   try {
     const signUpRespons = await axios({
       method: 'post',
-      url: `${process.env.REACT_APP_LOGIN_ENDPOINT}`,
+      url: `${process.env.REACT_APP_LOGIN_ENDPOINT2}`,
       data: {
         user: {
           email,
@@ -128,7 +128,7 @@ export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
   const { userAuth } = details;
   try {
     await fetch(
-      `${process.env.REACT_APP_LOGOUT_ENDPOINT}`,
+      `${process.env.REACT_APP_LOGOUT_ENDPOINT2}`,
       {
         method: 'DELETE',
         headers: {

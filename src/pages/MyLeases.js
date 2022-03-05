@@ -6,7 +6,7 @@ import { getMyLeasesAction } from '../redux/lease/lease';
 const MyLeases = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  console.log(state);
+  console.log('state ==>', state);
 
   const leases = [{
     id: '1', image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'Beach House', description: 'Lorem Isum depreca acono deaach',
