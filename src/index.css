@@ -5,6 +5,11 @@
   display: none;
 }
 
+body,
+#root {
+  height: 100vh;
+}
+
 *,
 .navLinks {
   margin: 0;

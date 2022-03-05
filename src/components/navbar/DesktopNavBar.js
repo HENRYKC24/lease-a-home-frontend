@@ -12,22 +12,33 @@ const DesktopNavBar = ({ links, logo }) => {
         <img src={logo} alt="App logo" className="logo" />
       </div>
       <ul className="navLinks">
-        {
-          loggedIn === 'in' ? links.filter((link) => link.id < 6).map((userlinks) => (
-            <li key={userlinks.id > 5} className={userlinks.name}>
-              <NavLink exact="true" to={userlinks.path}>
-                {userlinks.text}
+        {links.map((link) => (
+          <li key={link.id} className={link.name}>
+            <NavLink exact="true" to={link.path}>
+              {link.text}
+            </NavLink>
+          </li>
+        ))}
+        {loggedIn === 'in' ? (
+          <li className="logout">
+            <NavLink exact="true" to="/logout">
+              LOGOUT
+            </NavLink>
+          </li>
+        ) : (
+          <>
+            <li className="sign_in">
+              <NavLink exact="true" to="/login">
+                LOGIN
               </NavLink>
             </li>
-          ))
-            : links.map((link) => (
-              <li key={link.id > 5} className={link.name}>
-                <NavLink exact="true" to={link.path}>
-                  {link.text}
-                </NavLink>
-              </li>
-            ))
-        }
+            <li className="sign_up">
+              <NavLink exact="true" to="sign_up">
+                SIGN UP
+              </NavLink>
+            </li>
+          </>
+        )}
       </ul>
       <div className="copyright">
         <p>© 2022 ACHT.</p>
