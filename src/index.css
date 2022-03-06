@@ -63,7 +63,7 @@ body,
   text-align: center;
 }
 
-.form-control {
+.fc {
   background-color: transparent;
   border: solid white;
   border-radius: 25px;
