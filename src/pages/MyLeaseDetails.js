@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import getLeaseApartment from '../helpers/leaseApartment';
 import interior1 from '../images/logo.png';
 import { getSingleLeaseAction } from '../redux/lease/lease';
 
@@ -26,7 +27,7 @@ const MyLeaseDetails = () => {
         {error}
       </p>
       ) }
-      {loading ? '' : console.log(lease.apartment)}
+      {loading ? '' : console.log(getLeaseApartment(lease.apartment_id))}
       {loading ? 'loading' : (
         <div className=" card mb-3 mt-5">
           <div className="row g-0">
