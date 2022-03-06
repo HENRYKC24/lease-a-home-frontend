@@ -40,10 +40,7 @@ export const getSingleLeaseAction = (id) => async (dispatch, getState) => {
     dispatch({ type: GET_LEASE_BY_ID_REQUEST });
     const { user } = getState();
     const { data } = await axios.get(`${baseUrl}/user/${user.userId}/leases/${id}`);
-    console.log('single lease data ==>', data);
-    return Promise.resolve(
-      dispatch({ type: GET_LEASE_BY_ID_SUCCESS, payload: data }),
-    );
+    dispatch({ type: GET_LEASE_BY_ID_SUCCESS, payload: data });
   } catch (error) {
     console.log('lease data error', error.message);
     dispatch({ type: GET_LEASE_BY_ID_FAIL, payload: error.message });
