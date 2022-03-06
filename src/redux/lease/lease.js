@@ -29,6 +29,7 @@ export const getMyLeasesAction = () => async (dispatch, getState) => {
     console.log('all leases data ==>', data);
     dispatch({ type: GET_LEASES_SUCCESS, payload: data });
   } catch (error) {
+    console.log('error', error.message);
     dispatch({ type: GET_LEASES_FAIL, payload: error.message });
   }
 };
@@ -122,7 +123,8 @@ export const addLeaseToAPI = (details) => async (dispatch) => {
   const {
     from, to, cancelled, userId, apartmentId,
   } = details;
-  const leaseURL = `https://lease-a-home-api.herokuapp.com/user/${userId}/leases`;
+  // const leaseURL = `https://lease-a-home-api.herokuapp.com/user/${userId}/leases`;
+  const leaseURL = `${baseUrl}/user/${userId}/leases`;
   try {
     await fetch(leaseURL, {
       method: 'post',

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMyLeasesAction } from '../redux/lease/lease';
+import { deleteLeaseAction, getMyLeasesAction } from '../redux/lease/lease';
 
 const DeleteLeases = () => {
   const dispatch = useDispatch();
@@ -23,13 +23,11 @@ const DeleteLeases = () => {
   }, []);
 
   const handleSetId = (lease) => {
-    console.log(lease);
     setId(lease);
   };
 
   const handleDeleteLease = (id) => {
-    console.log('lease-id', id);
-    // dispatch(deleteLeaseAction(id));
+    dispatch(deleteLeaseAction(id));
   };
 
   const deleteModal = (leaseId) => (

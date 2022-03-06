@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
 });
 
 const initialState = {
-  myLeases: [],
+  myLeases: {},
 };
 
 const middlewares = [thunk];
