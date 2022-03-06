@@ -62,11 +62,11 @@ export const deleteLeaseAction = (id) => async (dispatch, getState) => {
 export const myLeasesReducer = (state = { leases: [] }, action) => {
   switch (action.type) {
     case GET_LEASES_REQUEST:
-      return { ...state, loading: true };
+      return { loading: true };
     case GET_LEASES_SUCCESS:
-      return { ...state, loading: false, leases: action.payload };
+      return { loading: false, leases: action.payload };
     case GET_LEASES_FAIL:
-      return { ...state, loading: false, error: action.payload };
+      return { loading: false, error: action.payload };
     default:
       return state;
   }
