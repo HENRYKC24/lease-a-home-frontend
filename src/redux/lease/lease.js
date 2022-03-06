@@ -42,6 +42,7 @@ export const getSingleLeaseAction = (id) => async (dispatch, getState) => {
     console.log('single lease data ==>', data);
     dispatch({ type: GET_LEASE_BY_ID_SUCCESS, payload: data });
   } catch (error) {
+    console.log('lease data error', error.message);
     dispatch({ type: GET_LEASE_BY_ID_FAIL, payload: error.message });
   }
 };

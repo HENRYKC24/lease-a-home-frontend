@@ -18,11 +18,13 @@ const MyLeaseDetails = () => {
 
   useEffect(() => {
     loadLease();
+    console.log('lease', lease);
+    console.log('leaseDetails', leaseDetails);
   }, []);
 
   return (
     <div className="container">
-      <div className=" card mb-3 mt-5">
+      {/* <div className=" card mb-3 mt-5">
         <div className="row g-0">
           <div className="col-md-5">
             <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="h-100 img-fluid rounded-start" alt="..." />
@@ -36,7 +38,7 @@ const MyLeaseDetails = () => {
                 { leaseDetails.name && leaseDetails.name}
                 Apartment Name
               </h5>
-              <p className="text-center">Lorem Ipsum Depricano lasander Lorem Ipsum Depricano lasander</p>
+              <p className="text-center">Lorem Ipsum Depricano lasander Lorem Ipsum Depricano </p>
 
               <table className="table">
                 <tbody>
@@ -78,7 +80,7 @@ const MyLeaseDetails = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <h2 className="text-center text-info  my-5">Interiors</h2>
       <div className="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-2 g-2 g-lg-3 mb-5 ">
