@@ -11,15 +11,15 @@ const rootReducer = combineReducers({
   leaseDetails: leaseDetailsReducer,
 });
 
-const initialState = {
-  myLeases: {},
-};
+// const initialState = {
+//   myLeases: {},
+// };
 
 const middlewares = [thunk];
 
 const store = createStore(
   rootReducer,
-  initialState,
+  // initialState,
   composeWithDevTools(applyMiddleware(...middlewares)),
 );
 
