@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import interior1 from '../images/logo.png';
@@ -7,23 +7,22 @@ import { getSingleLeaseAction } from '../redux/lease/lease';
 const MyLeaseDetails = () => {
   const dispatch = useDispatch();
   const params = useParams();
-  const [lease, setLease] = useState({});
   const { leaseDetails } = useSelector((state) => state);
-
-  const loadLease = () => {
-    const data = dispatch(getSingleLeaseAction(params.lease_id));
-    console.log(data);
-    setLease(data);
-  };
+  const { lease, loading, error } = leaseDetails;
+  // const loadLease = () => {
+  //   const data = dispatch(getSingleLeaseAction(params.lease_id));
+  //   console.log('load lease', data);
+  // };
 
   useEffect(() => {
-    loadLease();
-    console.log('lease', lease);
-    console.log('leaseDetails', leaseDetails);
-  }, []);
+    // loadLease();
+    dispatch(getSingleLeaseAction(params.lease_id));
+  }, [dispatch]);
 
   return (
     <div className="container">
+      {error ? 'error' : console.log('error', error) }
+      {loading ? 'loading' : console.log('lease', lease) }
       {/* <div className=" card mb-3 mt-5">
         <div className="row g-0">
           <div className="col-md-5">
