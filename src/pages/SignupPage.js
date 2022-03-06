@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { css } from '@emotion/react';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 import cx from 'classnames';
 import colorScheme from '../colorScheme';
 import style from './signup.module.css';
-import hitAPIWithSignupDetails from '../redux/user/user';
+import hitAPIWithSignupDetails, { userReducer, login } from '../redux/user/user';
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -12,6 +14,16 @@ const SignupPage = () => {
   function goToHomePage() {
     navigate('/', { replace: true });
   }
+
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
+  const [loading, setIsloading] = useState(false);
+  const [color] = useState('#ffffff');
+  const up = useRef(false);
 
   const {
     formHeader,
@@ -40,11 +52,13 @@ const SignupPage = () => {
   });
 
   const [missmatch, setMissmatch] = useState('');
-  const [signUpSuccess, setSignUpSucess] = useState(signedUp);
+  const [signUpSuccess, setSignUpSucess] = useState('');
 
   const handleInput = (event) => {
     const { name, value } = event.target;
-    if (name === 'password' || name === 'confirmPwd') setMissmatch(() => '');
+    if ((missmatch === 'Password mismatch!' || missmatch === 'Password too short!')
+    && (name === 'password' || name === 'confirmPwd')) setMissmatch(() => '');
+    if (signUpSuccess === 'err' && (name === 'email')) setSignUpSucess(() => '');
     setInput((prevInput) => ({
       ...prevInput,
       [name]: value,
@@ -52,7 +66,7 @@ const SignupPage = () => {
   };
 
   const handleSubmit = (event) => {
-    setSignUpSucess(() => false);
+    setSignUpSucess(() => '');
     const {
       name,
       email,
@@ -67,17 +81,43 @@ const SignupPage = () => {
       if (password.length < 6) {
         return setMissmatch(() => 'Password too short!');
       }
+      setIsloading(() => true);
       dispatch(hitAPIWithSignupDetails(input));
+      up.current = true;
     }
     return true;
   };
 
   useEffect(() => {
-    setSignUpSucess(() => signedUp);
-    if (signedUp === 'up') {
-      setTimeout(() => goToHomePage(), 3000);
+    setIsloading(() => false);
+    if (signedUp === 'up' && up.current) {
+      up.current = false;
+      setSignUpSucess(() => true);
+      setTimeout(() => {
+        setSignUpSucess(() => '');
+        dispatch(login({
+          name: '',
+          email: '',
+          loggedIn: 'out',
+          userId: '',
+          signedUp: '',
+        }));
+        goToHomePage();
+      }, 3000);
     }
+    setSignUpSucess(() => signedUp);
   }, [state]);
+
+  useEffect(() => () => {
+    setSignUpSucess(() => '');
+    return userReducer({}, login({
+      name: '',
+      email: '',
+      loggedIn: 'out',
+      userId: '',
+      signedUp: '',
+    }));
+  }, []);
 
   return (
     <form className={cx(colorScheme.green, form)}>
@@ -88,7 +128,7 @@ const SignupPage = () => {
       <div className={cx('form-group', formGroup)}>
         {missmatch && <p className={error}>{missmatch}</p>}
         {signUpSuccess === 'up' && <p className={signedUpMessage}>You have succeesfully signed up!</p>}
-        {signUpSuccess === 'down' && <p className={noSignedUpMessage}>Email already exists or bad connection!</p>}
+        {signUpSuccess === 'err' && <p className={noSignedUpMessage}>Email already exists or bad connection!</p>}
         <label style={{ color: colorScheme.textPale }} className={label} htmlFor="name">
           Username
           <span> *</span>
@@ -159,7 +199,10 @@ const SignupPage = () => {
           type="submit"
           className={btn}
         >
-          Sign Up
+          {loading
+            ? <ScaleLoader color={color} loading={loading} css={override} size={150} />
+            : 'Sign Up'}
+
         </button>
       </div>
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { css } from '@emotion/react';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 import cx from 'classnames';
 import colorScheme from '../colorScheme';
 import style from './signup.module.css';
@@ -30,6 +32,15 @@ const Login = () => {
     password: '',
   });
 
+  const [loading, setIsloading] = useState(false);
+  const [color] = useState('#ffffff');
+
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   const [signedInSuccess, setSignedInSuccess] = useState(loggedIn);
 
   const handleInput = (event) => {
@@ -47,6 +58,7 @@ const Login = () => {
     if (password && email) {
       event.preventDefault();
       dispatch(hitAPIWithSigninDetails({ email, password }));
+      setIsloading(() => true);
       return true;
     }
     return false;
@@ -58,6 +70,7 @@ const Login = () => {
     }
     if (loggedIn === 'err') {
       setSignedInSuccess(loggedIn);
+      setIsloading(() => false);
     }
   }, [state]);
 
@@ -107,7 +120,9 @@ const Login = () => {
           type="submit"
           className={btn}
         >
-          Login
+          {loading
+            ? <ScaleLoader color={color} loading={loading} css={override} size={150} />
+            : 'Login'}
         </button>
       </div>
 

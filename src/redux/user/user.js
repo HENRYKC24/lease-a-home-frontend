@@ -77,7 +77,7 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
         email: '',
         loggedIn: false,
         userId: '',
-        signedUp: 'down',
+        signedUp: 'err',
       }),
     );
   }
@@ -153,7 +153,7 @@ export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
       logout({
         name: '',
         email: '',
-        loggedIn: 'out',
+        loggedIn: 'err',
         userId: '',
         signedUp: false,
       }),
