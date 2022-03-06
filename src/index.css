@@ -119,11 +119,6 @@ body {
 
 /* Style for homepage */
 
-.apartment-image {
-  width: 70%;
-  height: 250px;
-}
-
 .center-block {
   display: block;
   margin-left: auto;
@@ -131,9 +126,32 @@ body {
 }
 
 .apartment-heading,
-.apartmentname,
-.description {
+.apartmentname {
   color: #0dafaa;
+}
+
+.description {
+  color: #000;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  margin: 0 10px;
+}
+
+.card {
+  height: 500px;
+  width: 450px;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+.hover_effect {
+  width: 100%;
+  height: 250px;
+}
+
+.hover_effect:hover {
+  height: 65%;
+  width: 100%;
 }
 
 /* Style for homepage */
