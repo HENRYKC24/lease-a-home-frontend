@@ -89,7 +89,7 @@ export const leaseReducer = (state = initialState, action) => {
   }
 };
 
-export const leaseDetailsReducer = (state = null, action) => {
+export const leaseDetailsReducer = (state = { loading: true, lease: null, err: null }, action) => {
   switch (action.type) {
     case GET_LEASE_BY_ID_REQUEST:
       return { loading: true };
