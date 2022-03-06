@@ -12,7 +12,6 @@ const MyLeases = () => {
   useEffect(() => {
     dispatch(getMyLeasesAction());
     getLeaseApartment(1);
-    console.log('loading ->', loading, 'leases ->', leases, 'error ->', error, 'link', Link);
   }, [dispatch]);
 
   return (
