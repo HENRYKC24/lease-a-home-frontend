@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import getLeaseApartment from '../helpers/leaseApartment';
 import { getMyLeasesAction } from '../redux/lease/lease';
 
 const MyLeases = () => {
@@ -10,10 +11,12 @@ const MyLeases = () => {
 
   useEffect(() => {
     dispatch(getMyLeasesAction());
+    getLeaseApartment(1);
+    console.log('loading ->', loading, 'leases ->', leases, 'error ->', error, 'link', Link);
   }, []);
   return (
     <div className="container p-5">
-      <div className="row g-5 d-flex justify-content-center">
+      {/* <div className="row g-5 d-flex justify-content-center">
         {error && <div className="alert alert-danger">error.message</div>}
         {
           loading ? <div> loading ...</div> : leases.map((lease) => (
@@ -34,7 +37,7 @@ const MyLeases = () => {
           ))
         }
 
-      </div>
+      </div> */}
     </div>
   );
 };
