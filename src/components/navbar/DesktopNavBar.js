@@ -7,7 +7,7 @@ const DesktopNavBar = ({ links, logo }) => {
   const { loggedIn } = state.user;
 
   return (
-    <nav className="desktop-nav">
+    <nav className="desktop-nav" data-testid="desktop-navbar">
       <div className="logo-container">
         <img src={logo} alt="App logo" className="logo" />
       </div>
