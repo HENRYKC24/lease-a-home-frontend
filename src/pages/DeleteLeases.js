@@ -30,11 +30,8 @@ const DeleteLeases = () => {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 className="modal-title text-center" id="exampleModalLabel">Are You Sure?</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-            </div>
-            <div className="modal-body">
-              ...
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -56,12 +53,11 @@ const DeleteLeases = () => {
                 <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="card-img-top " alt="..." />
                 <div className="card-body">
                   <p>{lease.apartment_details.name}</p>
-
                 </div>
 
                 <div className="card-footer d-flex justify-content-center">
                   {' '}
-                  {deleteModal(lease.id)}
+                  {deleteModal(lease.lease_details.id)}
 
                 </div>
               </div>
