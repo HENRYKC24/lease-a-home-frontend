@@ -9,7 +9,15 @@ const Home = () => {
   const apartmentss = useSelector((state) => state.apartment);
   const { apartments } = apartmentss;
   useEffect(() => {
-    if (localStorage.getItem('leaseAHomeUser')) dispatch(login(JSON.parse(localStorage.getItem('leaseAHomeUser'))));
+    if (localStorage.getItem('someRandomVitalData')) {
+      const { timestamp, mainUser } = JSON.parse(localStorage.getItem('someRandomVitalData'));
+      const now = new Date().getTime();
+      if (now - timestamp < (1 * 60000)) {
+        dispatch(login(mainUser));
+      } else {
+        localStorage.removeItem('someRandomVitalData');
+      }
+    }
   }, []);
   return (
     !apartments[0] ? <h1>Loading</h1> : (

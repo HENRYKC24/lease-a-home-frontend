@@ -109,8 +109,13 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
       signedUp: true,
     };
 
-    localStorage.setItem('userAuth', JSON.stringify(authorization));
-    localStorage.setItem('leaseAHomeUser', JSON.stringify(mainUser));
+    const loginData = {
+      timestamp: new Date().getTime(),
+      authorization,
+      mainUser,
+    };
+
+    localStorage.setItem('someRandomVitalData', JSON.stringify(loginData));
 
     dispatch(signUp(mainUser));
   } catch (error) {
@@ -146,8 +151,7 @@ export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
       signedUp: false,
     }));
 
-    localStorage.removeItem('userAuth');
-    localStorage.removeItem('leaseAHomeUser');
+    localStorage.removeItem('someRandomVitalData');
   } catch (error) {
     dispatch(
       logout({
