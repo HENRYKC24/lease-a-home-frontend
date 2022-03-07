@@ -7,7 +7,6 @@ const DeleteLeases = () => {
   const [id, setId] = useState('');
   const { myLeases } = useSelector((state) => state);
   const { loading, leases, error } = myLeases;
-  console.log('state ==>', state);
 
   useEffect(() => {
     dispatch(getMyLeasesAction());
@@ -49,6 +48,7 @@ const DeleteLeases = () => {
   return (
     <div className="container p-5">
       <div className="row g-5 d-flex justify-content-center">
+        {error && <div className="alert alert-danger">error.message</div>}
         {
           loading ? 'loading' : leases.map((lease) => (
             <div key={lease.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12">
