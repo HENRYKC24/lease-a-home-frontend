@@ -22,7 +22,6 @@ const MyLeaseDetails = () => {
       ) }
       {loading ? 'loading' : (
         <div className=" card mb-3 mt-5">
-          {console.log('lease', lease)}
           <div className="row g-0">
             <div className="col-md-5">
               <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="h-100 img-fluid rounded-start" alt="..." />
@@ -76,9 +75,6 @@ const MyLeaseDetails = () => {
                     </tr>
                   </tbody>
                 </table>
-                {/* <div className="d-flex justify-content-end">
-                  <button type="button" className="btn btn-warning">Unlease</button>
-                </div> */}
               </div>
             </div>
           </div>
