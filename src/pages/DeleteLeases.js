@@ -10,7 +10,7 @@ const DeleteLeases = () => {
 
   useEffect(() => {
     dispatch(getMyLeasesAction());
-  }, []);
+  }, [dispatch]);
 
   const handleSetId = (lease) => {
     setId(lease);
@@ -18,6 +18,7 @@ const DeleteLeases = () => {
 
   const handleDeleteLease = (id) => {
     dispatch(deleteLeaseAction(id));
+    window.location.reload();
   };
 
   const deleteModal = (leaseId) => (
