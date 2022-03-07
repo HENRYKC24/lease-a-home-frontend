@@ -8,13 +8,8 @@ const MyLeaseDetails = () => {
   const params = useParams();
   const { leaseDetails } = useSelector((state) => state);
   const { lease, loading, err: error } = leaseDetails;
-  // const loadLease = () => {
-  //   const data = dispatch(getSingleLeaseAction(params.lease_id));
-  //   console.log('load lease', data);
-  // };
 
   useEffect(() => {
-    // loadLease();
     dispatch(getSingleLeaseAction(params.lease_id));
   }, [dispatch]);
 
