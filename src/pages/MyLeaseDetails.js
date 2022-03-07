@@ -27,7 +27,6 @@ const MyLeaseDetails = () => {
       ) }
       {loading ? 'loading' : (
         <div className=" card mb-3 mt-5">
-          {console.log('lease', lease)}
           <div className="row g-0">
             <div className="col-md-5">
               <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="h-100 img-fluid rounded-start" alt="..." />
@@ -92,13 +91,8 @@ const MyLeaseDetails = () => {
 
       <h2 className="text-center text-info  my-5">Interiors</h2>
       <div className="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-2 g-2 g-lg-3 mb-5 ">
-        {lease.apartmentDetails.interior.map((interior) => (
-          <div key={interior} className="col d-flex justify-content-center ">
-            <div className="p-3 border bg-light h-75 w-75">
-              <img src={interior} className="img-fluid rounded-start h-100 w-100 align-center" alt="..." />
-            </div>
-          </div>
-        ))}
+        {loading ? '' : console.log('lease', lease)}
+
       </div>
     </div>
   );
