@@ -19,7 +19,8 @@ const MyLeases = () => {
         {error && <div className="alert alert-danger">error.message</div>}
         {
           loading ? <div> loading ...</div> : leases.map((lease) => (
-            <div key={lease.lease.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12">
+            <div key={lease.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12">
+              {console.log('lease', lease)}
               <div className="card w-90">
                 <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="card-img-top " alt="..." />
                 <div className="card-body">
