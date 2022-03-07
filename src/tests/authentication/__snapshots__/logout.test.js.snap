@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar renders the UI as expected 1`] = `
+Array [
+  <div
+    className="overlay"
+  >
+    <div
+      className="overlayInner"
+    >
+      <p
+        className="areYouSure"
+      >
+        Are you sure you want to log out?
+      </p>
+      <div
+        className="btnWrapper"
+      >
+        <div
+          className="cancel"
+        >
+          <button
+            className="cancelBtn"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#10BBB5",
+              }
+            }
+            type="submit"
+          >
+            Cancel
+          </button>
+        </div>
+        <div
+          className="yes"
+        >
+          <button
+            className="yesBtn"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#10BBB5",
+              }
+            }
+            type="submit"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  ",",
+]
+`;

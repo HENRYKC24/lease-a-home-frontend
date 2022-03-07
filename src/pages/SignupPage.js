@@ -1,13 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { css } from '@emotion/react';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 import cx from 'classnames';
-import colorScheme from '../../colorScheme';
+import colorScheme from '../colorScheme';
 import style from './signup.module.css';
-import hitAPIWithSignupDetails from '../../redux/user/user';
+import hitAPIWithSignupDetails, { userReducer, login } from '../redux/user/user';
 
 const SignupPage = () => {
-  console.log(process.env, 'process.env');
+  const navigate = useNavigate();
+
+  function goToHomePage() {
+    navigate('/', { replace: true });
+  }
+
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
+  const [loading, setIsloading] = useState(false);
+  const [color] = useState('#ffffff');
+  const up = useRef(false);
+
   const {
     formHeader,
     form,
@@ -18,7 +35,6 @@ const SignupPage = () => {
     h2,
     signedUpMessage,
     noSignedUpMessage,
-    // p,
     error,
     orGroup,
     line,
@@ -27,7 +43,6 @@ const SignupPage = () => {
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state.user);
-  console.log(state, 'state form signup');
   const { signedUp } = state;
   const [input, setInput] = useState({
     name: '',
@@ -37,11 +52,13 @@ const SignupPage = () => {
   });
 
   const [missmatch, setMissmatch] = useState('');
-  const [signUpSuccess, setSignUpSucess] = useState(signedUp);
+  const [signUpSuccess, setSignUpSucess] = useState('');
 
   const handleInput = (event) => {
     const { name, value } = event.target;
-    if (name === 'password' || name === 'confirmPwd') setMissmatch(() => '');
+    if ((missmatch === 'Password mismatch!' || missmatch === 'Password too short!')
+    && (name === 'password' || name === 'confirmPwd')) setMissmatch(() => '');
+    if (signUpSuccess === 'err' && (name === 'email')) setSignUpSucess(() => '');
     setInput((prevInput) => ({
       ...prevInput,
       [name]: value,
@@ -49,7 +66,7 @@ const SignupPage = () => {
   };
 
   const handleSubmit = (event) => {
-    setSignUpSucess(() => false);
+    setSignUpSucess(() => '');
     const {
       name,
       email,
@@ -64,26 +81,54 @@ const SignupPage = () => {
       if (password.length < 6) {
         return setMissmatch(() => 'Password too short!');
       }
+      setIsloading(() => true);
       dispatch(hitAPIWithSignupDetails(input));
+      up.current = true;
     }
     return true;
   };
 
   useEffect(() => {
+    setIsloading(() => false);
+    if (signedUp === 'up' && up.current) {
+      up.current = false;
+      setSignUpSucess(() => true);
+      setTimeout(() => {
+        setSignUpSucess(() => '');
+        dispatch(login({
+          name: '',
+          email: '',
+          loggedIn: 'out',
+          userId: '',
+          signedUp: '',
+        }));
+        goToHomePage();
+      }, 3000);
+    }
     setSignUpSucess(() => signedUp);
   }, [state]);
+
+  useEffect(() => () => {
+    setSignUpSucess(() => '');
+    return userReducer({}, login({
+      name: '',
+      email: '',
+      loggedIn: 'out',
+      userId: '',
+      signedUp: '',
+    }));
+  }, []);
 
   return (
     <form className={cx(colorScheme.green, form)}>
       <div style={{ backgroundColor: colorScheme.blue }} className={cx(formHeader)}>
         <h2 className={h2}>Let&apos;s Sign Up</h2>
-        {/* <p className={p}>Fill out this form to sign up with us!</p> */}
       </div>
 
       <div className={cx('form-group', formGroup)}>
         {missmatch && <p className={error}>{missmatch}</p>}
         {signUpSuccess === 'up' && <p className={signedUpMessage}>You have succeesfully signed up!</p>}
-        {signUpSuccess === 'down' && <p className={noSignedUpMessage}>Email already exists or bad connection!</p>}
+        {signUpSuccess === 'err' && <p className={noSignedUpMessage}>Email already exists or bad connection!</p>}
         <label style={{ color: colorScheme.textPale }} className={label} htmlFor="name">
           Username
           <span> *</span>
@@ -154,7 +199,10 @@ const SignupPage = () => {
           type="submit"
           className={btn}
         >
-          Sign Up
+          {loading
+            ? <ScaleLoader color={color} loading={loading} css={override} size={150} />
+            : 'Sign Up'}
+
         </button>
       </div>
 
@@ -165,13 +213,15 @@ const SignupPage = () => {
       </div>
 
       <div className={cx('form-group', formGroup)}>
-        <button
-          style={{ backgroundColor: colorScheme.blue }}
-          type="button"
-          className={btn}
-        >
-          Login
-        </button>
+        <NavLink to="/login">
+          <button
+            style={{ backgroundColor: colorScheme.blue }}
+            type="button"
+            className={btn}
+          >
+            Login
+          </button>
+        </NavLink>
       </div>
     </form>
   );

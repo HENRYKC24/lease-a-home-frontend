@@ -3,7 +3,7 @@ import axios from 'axios';
 const initialState = {
   name: '',
   email: '',
-  loggenIn: false,
+  loggedIn: 'out',
   userId: '',
   signedUp: false,
 };
@@ -38,9 +38,9 @@ export const userReducer = (state = initialState, action) => {
         ...payload,
       };
     case LOGIN:
-      console.log(`paload=${payload}, type=${type}`);
       return payload;
-
+    case LOGOUT:
+      return payload;
     default:
       return state;
   }
@@ -51,7 +51,7 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
   try {
     await axios({
       method: 'post',
-      url: `${process.env.REACT_APP_SIGN_UP_ENDPOINT2}`,
+      url: `${process.env.REACT_APP_SIGN_UP_ENDPOINT}`,
       data: {
         user: {
           email,
@@ -60,32 +60,35 @@ const hitAPIWithSignupDetails = (details) => async (dispatch) => {
         },
       },
     });
-    dispatch(signUp({
-      name: '',
-      email: '',
-      loggenIn: false,
-      userId: '',
-      signedUp: 'up',
-    }));
+
+    dispatch(
+      signUp({
+        name: '',
+        email: '',
+        loggedIn: false,
+        userId: '',
+        signedUp: 'up',
+      }),
+    );
   } catch (error) {
-    dispatch(signUp({
-      name: '',
-      email: '',
-      loggenIn: false,
-      userId: '',
-      signedUp: 'down',
-    }));
+    dispatch(
+      signUp({
+        name: '',
+        email: '',
+        loggedIn: false,
+        userId: '',
+        signedUp: 'err',
+      }),
+    );
   }
-  // dispatch(fetchData(data));
 };
 
 export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
-  console.log(876543);
   const { email, password } = details;
   try {
     const signUpRespons = await axios({
       method: 'post',
-      url: `${process.env.REACT_APP_LOGIN_ENDPOINT2}/users/sign_in`,
+      url: `${process.env.REACT_APP_LOGIN_ENDPOINT}`,
       data: {
         user: {
           email,
@@ -93,6 +96,7 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
         },
       },
     });
+
     const { data, headers } = signUpRespons;
     const { user } = data;
     const { authorization } = headers;
@@ -100,79 +104,61 @@ export const hitAPIWithSigninDetails = (details) => async (dispatch) => {
     const mainUser = {
       name: user.name,
       email: user.email,
-      loggenIn: 'in',
+      loggedIn: 'in',
       userId: user.id,
       signedUp: true,
     };
 
     localStorage.setItem('userAuth', JSON.stringify(authorization));
+    localStorage.setItem('leaseAHomeUser', JSON.stringify(mainUser));
 
-    // const appState = {
-    //   ...mainUser,
-    // };
-    // delete appState.auth;
     dispatch(signUp(mainUser));
-    console.log('Login was a success');
   } catch (error) {
-    dispatch(signUp({
-      name: '',
-      email: '',
-      loggenIn: 'out',
-      userId: '',
-      signedUp: false,
-    }));
-    console.log('Something went wront');
+    dispatch(
+      signUp({
+        name: '',
+        email: '',
+        loggedIn: 'err',
+        userId: '',
+        signedUp: false,
+      }),
+    );
   }
-
-  // dispatch(fetchData(data));
 };
 
 export const hitAPIWithLogoutDetails = (details) => async (dispatch) => {
-  console.log(876543);
-  const { email, password } = details;
+  const { userAuth } = details;
   try {
-    const signUpRespons = await axios({
-      method: 'post',
-      url: `${process.env.REACT_APP_SIGN_UP_ENDPOINT2}/users/sign_in`,
-      data: {
-        user: {
-          email,
-          password,
+    await fetch(
+      `${process.env.REACT_APP_LOGOUT_ENDPOINT}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `${userAuth}`,
         },
       },
-    });
-    const { data, headers } = signUpRespons;
-    const { user } = data;
-    const { authorization } = headers;
+    );
 
-    const mainUser = {
-      name: user.name,
-      email: user.email,
-      loggenIn: 'in',
-      userId: user.id,
-      signedUp: true,
-    };
-
-    localStorage.setItem('userAuth', JSON.stringify(authorization));
-
-    // const appState = {
-    //   ...mainUser,
-    // };
-    // delete appState.auth;
-    dispatch(signUp(mainUser));
-    console.log('Login was a success');
-  } catch (error) {
-    dispatch(signUp({
-      name: '',
-      email: '',
-      loggenIn: 'out',
-      userId: '',
+    dispatch(logout({
+      ...initialState,
+      loggedIn: 'out',
       signedUp: false,
     }));
-    console.log('Something went wront');
-  }
 
-  // dispatch(fetchData(data));
+    localStorage.removeItem('userAuth');
+    localStorage.removeItem('leaseAHomeUser');
+  } catch (error) {
+    dispatch(
+      logout({
+        name: '',
+        email: '',
+        loggedIn: 'err',
+        userId: '',
+        signedUp: false,
+      }),
+    );
+  }
 };
 
 export default hitAPIWithSignupDetails;

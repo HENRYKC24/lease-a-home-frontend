@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar renders the UI as expected 1`] = `
+Array [
+  <form
+    className="#99C210 form"
+  >
+    <div
+      className="formHeader"
+      style={
+        Object {
+          "backgroundColor": "#10BBB5",
+        }
+      }
+    >
+      <h2
+        className="h2"
+      >
+        Let's Sign Up
+      </h2>
+    </div>
+    <div
+      className="form-group formGroup"
+    >
+      
+      <label
+        className="label"
+        htmlFor="name"
+        style={
+          Object {
+            "color": "#616C7D",
+          }
+        }
+      >
+        Username
+        <span>
+           *
+        </span>
+        <input
+          className="form-control formControl"
+          id="name"
+          name="name"
+          onChange={[Function]}
+          required="required"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group formGroup"
+    >
+      <label
+        className="label"
+        htmlFor="email"
+        style={
+          Object {
+            "color": "#616C7D",
+          }
+        }
+      >
+        Email Address
+        <span>
+           *
+        </span>
+        <input
+          className="form-control formControl"
+          id="email"
+          name="email"
+          onChange={[Function]}
+          required="required"
+          type="email"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group formGroup"
+    >
+      <label
+        className="label"
+        htmlFor="password"
+        style={
+          Object {
+            "color": "#616C7D",
+          }
+        }
+      >
+        Password
+        <span>
+           *
+        </span>
+        <input
+          className="form-control formControl"
+          id="password"
+          name="password"
+          onChange={[Function]}
+          required="required"
+          type="password"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group formGroup"
+    >
+      <label
+        className="label"
+        htmlFor="confirm_password"
+        style={
+          Object {
+            "color": "#616C7D",
+          }
+        }
+      >
+        Confirm Password
+        <span>
+           *
+        </span>
+        <input
+          className="form-control formControl"
+          id="confirm_password"
+          name="confirmPwd"
+          onChange={[Function]}
+          required="required"
+          type="password"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group formGroup"
+    >
+      <button
+        className="btn"
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#10BBB5",
+          }
+        }
+        type="submit"
+      >
+        Sign Up
+      </button>
+    </div>
+    <div
+      className="form-group orGroup"
+    >
+      <hr
+        className="line"
+      />
+      <p
+        className="or"
+      >
+        OR
+      </p>
+      <hr
+        className="line"
+      />
+    </div>
+    <div
+      className="form-group formGroup"
+    >
+      <a
+        className=""
+        href="/login"
+        onClick={[Function]}
+      >
+        <button
+          className="btn"
+          style={
+            Object {
+              "backgroundColor": "#10BBB5",
+            }
+          }
+          type="button"
+        >
+          Login
+        </button>
+      </a>
+    </div>
+  </form>,
+  ",",
+]
+`;
