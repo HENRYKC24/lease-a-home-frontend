@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import interior1 from '../images/logo.png';
 import { getSingleLeaseAction } from '../redux/lease/lease';
 
 const MyLeaseDetails = () => {
@@ -93,26 +92,13 @@ const MyLeaseDetails = () => {
 
       <h2 className="text-center text-info  my-5">Interiors</h2>
       <div className="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-2 g-2 g-lg-3 mb-5 ">
-        <div className="col d-flex justify-content-center ">
-          <div className="p-3 border bg-light h-75 w-75">
-            <img src={interior1} className="img-fluid rounded-start h-100 w-100 align-center" alt="..." />
+        {lease.apartmentDetails.interior.map((interior) => (
+          <div key={interior} className="col d-flex justify-content-center ">
+            <div className="p-3 border bg-light h-75 w-75">
+              <img src={interior} className="img-fluid rounded-start h-100 w-100 align-center" alt="..." />
+            </div>
           </div>
-        </div>
-        <div className="col d-flex justify-content-center">
-          <div className="p-3 border bg-light h-75 w-75">
-            <img src={interior1} className="img-fluid rounded-start h-100 w-100 align-center" alt="..." />
-          </div>
-        </div>
-        <div className="col d-flex justify-content-center">
-          <div className="p-3 border bg-light h-75 w-75">
-            <img src={interior1} className="img-fluid rounded-start h-100 w-100 align-center" alt="..." />
-          </div>
-        </div>
-        <div className="col d-flex justify-content-center">
-          <div className="p-3 border bg-light h-75 w-75">
-            <img src={interior1} className="img-fluid rounded-start h-100 w-100 align-center" alt="..." />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
