@@ -47,6 +47,7 @@ const DeleteLeases = () => {
     <div className="container p-5">
       <div className="row g-5 d-flex justify-content-center">
         {error && <div className="alert alert-danger">error.message</div>}
+        {!loading && leases.length === 0 && <h1 className="text-center text-info">You currently have no leases</h1>}
         {
           loading ? 'loading' : leases.map((lease) => (
             <div key={lease.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12">
