@@ -49,10 +49,8 @@ export const deleteLeaseAction = (id) => async (dispatch, getState) => {
     dispatch({ type: DELETE_LEASE_REQUEST });
     const { user } = getState();
     const { data } = await axios.delete(`${baseUrl}/user/${user.userId}/leases/${id}`);
-    console.log('delete lease data ==>', data);
     dispatch({ type: DELETE_LEASE_SUCCESS, payload: data });
   } catch (error) {
-    console.log('error', error.message);
     dispatch({ type: DELETE_LEASE_FAIL, payload: error.message });
   }
 };
