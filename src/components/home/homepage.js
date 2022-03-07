@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { singleApartments } from '../../redux/apartment/apartment';
 
 const Home = () => {
+  const dispatch = useDispatch();
   const apartmentss = useSelector((state) => state.apartment);
   const { apartments } = apartmentss;
-  console.log(apartments, 'hello');
-  console.log(Home);
   if (!apartments[0]) {
     return (
       <h1>Loading</h1>
@@ -19,7 +19,7 @@ const Home = () => {
         {
       apartments[0].map((item) => (
         <div key={item.id} className="col-12 col-md-6 col-lg-4">
-          <Link style={{ textDecoration: 'none' }} to={`${item.id}`} className="m-3">
+          <Link style={{ textDecoration: 'none' }} to={`${item.id}`} className="m-3" onClick={() => dispatch(singleApartments(item.id))}>
             <div className="card mx-3">
               <img className="apartment-image hover_effect center-block" src={item.image} alt={item.name} />
               <h4 className="my-2 text-center apartmentname">{item.name}</h4>

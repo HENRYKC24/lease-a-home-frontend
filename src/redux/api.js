@@ -11,4 +11,13 @@ const fetchDataApartments = async () => {
   }
 };
 
+export const fetchSingleApartments = async (id) => {
+  try {
+    const response = await axios.get(`${baseUrl}/apartments/${id}`);
+    return response.data;
+  } catch (e) {
+    throw e.toString();
+  }
+};
+
 export default fetchDataApartments;

@@ -9,6 +9,7 @@ import LeaseForm from './pages/LeaseForm';
 import MyLeases from './pages/MyLeases';
 import DeleteLeases from './pages/DeleteLeases';
 import Home from './components/home/homepage';
+import Detail from './components/singleHome/singleHome';
 // require('dotenv').config()
 
 const App = () => (
@@ -19,7 +20,7 @@ const App = () => (
         <Route exact path="/" element={<Home />} />
       </Routes>
       <Routes>
-        <Route exact path="/apartment/show" element={<Home />} />
+        <Route exact path="/:id" element={<Detail />} />
       </Routes>
       <Routes>
         <Route exact path="/lease_form" element={<LeaseForm />} />

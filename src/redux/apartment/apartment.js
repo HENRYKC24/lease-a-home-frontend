@@ -1,4 +1,4 @@
-import fetchDataApartments from '../api';
+import fetchDataApartments, { fetchSingleApartments } from '../api';
 
 const initialState = {
   apartments: [],
@@ -25,25 +25,33 @@ export const apartmentReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case FETHCH_APARTMENTS:
-      console.log(payload, state, 'this is payload');
       return {
         ...state,
         apartments: [...state.apartments, payload],
       };
     case FETHCH_ONE_APARTMENT:
-      return payload;
+      return { apartment: payload };
 
     default:
       return state;
   }
 };
 
-export const fetchApartments = () => (async (dispatch) => {
+const fetchApartments = () => (async (dispatch) => {
   const apartment = await fetchDataApartments();
-  console.log(apartment, 'newApartment');
   dispatch(
     {
       type: FETHCH_APARTMENTS,
+      payload: apartment,
+    },
+  );
+});
+
+export const singleApartments = (id) => (async (dispatch) => {
+  const apartment = await fetchSingleApartments(id);
+  dispatch(
+    {
+      type: FETHCH_ONE_APARTMENT,
       payload: apartment,
     },
   );
