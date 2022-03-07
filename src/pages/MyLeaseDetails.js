@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import getLeaseApartment from '../helpers/leaseApartment';
 import interior1 from '../images/logo.png';
 import { getSingleLeaseAction } from '../redux/lease/lease';
 
@@ -27,9 +26,9 @@ const MyLeaseDetails = () => {
         {error}
       </p>
       ) }
-      {loading ? '' : console.log(getLeaseApartment(lease.apartment_id))}
       {loading ? 'loading' : (
         <div className=" card mb-3 mt-5">
+          {console.log('lease', lease)}
           <div className="row g-0">
             <div className="col-md-5">
               <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="h-100 img-fluid rounded-start" alt="..." />
@@ -39,8 +38,6 @@ const MyLeaseDetails = () => {
             <div className="col-md-7">
               <div className="card-body">
                 <h5 className="card-title text-center">
-                  {lease.name && lease.name}
-                  { leaseDetails.name && leaseDetails.name}
                   Apartment Name
                 </h5>
                 <p className="text-center">Lorem Ipsum Depricano lasander Lorem Ipsum Depricano </p>

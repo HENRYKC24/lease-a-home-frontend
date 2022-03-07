@@ -5,7 +5,8 @@ const getLeaseApartment = async (id) => {
   try {
     const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/apartments`);
     const apartmentDetails = data.find((apartment) => apartment.id === id);
-    return apartmentDetails;
+    console.log('apartmentDetails', apartmentDetails);
+    return apartmentDetails.name;
   } catch (error) {
     console.log('error');
   }
