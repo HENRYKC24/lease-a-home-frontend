@@ -38,7 +38,7 @@ const MyLeaseDetails = () => {
             <div className="col-md-7">
               <div className="card-body">
                 <h5 className="card-title text-center">
-                  Apartment Name
+                  {lease.leaseDetails.name}
                 </h5>
                 <p className="text-center">Lorem Ipsum Depricano lasander Lorem Ipsum Depricano </p>
 
