@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const baseUrl = 'https://lease-a-home-api.herokuapp.com';
+// const baseUrl = 'http://127.0.0.1:5000';
 
 const fetchDataApartments = async () => {
   try {
