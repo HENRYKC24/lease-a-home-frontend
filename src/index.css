@@ -63,7 +63,7 @@ body,
   text-align: center;
 }
 
-.form-control {
+.fc {
   background-color: transparent;
   border: solid white;
   border-radius: 25px;
@@ -96,20 +96,20 @@ body,
 }
 
 .navLinks li a {
+  display: block;
   font-weight: bold;
   color: #161616;
   padding: 25px;
 }
 
 .navLinks li {
-  padding: 20px 0;
+  padding: 0;
 }
 
 .active,
 .navLinks li a:hover {
   background-color: #99c210;
   color: #fff;
-  border-radius: 25px;
 }
 
 .copyright {
@@ -171,3 +171,42 @@ body,
 }
 
 /* Styling for page layout and nav bar  */
+
+/* Style for homepage */
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.apartment-heading,
+.apartmentname {
+  color: #0dafaa;
+}
+
+.description {
+  color: #000;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  margin: 0 10px;
+}
+
+.card {
+  height: 500px;
+  width: 100%;
+  border: 15px solid #163d3b;
+  border-radius: 10px;
+}
+
+.hover_effect {
+  width: 100%;
+  height: 250px;
+}
+
+.hover_effect:hover {
+  height: 70%;
+  width: 100%;
+}
+
+/* Style for homepage */

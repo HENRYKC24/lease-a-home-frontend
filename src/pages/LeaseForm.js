@@ -37,7 +37,7 @@ const LeaseForm = () => {
   };
 
   return (
-    <div className="lease-form">
+    <div className="lease-form" data-testid="leaseForm">
       <div id="color-overlay" />
       <p>{status}</p>
       <h1 className="lease-text">{details.heading}</h1>
@@ -46,13 +46,13 @@ const LeaseForm = () => {
       <form className="lease-text the-form">
         <div className="datetime mt-3">
           <h6>from: </h6>
-          <input type="date" id="date" className="form-control" onChange={(e) => setDate1(e.target.value)} value={date1} />
+          <input type="date" id="date" className="form-control fc" onChange={(e) => setDate1(e.target.value)} value={date1} />
         </div>
         <div className="datetime mt-3">
           <h6>to: </h6>
-          <input type="date" id="date" className="form-control" onChange={(e) => setDate2(e.target.value)} value={date2} />
+          <input type="date" id="date" className="form-control fc" onChange={(e) => setDate2(e.target.value)} value={date2} />
         </div>
-        <button type="button" className="mt-3 form-control submit-button" onClick={submitLease}>Book Now</button>
+        <button type="button" className="mt-3 form-control fc submit-button" onClick={submitLease}>Book Now</button>
       </form>
     </div>
   );

@@ -6,11 +6,12 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import store from './redux/configureStore';
 import NavBar from './components/navbar/NavBar';
-import Apartments from './pages/Apartments';
 import LeaseForm from './pages/LeaseForm';
 import DeleteLeases from './pages/DeleteLeases';
 import MyLeases from './pages/MyLeases';
 import MyLeaseDetails from './pages/MyLeaseDetails';
+import Home from './pages/homepage';
+import Detail from './components/singleHome/singleHome';
 // require('dotenv').config()
 
 const App = () => (
@@ -18,7 +19,8 @@ const App = () => (
     <Router>
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<Apartments />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/:id" element={<Detail />} />
         <Route exact path="/lease_form" element={<LeaseForm />} />
         <Route exact path="/my_leases" element={<MyLeases />} />
         <Route exact path="/my_leases/:lease_id" element={<MyLeaseDetails />} />
