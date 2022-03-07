@@ -119,7 +119,6 @@ export const addLeaseToAPI = (details) => async (dispatch) => {
   const {
     from, to, cancelled, userId, apartmentId,
   } = details;
-  // const leaseURL = `https://lease-a-home-api.herokuapp.com/user/${userId}/leases`;
   const leaseURL = `${baseUrl}/user/${userId}/leases`;
   try {
     await fetch(leaseURL, {
