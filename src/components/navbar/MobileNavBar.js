@@ -30,7 +30,7 @@ const MobileNavBar = ({ links, logo }) => {
                 </li>
               ))}
               {loggedIn === 'in' ? (
-                <li className="logout">
+                <li className="logout" data-bs-toggle="offcanvas">
                   <NavLink exact="true" to="/logout">
                     LOGOUT
                   </NavLink>

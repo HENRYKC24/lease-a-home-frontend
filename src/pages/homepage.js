@@ -28,7 +28,7 @@ const Home = () => {
     apartments[0].map((item) => (
       <div key={item.id} className="col-12 col-md-6 col-lg-4">
         <Link style={{ textDecoration: 'none' }} to={`${item.id}`} className="m-3" onClick={() => dispatch(singleApartments(item.id))}>
-          <div className="card mx-3">
+          <div className="homepage-card mx-3">
             <img className="apartment-image hover_effect center-block" src={item.image} alt={item.name} />
             <h4 className="my-2 text-center apartmentname">{item.name}</h4>
             <p className="description font-weight-light text-center ms-3">
