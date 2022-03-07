@@ -55,7 +55,7 @@ const DeleteLeases = () => {
               <div className="card w-90">
                 <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="card-img-top " alt="..." />
                 <div className="card-body">
-                  <p>{lease.name}</p>
+                  <p>{lease.apartment_details.name}</p>
 
                 </div>
 
