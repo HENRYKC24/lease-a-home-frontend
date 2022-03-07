@@ -49,7 +49,7 @@ const MyLeaseDetails = () => {
                       <td>City</td>
                       <td> - </td>
                       <td />
-                      <td>Jos</td>
+                      <td>{lease.apartmentDetails.name}</td>
                     </tr>
                     <tr>
                       <td />
@@ -57,14 +57,20 @@ const MyLeaseDetails = () => {
                       <td>Monthly Rent</td>
                       <td> - </td>
                       <td />
-                      <td>$500</td>
+                      <td>
+                        $
+                        {lease.apartmentDetails.monthly_rent}
+                      </td>
                     </tr>
                     <tr>
                       <td />
                       <td>Maintenance Fee</td>
                       <td> - </td>
                       <td />
-                      <td>$100</td>
+                      <td>
+                        $
+                        {lease.apartmentDetails.maintenance_fee}
+                      </td>
                     </tr>
                     <tr>
                       <td />
@@ -72,7 +78,7 @@ const MyLeaseDetails = () => {
                       <td>Expiry Date</td>
                       <td> - </td>
                       <td />
-                      <td>20th October, 2022</td>
+                      <td>{lease.apartmentDetails.reservation_expiry_date}</td>
                     </tr>
                   </tbody>
                 </table>

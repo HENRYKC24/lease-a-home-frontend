@@ -170,6 +170,10 @@ body,
   }
 }
 
+/* Styles for singleApartment page *
+
+}
+
 /* Styling for page layout and nav bar  */
 
 /* Style for homepage */
@@ -192,7 +196,7 @@ body,
   margin: 0 10px;
 }
 
-.card {
+.homepage-card {
   height: 500px;
   width: 100%;
   border: 15px solid #163d3b;
@@ -207,6 +211,44 @@ body,
 .hover_effect:hover {
   height: 70%;
   width: 100%;
+}
+
+/* Styles for singleApartment page */
+
+.singlecard {
+  border: 15px solid #163d3b;
+  border-radius: 10px;
+}
+
+.singledescription {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+}
+
+.feature {
+  width: 100%;
+  height: 200px;
+  margin: 0.5rem;
+}
+
+.singleapartment-image {
+  width: 70%;
+  height: 400px;
+}
+
+.book-apartment {
+  transition: all 2s;
+  cursor: pointer;
+}
+
+.book-apartment:hover {
+  background-color: #3e8e41;
+}
+
+.button:active {
+  background-color: #8e3e81;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 /* Style for homepage */
