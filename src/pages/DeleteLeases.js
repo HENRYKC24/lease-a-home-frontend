@@ -5,19 +5,11 @@ import { deleteLeaseAction, getMyLeasesAction } from '../redux/lease/lease';
 const DeleteLeases = () => {
   const dispatch = useDispatch();
   const [id, setId] = useState('');
-  const state = useSelector((state) => state);
+  const { myLeases } = useSelector((state) => state);
+  const { loading, leases, error } = myLeases;
   console.log('state ==>', state);
 
-  const leases = [{
-    id: '1', image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'Beach House', description: 'Lorem Isum depreca acono deaach',
-  }, {
-    id: '2', image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'Farm House', description: 'Lorem Isum depreca acono deaach',
-  }, {
-    id: '3', image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'Safe House', description: 'Lorem Isum depreca acono deaach',
-  }, {
-    id: '4', image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: 'Guest House', description: 'Lorem Isum depreca acono deaach',
-  }];
-
+  
   useEffect(() => {
     dispatch(getMyLeasesAction());
   }, []);
