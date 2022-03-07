@@ -9,7 +9,6 @@ const DeleteLeases = () => {
   const { loading, leases, error } = myLeases;
   console.log('state ==>', state);
 
-  
   useEffect(() => {
     dispatch(getMyLeasesAction());
   }, []);
@@ -51,7 +50,7 @@ const DeleteLeases = () => {
     <div className="container p-5">
       <div className="row g-5 d-flex justify-content-center">
         {
-          leases.length > 0 ? leases.map((lease) => (
+          loading ? 'loading' : leases.map((lease) => (
             <div key={lease.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12">
               <div className="card w-90">
                 <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="card-img-top " alt="..." />
@@ -67,7 +66,7 @@ const DeleteLeases = () => {
                 </div>
               </div>
             </div>
-          )) : ('less')
+          ))
         }
 
       </div>
