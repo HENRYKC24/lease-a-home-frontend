@@ -96,20 +96,20 @@ body,
 }
 
 .navLinks li a {
+  display: block;
   font-weight: bold;
   color: #161616;
   padding: 25px;
 }
 
 .navLinks li {
-  padding: 20px 0;
+  padding: 0;
 }
 
 .active,
 .navLinks li a:hover {
   background-color: #99c210;
   color: #fff;
-  border-radius: 25px;
 }
 
 .copyright {
