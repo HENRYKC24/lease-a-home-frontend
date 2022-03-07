@@ -10,7 +10,6 @@ const MyLeases = () => {
 
   useEffect(() => {
     dispatch(getMyLeasesAction());
-    // getLeaseApartment(1);
   }, [dispatch]);
 
   return (
