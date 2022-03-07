@@ -12,7 +12,8 @@ const Home = () => {
     if (localStorage.getItem('someRandomVitalData')) {
       const { timestamp, mainUser } = JSON.parse(localStorage.getItem('someRandomVitalData'));
       const now = new Date().getTime();
-      if (now - timestamp < (1 * 60000)) {
+      const oneDayInMillSecs = 86400000;
+      if (now - timestamp < (7 * oneDayInMillSecs)) {
         dispatch(login(mainUser));
       } else {
         localStorage.removeItem('someRandomVitalData');
