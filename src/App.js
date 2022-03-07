@@ -9,7 +9,7 @@ import NavBar from './components/navbar/NavBar';
 import LeaseForm from './pages/LeaseForm';
 import MyLeases from './pages/MyLeases';
 import DeleteLeases from './pages/DeleteLeases';
-import Home from './components/home/homepage';
+import Home from './pages/homepage';
 import Detail from './components/singleHome/singleHome';
 // require('dotenv').config()
 
