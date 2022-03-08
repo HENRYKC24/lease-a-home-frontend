@@ -1,8 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+import { login } from '../../redux/user/user';
 
 const Detail = () => {
+  const dispatch = useDispatch();
   const apartmentss = useSelector((state) => state.apartment);
   const location = useLocation();
   const { id } = location.state;
@@ -15,6 +17,19 @@ const Detail = () => {
   } = apartmentMain[0] || {
     name: '', description: '', image: '', maintenance_fee: '', monthly_rent: '', reservation_expiry_date: '', interior: [],
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('someRandomVitalData')) {
+      const { timestamp, mainUser } = JSON.parse(localStorage.getItem('someRandomVitalData'));
+      const now = new Date().getTime();
+      const oneDayInMillSecs = 86400000;
+      if (now - timestamp < (7 * oneDayInMillSecs)) {
+        dispatch(login(mainUser));
+      } else {
+        localStorage.removeItem('someRandomVitalData');
+      }
+    }
+  }, []);
 
   if (!apartment) {
     return (
