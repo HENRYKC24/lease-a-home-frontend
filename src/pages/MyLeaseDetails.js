@@ -100,9 +100,9 @@ const MyLeaseDetails = () => {
         )}
 
         <h2 className="text-center text-info  my-5">Interiors</h2>
-        <div className="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-2 g-2 g-lg-3 mb-5 ">
+        <div className="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-2 g-2 g-lg-3 mb-5 d-flex justify-content-center bg-info">
           { loading ? '' : (lease.apartmentDetails.interior.map((interior) => (
-            <div key={interior} className="col d-flex justify-content-center ">
+            <div key={interior} className="col ">
               <div className="p-3 border bg-light h-75 w-75">
                 <img src={interior} className="img-fluid rounded-start h-100 w-100 align-center" alt="..." />
               </div>
