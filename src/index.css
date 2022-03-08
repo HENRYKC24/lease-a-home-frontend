@@ -242,9 +242,7 @@ body,
 
 .feature {
   height: 300px;
-  width: 90%;
-  border: 15px solid #163d3b;
-  border-radius: 10px;
+  width: 100%;
   margin: 0.3rem;
 }
 
