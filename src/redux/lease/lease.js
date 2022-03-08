@@ -21,11 +21,10 @@ const initialState = {
   lease_status: '',
 };
 
-export const getMyLeasesAction = () => async (dispatch, getState) => {
+export const getMyLeasesAction = (userId) => async (dispatch) => {
   try {
     dispatch({ type: GET_LEASES_REQUEST });
-    const { user } = getState();
-    const { data } = await axios.get(`${baseUrl}/user/${user.userId}/leases`);
+    const { data } = await axios.get(`${baseUrl}/user/${userId}/leases`);
     dispatch({ type: GET_LEASES_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_LEASES_FAIL, payload: error.message });
@@ -33,11 +32,11 @@ export const getMyLeasesAction = () => async (dispatch, getState) => {
 };
 
 // eslint-disable-next-line consistent-return
-export const getSingleLeaseAction = (id) => async (dispatch, getState) => {
+export const getSingleLeaseAction = (id, userId) => async (dispatch) => {
   try {
     dispatch({ type: GET_LEASE_BY_ID_REQUEST });
-    const { user } = getState();
-    const { data } = await axios.get(`${baseUrl}/user/${user.userId}/leases/${id}`);
+    // const { user } = getState();
+    const { data } = await axios.get(`${baseUrl}/user/${userId}/leases/${id}`);
     dispatch({ type: GET_LEASE_BY_ID_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_LEASE_BY_ID_FAIL, payload: error.message });
