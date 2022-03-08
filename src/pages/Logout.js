@@ -37,8 +37,8 @@ const Logout = () => {
   `;
 
   const handleLogout = () => {
-    const userAuth = JSON.parse(localStorage.getItem('userAuth'));
-    dispatch(hitAPIWithLogoutDetails({ userAuth }));
+    const { authorization } = JSON.parse(localStorage.getItem('someRandomVitalData'));
+    dispatch(hitAPIWithLogoutDetails({ userAuth: authorization }));
     setIsLoggedIn(() => true);
     setIsloading(() => true);
   };
