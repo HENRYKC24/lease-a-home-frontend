@@ -8,6 +8,8 @@ const MyLeases = () => {
   const dispatch = useDispatch();
   const { myLeases, user } = useSelector((state) => state);
   const { loading, leases, error } = myLeases;
+  const [id, setId] = useState('');
+
 
   useEffect(() => {
     if (user.userId) {
@@ -27,6 +29,10 @@ const MyLeases = () => {
       }
     }
   }, []);
+
+  const handleSetId = (lease) => {
+    setId(lease);
+  };
 
   return (
     user ? (
