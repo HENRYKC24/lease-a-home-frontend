@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useState } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getMyLeasesAction } from '../redux/lease/lease';
+import { getMyLeasesAction, deleteLeaseAction } from '../redux/lease/lease';
 import { login } from '../redux/user/user';
 
 const MyLeases = () => {
@@ -9,7 +9,6 @@ const MyLeases = () => {
   const { myLeases, user } = useSelector((state) => state);
   const { loading, leases, error } = myLeases;
   const [id, setId] = useState('');
-
 
   useEffect(() => {
     if (user.userId) {
@@ -61,7 +60,7 @@ const MyLeases = () => {
       </div>
     </>
   );
-  
+
   return (
     user ? (
       <div className="container p-5">
@@ -80,6 +79,7 @@ const MyLeases = () => {
               </div>
               <div className="card-footer d-flex justify-content-center">
                 <Link to={`/my_leases/${lease.lease_details.id}`} className="btn text-info">More Details</Link>
+                {deleteModal(lease.lease_details.id)}
               </div>
             </div>
           </div>
