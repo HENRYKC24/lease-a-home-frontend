@@ -226,12 +226,12 @@ body,
   font-size: 15px;
 }
 
-.feature,
+/* .feature,
 .singleapartment-image {
   width: 80%;
   height: 200px;
   margin: 0.5rem auto;
-}
+} */
 
 .book-apartment {
   transition: all 2s;
