@@ -127,6 +127,74 @@ body,
   overflow: hidden;
 }
 
+/* Styling for page layout and nav bar  */
+
+/* Style for homepage */
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.apartment-heading,
+.apartmentname {
+  color: #0dafaa;
+}
+
+.description {
+  color: #000;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  margin: 0 10px;
+}
+
+.homepage-card {
+  height: 500px;
+  width: 90%;
+  border: 15px solid #163d3b;
+  border-radius: 10px;
+  margin: 1rem;
+}
+
+.hover_effect {
+  width: 100%;
+  height: 250px;
+}
+
+.hover_effect:hover {
+  height: 70%;
+  width: 100%;
+}
+
+.singledescription {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+}
+
+.book-apartment {
+  transition: all 2s;
+  cursor: pointer;
+}
+
+/* Style for homepage */
+
+/* Styles for singleApartment page */
+
+.feature {
+  height: 300px;
+  width: 100%;
+  margin: 0.5rem;
+}
+
+.singleapartment-image {
+  height: 300px;
+  width: 90%;
+  border: 15px solid #0de4c0;
+  border-radius: 10px;
+  margin: 1rem;
+}
+
 @media only screen and (min-width: 768px) {
   .mobile {
     display: none;
@@ -168,87 +236,28 @@ body,
     font-weight: bold;
     color: #616c7d;
   }
+
+  /* Styles for singleApartment page */
+
+  .singleapartment-image {
+    height: 500px;
+    width: 70%;
+    border: 15px solid #0de4c0;
+    border-radius: 10px;
+    display: block;
+    margin: 2rem auto;
+  }
+
+  .book-apartment {
+    margin-top: 1rem;
+  }
+
+  .singledescription {
+    font-size: 18px;
+  }
+
+  .interior-card {
+    display: flex;
+    padding: 0 60px;
+  }
 }
-
-/* Styles for singleApartment page *
-
-}
-
-/* Styling for page layout and nav bar  */
-
-/* Style for homepage */
-
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.apartment-heading,
-.apartmentname {
-  color: #0dafaa;
-}
-
-.description {
-  color: #000;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 15px;
-  margin: 0 10px;
-}
-
-.homepage-card {
-  height: 500px;
-  width: 100%;
-  border: 15px solid #163d3b;
-  border-radius: 10px;
-}
-
-.hover_effect {
-  width: 100%;
-  height: 250px;
-}
-
-.hover_effect:hover {
-  height: 70%;
-  width: 100%;
-}
-
-/* Styles for singleApartment page */
-
-.singlecard {
-  border: 15px solid #163d3b;
-  border-radius: 10px;
-}
-
-.singledescription {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 15px;
-}
-
-.feature {
-  width: 100%;
-  height: 200px;
-  margin: 0.5rem;
-}
-
-.singleapartment-image {
-  width: 70%;
-  height: 400px;
-}
-
-.book-apartment {
-  transition: all 2s;
-  cursor: pointer;
-}
-
-.book-apartment:hover {
-  background-color: #3e8e41;
-}
-
-.button:active {
-  background-color: #8e3e81;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
-/* Style for homepage */
