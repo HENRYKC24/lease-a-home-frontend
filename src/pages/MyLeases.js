@@ -34,6 +34,11 @@ const MyLeases = () => {
     setId(lease);
   };
 
+  const handleDeleteLease = (id) => {
+    dispatch(deleteLeaseAction(id));
+    window.location.reload();
+  };
+  
   return (
     user ? (
       <div className="container p-5">
