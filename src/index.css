@@ -247,4 +247,8 @@ body,
     display: block;
     margin: 2rem auto;
   }
+
+  .book-apartment {
+    margin-top: 1rem;
+  }
 }
