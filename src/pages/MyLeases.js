@@ -77,8 +77,8 @@ const MyLeases = () => {
                   {lease.apartment_details.name}
                 </p>
               </div>
-              <div className="card-footer d-flex justify-content-center">
-                <Link to={`/my_leases/${lease.lease_details.id}`} className="btn text-info">View</Link>
+              <div className="card-footer d-flex justify-content-between">
+                <Link to={`/my_leases/${lease.lease_details.id}`} className="btn text-info ">View</Link>
                 {deleteModal(lease.lease_details.id)}
               </div>
             </div>

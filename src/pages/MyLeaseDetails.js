@@ -42,7 +42,7 @@ const MyLeaseDetails = () => {
           <div className=" card mb-3 mt-5">
             <div className="row g-0">
               <div className="col-md-5">
-                <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="h-100 img-fluid rounded-start" alt="..." />
+                <img src={lease.apartmentDetails.image} className="h-100 img-fluid rounded-start" alt="..." />
                 {' '}
 
               </div>
