@@ -7,7 +7,7 @@ const Detail = () => {
   const {
     name, description, image, maintenance_fee: maintenance,
     monthly_rent: rent, city, reservation_expiry_date: reservation,
-    updated_at: updated, interior,
+    interior,
   } = apartment;
 
   if (!apartment) {
@@ -23,11 +23,6 @@ const Detail = () => {
             Reservation-Expiry-Date:
             {' '}
             {reservation}
-          </p>
-          <p>
-            Updated-At:
-            {' '}
-            {updated}
           </p>
           <p>
             Maintenance-Fee:
