@@ -237,7 +237,7 @@ body,
     color: #616c7d;
   }
 
-   /* Styles for singleApartment page */
+  /* Styles for singleApartment page */
 
   .singleapartment-image {
     height: 500px;
@@ -260,5 +260,4 @@ body,
     display: flex;
     padding: 0 60px;
   }
-
 }
