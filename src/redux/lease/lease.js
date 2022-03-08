@@ -120,6 +120,11 @@ export const addLeaseToAPI = (details) => async (dispatch) => {
     from, to, cancelled, userId, apartmentId,
   } = details;
   const leaseURL = `${baseUrl}/user/${userId}/leases`;
+  console.log('from', from);
+  console.log('to', to);
+  console.log('cancelled', cancelled);
+  console.log('userid', userId);
+  console.log('apartmentid', apartmentId);
   try {
     await fetch(leaseURL, {
       method: 'post',
