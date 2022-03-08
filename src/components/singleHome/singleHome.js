@@ -49,7 +49,7 @@ const Detail = () => {
               {city}
             </p>
             <button className="btn btn-success book-apartment my-4" type="button">
-              <Link>Book Apartment</Link>
+              <Link to="/lease_form">Book Apartment</Link>
             </button>
           </div>
         </div>
