@@ -215,25 +215,21 @@ body,
 
 /* Styles for singleApartment page */
 
-.singlecard {
+/* .singlecard {
   border: 15px solid #163d3b;
   border-radius: 10px;
-}
+} */
 
 .singledescription {
   font-family: 'Times New Roman', Times, serif;
   font-size: 15px;
 }
 
-.feature {
-  width: 100%;
-  height: 200px;
-  margin: 0.5rem;
-}
-
+.feature,
 .singleapartment-image {
-  width: 70%;
-  height: 400px;
+  width: 90%;
+  height: 200px;
+  margin: 0.3rem;
 }
 
 .book-apartment {
