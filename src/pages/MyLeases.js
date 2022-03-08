@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector, useState } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getMyLeasesAction, deleteLeaseAction } from '../redux/lease/lease';
 import { login } from '../redux/user/user';
@@ -78,7 +78,7 @@ const MyLeases = () => {
                 </p>
               </div>
               <div className="card-footer d-flex justify-content-center">
-                <Link to={`/my_leases/${lease.lease_details.id}`} className="btn text-info">More Details</Link>
+                <Link to={`/my_leases/${lease.lease_details.id}`} className="btn text-info">View</Link>
                 {deleteModal(lease.lease_details.id)}
               </div>
             </div>
