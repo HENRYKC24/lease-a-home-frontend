@@ -1,21 +1,25 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Detail = () => {
   const apartmentss = useSelector((state) => state.apartment);
-  const { apartment } = apartmentss;
+  const location = useLocation();
+  const { id } = location.state;
+  const apartment = apartmentss.apartments;
+  const apartmentMain = apartment[0].filter((one) => one.id === id);
   const {
     name, description, image, maintenance_fee: maintenance,
     monthly_rent: rent, city, reservation_expiry_date: reservation,
     interior,
-  } = apartment;
+  } = apartmentMain[0];
 
   if (!apartment) {
     return (
       <h1>Loading</h1>
     );
   }
+
   return (
     <section>
       <div>

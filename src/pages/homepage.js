@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { singleApartments } from '../redux/apartment/apartment';
 import { login } from '../redux/user/user';
 
 const Home = () => {
@@ -28,7 +27,7 @@ const Home = () => {
           {
     apartments[0].map((item) => (
       <div key={item.id} className="col-12 col-md-6 col-lg-4">
-        <Link style={{ textDecoration: 'none' }} to={`${item.id}`} onClick={() => dispatch(singleApartments(item.id))}>
+        <Link style={{ textDecoration: 'none' }} to="/details" state={{ id: item.id }}>
           <div className="homepage-card">
             <img className="apartment-image hover_effect center-block" src={item.image} alt={item.name} />
             <h4 className="my-2 text-center apartmentname">{item.name}</h4>
