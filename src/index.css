@@ -239,3 +239,11 @@ body,
 }
 
 /* Style for homepage */
+
+.feature {
+  height: 300px;
+  width: 90%;
+  border: 15px solid #163d3b;
+  border-radius: 10px;
+  margin: 0.3rem;
+}

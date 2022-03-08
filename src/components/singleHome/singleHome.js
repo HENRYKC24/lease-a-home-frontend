@@ -52,7 +52,7 @@ const Detail = () => {
           <button className="btn btn-success book-apartment my-4" type="button">Book Apartment</button>
         </div>
         <div className="singlecard">
-          <img className="singleapartment-image m-3" src={image} alt={name} />
+          <img className="singleapartment-image" src={image} alt={name} />
           <h4 className="my-2 text-center apartmentname">{name}</h4>
           <p className="singledescription font-weight-light text-center ms-3">
             {description}
