@@ -251,4 +251,8 @@ body,
   .book-apartment {
     margin-top: 1rem;
   }
+
+  .singledescription {
+    font-size: 18px;
+  }
 }
