@@ -14,7 +14,7 @@ const MyLeases = () => {
     if (user.userId) {
       dispatch(getMyLeasesAction(user.userId));
     }
-  }, [user]);
+  }, [user, dispatch]);
 
   useEffect(() => {
     if (localStorage.getItem('someRandomVitalData')) {
@@ -35,12 +35,20 @@ const MyLeases = () => {
 
   const handleDeleteLease = (id) => {
     dispatch(deleteLeaseAction(id));
-    window.location.reload();
+    if (user.userId) {
+      dispatch(getMyLeasesAction(user.userId));
+    }
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+    // dispatch(getMyLeasesAction());
+    // window.location.reload();
   };
 
   const deleteModal = (leaseId) => (
     <>
-      <button type="button" onClick={() => handleSetId(leaseId)} className="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" onClick={() => handleSetId(leaseId)} className=" delete-lease text-warning border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Delete
       </button>
 
@@ -53,7 +61,7 @@ const MyLeases = () => {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" onClick={() => handleDeleteLease(id)} className="btn btn-danger">Yes, Delete</button>
+              <button type="submit" onClick={() => handleDeleteLease(id)} className="btn  btn-danger " data-bs-dismiss="modal">Yes, Delete</button>
             </div>
           </div>
         </div>
@@ -71,7 +79,7 @@ const MyLeases = () => {
         loading ? <div> loading ...</div> : leases.map((lease) => (
           <div key={lease.lease_details.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12">
             <div className="card w-90">
-              <img src={lease.lease_details.image} className="card-img-top " alt="..." />
+              <img src={lease.apartment_details.image} className="card-img-top " alt="..." />
               <div className="card-body">
                 <p className="card-text">
                   {lease.apartment_details.name}

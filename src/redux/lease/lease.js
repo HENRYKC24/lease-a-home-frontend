@@ -25,6 +25,7 @@ export const getMyLeasesAction = (userId) => async (dispatch) => {
   try {
     dispatch({ type: GET_LEASES_REQUEST });
     const { data } = await axios.get(`${baseUrl}/user/${userId}/leases`);
+    console.log('leases', data);
     dispatch({ type: GET_LEASES_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_LEASES_FAIL, payload: error.message });
