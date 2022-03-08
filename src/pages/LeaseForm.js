@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addLeaseToAPI } from '../redux/lease/lease';
+import { login } from '../redux/user/user';
 
 const LeaseForm = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,19 @@ const LeaseForm = () => {
     heading: 'Lease a home/apartment',
     text: 'Lease-A-Home provides you with a variety of homes and apartment. Ranging from two bedroom apartments to six bedrooms homes. Some located in the surburb and some in the city, feel free to pick a place to call home that fit all your needs.',
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('someRandomVitalData')) {
+      const { timestamp, mainUser } = JSON.parse(localStorage.getItem('someRandomVitalData'));
+      const now = new Date().getTime();
+      const oneDayInMillSecs = 86400000;
+      if (now - timestamp < (7 * oneDayInMillSecs)) {
+        dispatch(login(mainUser));
+      } else {
+        localStorage.removeItem('someRandomVitalData');
+      }
+    }
+  }, []);
 
   return (
     <div className="lease-form" data-testid="leaseForm">

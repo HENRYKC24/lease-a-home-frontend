@@ -5,11 +5,11 @@ import { deleteLeaseAction, getMyLeasesAction } from '../redux/lease/lease';
 const DeleteLeases = () => {
   const dispatch = useDispatch();
   const [id, setId] = useState('');
-  const { myLeases } = useSelector((state) => state);
+  const { myLeases, user } = useSelector((state) => state);
   const { loading, leases, error } = myLeases;
 
   useEffect(() => {
-    dispatch(getMyLeasesAction());
+    dispatch(getMyLeasesAction(user.id));
   }, [dispatch]);
 
   const handleSetId = (lease) => {
