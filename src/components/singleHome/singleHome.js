@@ -49,7 +49,7 @@ const Detail = () => {
               {city}
             </p>
             <button className="btn btn-success book-apartment my-4" type="button">
-              <Link to="/lease_form">Book Apartment</Link>
+              <Link style={{ textDecoration: 'none'}}  to="/lease_form">Book Apartment</Link>
             </button>
           </div>
         </div>
