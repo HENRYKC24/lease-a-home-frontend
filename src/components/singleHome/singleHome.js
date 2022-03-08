@@ -17,7 +17,7 @@ const Detail = () => {
   }
   return (
     <section>
-      <div className="row">
+      <div>
 
         <div className="singlecard">
           <img className="singleapartment-image" src={image} alt={name} />
@@ -51,7 +51,7 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <div className="row m-3">
+      <div className="interior-card">
         {interior && interior.map((feature) => (
           <div key={feature.id}>
             <img className="feature" src={feature} alt={name} />
