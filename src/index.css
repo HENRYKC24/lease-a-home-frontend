@@ -195,7 +195,7 @@ body,
 .feature {
   height: 300px;
   width: 100%;
-  margin: 0.8rem;
+  padding: 0.8rem;
 }
 
 .singleapartment-image {
@@ -264,8 +264,15 @@ body,
 
   /* Styles for singleApartment page */
 
-  .home-page {
+  .home-page,
+  .singleapartment-container {
     width: 80%;
+  }
+
+  .singlecard {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 50px;
   }
 
   .apartments-container {
@@ -274,10 +281,14 @@ body,
     align-items: center;
   }
 
+  .singleapartment-details {
+    background-color: #eeeeee;
+  }
+
   .singleapartment-image {
-    height: 500px;
-    width: 70%;
-    border: 15px solid;
+    height: 450px;
+    width: 90%;
+    border: 10px solid;
     background-color: #141617;
     border-radius: 10px;
     display: block;
