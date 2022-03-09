@@ -49,7 +49,7 @@ const Detail = () => {
               {description}
             </p>
 
-            <div className="text-center mt-5">
+            <div className="singleapartment-details text-center mt-5">
               <p>
                 Reservation-Expiry-Date:
                 {' '}
