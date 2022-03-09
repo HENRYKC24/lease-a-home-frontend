@@ -241,12 +241,9 @@ body,
 
   /* Styles for singleApartment page && homepage */
 
-  /* .description {
+  .description {
     color: #fff;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 18px;
-    margin: 0 10px;
-  } */
+  }
 
   .singleapartment-image {
     height: 500px;
