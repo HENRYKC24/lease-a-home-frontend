@@ -37,9 +37,8 @@ const MyLeases = () => {
     if (user.userId) {
       dispatch(deleteLeaseAction(id));
       setTimeout(() => {
-        // window.location.reload();
         dispatch(getMyLeasesAction(user.userId));
-      }, 300);
+      }, 350);
     }
   };
 

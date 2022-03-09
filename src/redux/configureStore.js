@@ -15,24 +15,8 @@ const rootReducer = combineReducers({
 
 const middlewares = [thunk];
 
-const userInitialState = {
-  name: '',
-  email: '',
-  loggedIn: 'out',
-  userId: '',
-  signedUp: false,
-};
-const userInfoFromStorage = localStorage.getItem('leaseAHomeUser')
-  ? JSON.parse(localStorage.getItem('leaseAHomeUser'))
-  : userInitialState;
-
-const initialState = {
-  user: userInfoFromStorage,
-};
-
 const store = createStore(
   rootReducer,
-  initialState,
   composeWithDevTools(applyMiddleware(...middlewares)),
 );
 
