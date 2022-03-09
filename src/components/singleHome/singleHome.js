@@ -49,8 +49,8 @@ const Detail = () => {
               {description}
             </p>
 
-            <div className="text-center mt-5">
-              <p>
+            <div className="singleapartment-details text-center mt-5">
+              <p className="reservation">
                 Reservation-Expiry-Date:
                 {' '}
                 {reservation}
@@ -70,7 +70,7 @@ const Detail = () => {
                 {' '}
                 {city}
               </p>
-              <button className="btn btn-success book-apartment my-4" type="button">
+              <button data-testid="ok-button" className="btn btn-success book-apartment my-4" type="button">
                 <Link style={{ textDecoration: 'none', color: 'white' }} to="/lease_form">Book Apartment</Link>
               </button>
             </div>
