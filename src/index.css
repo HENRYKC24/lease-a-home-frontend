@@ -144,7 +144,7 @@ body,
 
 .description {
   color: #000;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 18px;
   margin: 2rem 10px;
 }
@@ -170,7 +170,7 @@ body,
 }
 
 .singledescription {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 15px;
 }
 
@@ -179,7 +179,9 @@ body,
   cursor: pointer;
 }
 
-.book-apartment:hover { background-color: rgb(17, 231, 221); }
+.book-apartment:hover {
+  background-color: rgb(17, 231, 221);
+}
 
 .book-apartment:active {
   background-color: red;
@@ -277,4 +279,8 @@ body,
     display: flex;
     padding: 0 60px;
   }
+}
+
+.lease-img {
+  height: 50%;
 }
