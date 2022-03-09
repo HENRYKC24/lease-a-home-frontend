@@ -21,7 +21,7 @@ const Home = () => {
   }, []);
   return (
     !apartments[0] ? <h1>Loading</h1> : (
-      <section>
+      <section data-testid="homepage">
         <h1 className="apartment-heading text-center mt-3 text-uppercase">Latest Home</h1>
         <div className="row">
           {

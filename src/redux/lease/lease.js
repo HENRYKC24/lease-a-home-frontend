@@ -47,8 +47,8 @@ export const deleteLeaseAction = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: DELETE_LEASE_REQUEST });
     const { user } = getState();
-    const { data } = await axios.delete(`${baseUrl}/user/${user.userId}/leases/${id}`);
-    dispatch({ type: DELETE_LEASE_SUCCESS, payload: data });
+    await axios.delete(`${baseUrl}/user/${user.userId}/leases/${id}`);
+    dispatch({ type: DELETE_LEASE_SUCCESS });
   } catch (error) {
     dispatch({ type: DELETE_LEASE_FAIL, payload: error.message });
   }
@@ -101,7 +101,7 @@ export const deleteLeaseReducer = (state = { lease: null }, action) => {
     case DELETE_LEASE_REQUEST:
       return { loading: true };
     case DELETE_LEASE_SUCCESS:
-      return { loading: false, message: action.payload };
+      return { loading: false, message: 'Lease Deleted successFully' };
     case DELETE_LEASE_FAIL:
       return { loading: false, error: action.payload };
     default:
