@@ -44,7 +44,7 @@ const MyLeases = () => {
 
   const deleteModal = (leaseId) => (
     <>
-      <button type="button" onClick={() => handleSetId(leaseId)} className=" delete-lease text-warning border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" onClick={() => handleSetId(leaseId)} className=" delete-lease text-danger border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Delete
       </button>
 
@@ -67,15 +67,15 @@ const MyLeases = () => {
 
   return (
     user ? (
-      <div className="container p-5">
+      <div className="container p-5 d-flex justify-content-center">
         <div className="row g-5 d-flex justify-content-center">
           {error && <div className="alert alert-danger">error.message</div>}
           {!loading && leases.length === 0 && <h1 className="text-center text-info">You currently have no leases</h1>}
           {
         loading ? <div> loading ...</div> : leases.map((lease) => (
-          <div key={lease.lease_details.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12">
-            <div className="card w-90">
-              <img src={lease.apartment_details.image} className="card-img-top " alt="..." />
+          <div key={lease.lease_details.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12 ">
+            <div className="card w-90 h-50">
+              <img src={lease.apartment_details.image} className="lease-img card-img-top h-40" alt="..." />
               <div className="card-body">
                 <p className="card-text">
                   {lease.apartment_details.name}
