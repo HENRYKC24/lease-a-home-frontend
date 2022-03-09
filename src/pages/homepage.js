@@ -33,7 +33,16 @@ const Home = () => {
       }
 
       return false;
-    } 
+    } if (start.current >= numPerPage) {
+      if (state === 'yes') {
+        start.current -= numPerPage;
+        multiplier.current -= 1;
+      }
+      result = apartments[0].slice(
+        start.current,
+        multiplier.current * numPerPage,
+      );
+      setApart(() => result);
     }
     return apart;
   };
