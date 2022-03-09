@@ -48,10 +48,13 @@ const MyLeaseDetails = () => {
               <div className="col-md-7">
                 <div className="card-body">
                   <h5 className="card-title text-center">
-                    {lease.leaseDetails.name}
+                    {lease.apartmentDetails.name}
                   </h5>
-                  <p className="text-center">Lorem Ipsum Depricano lasander Lorem Ipsum Depricano </p>
-
+                  <p className="text-center">
+                    {' '}
+                    {lease.apartmentDetails.description}
+                    {' '}
+                  </p>
                   <table className="table">
                     <tbody>
                       <tr>
@@ -59,7 +62,7 @@ const MyLeaseDetails = () => {
                         <td>City</td>
                         <td> - </td>
                         <td />
-                        <td>{lease.apartmentDetails.name}</td>
+                        <td>{lease.apartmentDetails.city}</td>
                       </tr>
                       <tr>
                         <td />
@@ -101,8 +104,8 @@ const MyLeaseDetails = () => {
         <h2 className="text-center text-info  my-5">Interiors</h2>
         <div className="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-2 g-2 g-lg-3 mb-5 d-flex justify-content-center">
           { loading ? '' : (lease.apartmentDetails.interior.map((interior) => (
-            <div key={interior} className="col ">
-              <div className="p-3 border bg-light h-75 w-75">
+            <div key={interior} className="col d-flex justify-content-center ">
+              <div className=" border bg-light h-80 w-100 ">
                 <img src={interior} className="img-fluid rounded-start h-100 w-100 align-center" alt="..." />
               </div>
             </div>

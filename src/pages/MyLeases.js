@@ -67,13 +67,13 @@ const MyLeases = () => {
 
   return (
     user ? (
-      <div className="container p-5">
-        <div className="row g-5 d-flex justify-content-center">
+      <div className="container p-5 d-flex justify-content-center">
+        <div className="row g-5 ">
           {error && <div className="alert alert-danger">error.message</div>}
           {!loading && leases.length === 0 && <h1 className="text-center text-info">You currently have no leases</h1>}
           {
         loading ? <div> loading ...</div> : leases.map((lease) => (
-          <div key={lease.lease_details.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12">
+          <div key={lease.lease_details.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12 ">
             <div className="card w-90">
               <img src={lease.apartment_details.image} className="card-img-top " alt="..." />
               <div className="card-body">
