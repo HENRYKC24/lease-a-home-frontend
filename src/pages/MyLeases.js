@@ -34,16 +34,13 @@ const MyLeases = () => {
   };
 
   const handleDeleteLease = (id) => {
-    dispatch(deleteLeaseAction(id));
     if (user.userId) {
-      dispatch(getMyLeasesAction(user.userId));
+      dispatch(deleteLeaseAction(id));
+      setTimeout(() => {
+        // window.location.reload();
+        dispatch(getMyLeasesAction(user.userId));
+      }, 300);
     }
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
-    // dispatch(getMyLeasesAction());
-    // window.location.reload();
   };
 
   const deleteModal = (leaseId) => (
