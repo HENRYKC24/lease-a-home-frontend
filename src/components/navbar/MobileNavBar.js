@@ -31,12 +31,12 @@ const MobileNavBar = ({ links, logo }) => {
               ))}
               {loggedIn === 'in' ? (
                 <>
-                  <li className="my_leases">
+                  <li className="my_leases" data-bs-toggle="offcanvas">
                     <NavLink exact="true" to="/my_leases">
                       MY LEASES
                     </NavLink>
                   </li>
-                  <li className="logout">
+                  <li className="logout" data-bs-toggle="offcanvas">
                     <NavLink exact="true" to="/logout">
                       LOGOUT
                     </NavLink>
