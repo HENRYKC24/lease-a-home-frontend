@@ -153,7 +153,7 @@ body,
 .homepage-card {
   height: 500px;
   width: 90%;
-  /* border: 15px solid  #6b6358; */
+  border: 15px solid  #6b6358;
   border-radius: 10px;
   margin: 1rem;
 }
