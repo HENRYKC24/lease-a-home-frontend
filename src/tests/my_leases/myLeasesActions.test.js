@@ -1,4 +1,4 @@
-import { getMyLeasesAction } from '../../redux/lease/lease';
+import { getMyLeasesAction, getSingleLeaseAction } from '../../redux/lease/lease';
 
 describe('post reducer', () => {
   const user = {
@@ -9,11 +9,15 @@ describe('post reducer', () => {
     signedUp: true,
 
   };
-  it('Signs in properly', () => {
+  it('It returns data', () => {
     expect(getMyLeasesAction(user.userId)).toBeDefined();
   });
 
-  it('Signs up properly', () => {
+  it('It returns an array greater or equal to 0', () => {
     expect(getMyLeasesAction(user.userId).length).toBeGreaterThanOrEqual(0);
+  });
+
+  it('It returns a single lease', () => {
+    expect(getSingleLeaseAction(1, user.userId).length).toBeGreaterThanOrEqual(1);
   });
 });
