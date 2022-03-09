@@ -67,6 +67,7 @@ const Home = () => {
       setApart(() => pagination(3, true));
     }
   }, [apartments]);
+
   return (
     <div className="home-page">
       {!apart[0] ? (
@@ -76,9 +77,9 @@ const Home = () => {
           <h1 className="apartment-heading text-center mt-3 text-uppercase">
             Latest Home
           </h1>
-          <div className="row">
+          <div className="d-flex p-5">
             {apart.map((item) => (
-              <div key={item.id} className="col-12 col-md-6 col-lg-4">
+              <div key={item.id}>
                 <Link
                   style={{ textDecoration: 'none' }}
                   to="/details"
