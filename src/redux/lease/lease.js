@@ -15,7 +15,7 @@ const DELETE_LEASE_FAIL = 'DELETE_LEASE_FAIL';
 const CREATE_LEASE = 'lease_a_home/CREATE_LEASE';
 const LEASE_STATUS = 'lease_a_home/LEASE_STATUS';
 
-const baseUrl = process.env.REACT_APP_BASE_URL2;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const initialState = {
   lease_status: '',
@@ -120,16 +120,20 @@ export const addLeaseToAPI = (details) => async (dispatch) => {
   } = details;
   const leaseURL = `${baseUrl}/user/${userId}/leases`;
   try {
-    await axios({
+    await fetch(leaseURL, {
       method: 'post',
-      url: leaseURL,
-      data: {
-        from,
-        to,
-        cancelled,
-        user_id: userId,
-        apartment_id: apartmentId,
+      headers: {
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify(
+        {
+          from,
+          to,
+          cancelled,
+          user_id: userId,
+          apartment_id: apartmentId,
+        },
+      ),
     });
     dispatch(leaseStatusAction('Lease Successfully Created!'));
   } catch (error) {
