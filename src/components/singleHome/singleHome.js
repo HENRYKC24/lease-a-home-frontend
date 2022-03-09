@@ -50,7 +50,7 @@ const Detail = () => {
             </p>
 
             <div className="singleapartment-details text-center mt-5">
-              <p>
+              <p className="reservation">
                 Reservation-Expiry-Date:
                 {' '}
                 {reservation}
