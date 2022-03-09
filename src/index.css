@@ -179,6 +179,13 @@ body,
   cursor: pointer;
 }
 
+.book-apartment:hover { background-color: rgb(17, 231, 221); }
+
+.book-apartment:active {
+  background-color: red;
+  transform: translateY(4px);
+}
+
 /* Style for homepage */
 
 /* Styles for singleApartment page */
