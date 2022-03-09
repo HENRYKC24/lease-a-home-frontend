@@ -8,7 +8,6 @@ const MyLeaseDetails = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const { leaseDetails, user } = useSelector((state) => state);
-  // console.log(user, 'The almight user');
   const { lease, loading, err: error } = leaseDetails;
 
   useEffect(() => {
