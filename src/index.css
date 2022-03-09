@@ -152,7 +152,7 @@ body,
 .homepage-card {
   height: 500px;
   width: 90%;
-  border: 15px solid #163d3b;
+  border: 10px solid #163d3b;
   border-radius: 10px;
   margin: 1rem;
   transition: transform 0.2s;
@@ -263,6 +263,10 @@ body,
   }
 
   /* Styles for singleApartment page */
+
+  .home-page {
+    width: 80%;
+  }
 
   .singleapartment-image {
     height: 500px;
