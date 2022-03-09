@@ -214,7 +214,7 @@ body,
 
 .nav-button {
   width: 130px;
-  background-color: #99c210;
+  color: #99c210;
   border: none;
   height: 30px;
   font-weight: 900;
@@ -266,6 +266,12 @@ body,
 
   .home-page {
     width: 80%;
+  }
+
+  .apartments-container {
+    display: flex;
+    padding: 50px;
+    align-items: center;
   }
 
   .singleapartment-image {
