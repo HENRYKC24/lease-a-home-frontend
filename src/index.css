@@ -22,7 +22,7 @@ body,
 .navLinks li a {
   list-style: none;
   text-decoration: none;
-  /* background-color: #141617; */
+  background-color: #141617;
 }
 
 .logo {
