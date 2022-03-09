@@ -68,7 +68,7 @@ const MyLeases = () => {
   return (
     user ? (
       <div className="container p-5 d-flex justify-content-center">
-        <div className="row g-5 ">
+        <div className="row g-5 d-flex justify-content-center">
           {error && <div className="alert alert-danger">error.message</div>}
           {!loading && leases.length === 0 && <h1 className="text-center text-info">You currently have no leases</h1>}
           {
