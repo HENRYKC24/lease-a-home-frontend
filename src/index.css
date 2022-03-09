@@ -99,7 +99,7 @@ body,
 .navLinks li a {
   display: block;
   font-weight: bold;
-  /* color: #6b6358; */
+  color: #6b6358;
   padding: 25px;
 }
 
