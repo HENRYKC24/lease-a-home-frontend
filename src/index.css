@@ -22,6 +22,7 @@ body,
 .navLinks li a {
   list-style: none;
   text-decoration: none;
+  /* background-color: #141617; */
 }
 
 .logo {
@@ -98,7 +99,7 @@ body,
 .navLinks li a {
   display: block;
   font-weight: bold;
-  color: #161616;
+  /* color: #6b6358; */
   padding: 25px;
 }
 
@@ -143,7 +144,7 @@ body,
 }
 
 .description {
-  color: #000;
+  /* color: #6b6358; */
   font-family: 'Times New Roman', Times, serif;
   font-size: 15px;
   margin: 0 10px;
@@ -152,7 +153,7 @@ body,
 .homepage-card {
   height: 500px;
   width: 90%;
-  border: 15px solid #163d3b;
+  /* border: 15px solid  #6b6358; */
   border-radius: 10px;
   margin: 1rem;
 }
@@ -207,7 +208,7 @@ body,
   .desktop-nav {
     display: flex;
     flex-direction: column;
-    background-color: #f4f4f4;
+    background-color: #141617;
     width: 20%;
     padding: 15px 0;
     text-align: center;
@@ -230,6 +231,7 @@ body,
 
   .logo {
     width: 50%;
+    color: #fff;
   }
 
   .copyright {
@@ -237,12 +239,19 @@ body,
     color: #616c7d;
   }
 
-  /* Styles for singleApartment page */
+  /* Styles for singleApartment page && homepage */
+
+  /* .description {
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin: 0 10px;
+  } */
 
   .singleapartment-image {
     height: 500px;
     width: 70%;
-    border: 15px solid #0de4c0;
+    /* border: 15px solid  #6b6358; */
     border-radius: 10px;
     display: block;
     margin: 2rem auto;
