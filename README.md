@@ -1,81 +1,80 @@
-# Getting Started with Create React App
+# Lease A Home
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an apartment webapp that allows a user to sign up, log in, and make leases on particular apartments.
 
-## Available Scripts
+## Built With
 
-In the project directory, you can run:
+- ReactJS
+- Redux
+- CSS
+- BootStrap
 
-### `npm start`
+## To get a local copy run the following steps:
+- Copy this link [https://github.com/chaw-bot/lease-a-home-frontend](https://github.com/chaw-bot/lease-a-home-frontend)
+- Open your terminal or command line
+- Run "git clone Paste [https://github.com/chaw-bot/lease-a-home-frontend](https://github.com/chaw-bot/lease-a-home-frontend)"
+- Open the folder with your code editor
+- Create a branch to work on
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Setup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Run :
 
-### `npm test`
+```
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm start
+```
 
-### `npm run build`
+[Link to the live version]()
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+👤 **Author1**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Chawanzi Ng'uni**
+- GitHub: [@chaw-bot](https://github.com/chaw-bot)
+- Twitter: [@chawfronaut](https://twitter.com/chawfronaut)
+- LinkedIn: [Chawanzi Ng'uni](https://www.linkedin.com/in/chawanzi-ng-uni-449328212/) 
 
-### `npm run eject`
+👤 **Author2**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Henry Kc**
+- GitHub: [@githubhandle](https://github.com/HENRYKC24)
+- Twitter: [@twitterhandle](https://twitter.com/henrykc24)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/henry-kc)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+👤 **Author3**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Ajise Toluwase**
+- GitHub: [@githubhandle](https://github.com/Whoistolu)
+- Twitter: [@twitterhandle](https://twitter.com/Littletolu)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/toluwase-ajise-9b40411b2/)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👤 **Author4**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Abdul Wuyep**
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- GitHub: [@wuyepabdul](https://github.com/wuyepabdul)
+- Twitter: [@AbdulWuyep](https://twitter.com/AbdulWuyep)
+- LinkedIn: [Abdul Wuyep](https://www.linkedin.com/in/abdul-wuyep/)
 
 
 
-<<Create a user:>>
-curl -XPOST -H "Content-Type: application/json" -d '{ "user": { "email": "test@example.com", "password": "12345678", "name": "Henry" } }' http://localhost:3000/users
+## 🤝 Contributing
 
-<<Login a user>>
-curl -XPOST -i -H "Content-Type: application/json" -d '{ "user": { "email": "test@example.com", "password": "12345678" } }' http://localhost:3000/users/sign_in
+Contributions, issues, and feature requests are welcome!
 
-<<Logout a user>>
-curl -XDELETE -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjIwNDk2NTE3LCJleHAiOjE2MjA1MDAxMTcsImp0aSI6IjAyMjY4NTQzLTg0M2YtNGI1Zi1iMTBkLTgwYmU4NzYxOWI2ZCJ9.3sp3LWO1UB-qPBj2YQjPnTt4GFyyuc6UptmLpFkrvL4" -H "Content-Type: application/json" http://localhost:3000/users/sign_out
+Feel free to check the [issues page](https://github.com/chaw-bot/lease-a-home-frontend/issues).
+
+
+## Acknowledgements
+Original design idea by Gregoire Vella on Behance.
+[Gregoire Vella on Behance](https://creativecommons.org/licenses/by-nc/4.0/)
+
+## Show your support
+
+Give a ⭐️ if you like this project!
