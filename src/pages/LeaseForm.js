@@ -1,20 +1,24 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { addLeaseToAPI } from '../redux/lease/lease';
 import { login } from '../redux/user/user';
 
 const LeaseForm = () => {
   const dispatch = useDispatch();
 
+  const location = useLocation();
+
   const [date1, setDate1] = useState('');
 
   const [date2, setDate2] = useState('');
 
-  const userId = useSelector((state) => state.user.userId);
   const status = useSelector((state) => state.leaseReducer.lease_status);
 
-  const apartmentId = 1;
+  const userId = useSelector((state) => state.user.userId);
+
+  const apartmentId = location.state.id;
 
   const [lease] = useState({
     from: '',
@@ -29,6 +33,7 @@ const LeaseForm = () => {
       ...lease,
       from: date1,
       to: date2,
+      userId,
     }));
   };
 
