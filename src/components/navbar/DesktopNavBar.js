@@ -20,11 +20,18 @@ const DesktopNavBar = ({ links, logo }) => {
           </li>
         ))}
         {loggedIn === 'in' ? (
-          <li className="logout">
-            <NavLink exact="true" to="/logout">
-              LOGOUT
-            </NavLink>
-          </li>
+          <>
+            <li className="my_leases">
+              <NavLink exact="true" to="/my_leases">
+                MY LEASES
+              </NavLink>
+            </li>
+            <li className="logout">
+              <NavLink exact="true" to="/logout">
+                LOGOUT
+              </NavLink>
+            </li>
+          </>
         ) : (
           <>
             <li className="sign_in">
