@@ -212,6 +212,14 @@ body,
   margin: 40px 15px;
 }
 
+.nav-button {
+  width: 130px;
+  background-color: #99c210;
+  border: none;
+  height: 30px;
+  font-weight: 900;
+}
+
 @media only screen and (min-width: 768px) {
   .mobile {
     display: none;
