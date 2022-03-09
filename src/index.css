@@ -251,7 +251,7 @@ body,
   .singleapartment-image {
     height: 500px;
     width: 70%;
-    /* border: 15px solid  #6b6358; */
+    border: 15px solid  #6b6358;
     border-radius: 10px;
     display: block;
     margin: 2rem auto;
