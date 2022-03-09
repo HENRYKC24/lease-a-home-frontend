@@ -15,7 +15,29 @@ const Home = () => {
   const start = useRef(0);
   const multiplier = useRef(1);
 
-  
+  const pagination = (numPerPage, isForward, state) => {
+    let result = [];
+    if (isForward) {
+      if (start.current < apartments[0].length) {
+        result = apartments[0].slice(
+          start.current,
+          multiplier.current * numPerPage,
+        );
+        if (state === 'yes') {
+          start.current += numPerPage;
+          multiplier.current += 1;
+        }
+        setApart(() => result);
+      } else {
+        setApart(() => apart);
+      }
+
+      return false;
+    } 
+    }
+    return apart;
+  };
+
   useEffect(() => {
     if (localStorage.getItem('someRandomVitalData')) {
       const { timestamp, mainUser } = JSON.parse(
