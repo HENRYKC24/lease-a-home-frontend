@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { login } from '../../redux/user/user';
 import persistLogin from '../../helpers/persistLogin';
+import { login } from '../../redux/user/user';
 
 const Detail = () => {
   const dispatch = useDispatch();
