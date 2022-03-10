@@ -2,7 +2,6 @@
 
 .form {
   min-width: 100%;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: auto;
@@ -10,6 +9,7 @@
   min-height: 90vh;
   margin-top: 70px;
   padding-bottom: 20px;
+  box-shadow: 3px 3px 10px 3px rgb(163, 158, 158);
 }
 
 .formHeader {
