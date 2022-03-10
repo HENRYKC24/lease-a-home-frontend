@@ -42,10 +42,10 @@ const Detail = () => {
     apartmentMain ? (
       <section className="singleapartment-container">
         <div className="singlecard">
-          <div>
+          <div className="image-container">
             <img className="singleapartment-image" src={image} alt={name} />
           </div>
-          <div className="singleapartment-details text-center mt-5">
+          <div className="singleapartment-details text-center">
             <h3 className="my-2 text-center apartmentname">{name}</h3>
             <p className="singledescription font-weight-light text-center ms-3">
               {description}
