@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://lease-a-home-api.herokuapp.com';
+const baseUrl = process.env.REACT_APP_BASE_URL2;
 
 const fetchDataApartments = async () => {
   try {
