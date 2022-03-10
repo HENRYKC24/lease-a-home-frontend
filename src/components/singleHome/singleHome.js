@@ -37,45 +37,53 @@ const Detail = () => {
     );
   }
 
+  const total = parseInt(rent, 10) + parseInt(maintenance, 10);
   return (
     apartmentMain ? (
-      <section>
-        <div>
-
-          <div className="singlecard">
+      <section className="singleapartment-container">
+        <div className="singlecard">
+          <div className="image-container">
             <img className="singleapartment-image" src={image} alt={name} />
-            <h4 className="my-2 text-center apartmentname">{name}</h4>
+          </div>
+          <div className="singleapartment-details text-center">
+            <h3 className="my-2 text-center apartmentname">{name}</h3>
             <p className="singledescription font-weight-light text-center ms-3">
               {description}
             </p>
-
-            <div className="singleapartment-details text-center mt-5">
-              <p className="reservation">
-                Reservation-Expiry-Date:
-                {' '}
-                {reservation}
-              </p>
-              <p>
-                Maintenance-Fee:
-                {' '}
-                {maintenance}
-              </p>
-              <p>
-                Monthly-Rent:
-                {' '}
-                {rent}
-              </p>
-              <p>
-                City:
-                {' '}
-                {city}
-              </p>
-              <button className="btn btn-success book-apartment my-4" type="button">
-                <Link style={{ textDecoration: 'none', color: 'white' }} to="/lease_form" state={{ id }}>Book Apartment</Link>
-              </button>
-            </div>
+            <p>
+              City:
+              {' '}
+              {city}
+            </p>
+            <p className="reservation">
+              Reservation Expiry Date:
+              {' '}
+              {reservation}
+            </p>
+            <p>
+              Maintenance Fee:
+              {' '}
+              $
+              {maintenance}
+            </p>
+            <p>
+              Monthly Rent:
+              {' '}
+              $
+              {rent}
+            </p>
+            <p>
+              Total Fee:
+              {' '}
+              $
+              {total}
+            </p>
+            <button className="btn btn-success book-apartment my-4" type="button">
+              <Link style={{ textDecoration: 'none', color: 'white' }} to="/lease_form" state={{ id }}>Book Apartment</Link>
+            </button>
           </div>
         </div>
+        <h4 className="my-2 text-center apartmentname">Interior</h4>
         <div className="interior-card">
           {interior && interior.map((feature) => (
             <div key={Math.random()}>

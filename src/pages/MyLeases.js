@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { RiDeleteBin6Line } from 'react-icons/ri';
 import { getMyLeasesAction, deleteLeaseAction } from '../redux/lease/lease';
 import { login } from '../redux/user/user';
 
@@ -44,10 +45,7 @@ const MyLeases = () => {
 
   const deleteModal = (leaseId) => (
     <>
-      <button type="button" onClick={() => handleSetId(leaseId)} className=" delete-lease text-danger border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Delete
-      </button>
-
+      <RiDeleteBin6Line onClick={() => handleSetId(leaseId)} className=" delete-lease text-danger border-0 bg-transparent h2" data-bs-toggle="modal" data-bs-target="#exampleModal" />
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
@@ -74,17 +72,15 @@ const MyLeases = () => {
           {
         loading ? <div> loading ...</div> : leases.map((lease) => (
           <div key={lease.lease_details.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12 ">
-            <div className="card w-90 h-50">
-              <img src={lease.apartment_details.image} className="lease-img card-img-top h-40" alt="..." />
-              <div className="card-body">
-                <p className="card-text">
-                  {lease.apartment_details.name}
-                </p>
-              </div>
-              <div className="card-footer d-flex justify-content-between">
-                <Link to={`/my_leases/${lease.lease_details.id}`} className="btn text-info ">View</Link>
-                {deleteModal(lease.lease_details.id)}
-              </div>
+            <img src={lease.apartment_details.image} className="lease-img card-img-top h-40" alt="..." />
+            <div className="card-body">
+              <p className="card-text">
+                {lease.apartment_details.name}
+              </p>
+            </div>
+            <div className="card-footer d-flex justify-content-between">
+              <Link to={`/my_leases/${lease.lease_details.id}`} className="btn text-info">View</Link>
+              {deleteModal(lease.lease_details.id)}
             </div>
           </div>
         ))

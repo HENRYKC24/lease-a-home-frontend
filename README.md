@@ -1,6 +1,6 @@
 # Lease A Home
 
-This is an apartment webapp that allows a user to sign up, log in, and make leases on particular apartments.
+This is an apartment webapp that allows a user to sign up, log in, and make leases on particular apartments. The user, apartments, and leases are stored in this [API](https://lease-a-home-api.herokuapp.com/apartments).
 
 ## Built With
 
@@ -28,7 +28,7 @@ npm install
 npm start
 ```
 
-[Link to the live version]()
+[Link to the live version](https://lease-a-home.herokuapp.com/)
 
 
 👤 **Author1**
