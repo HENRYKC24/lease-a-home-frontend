@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = process.env.REACT_APP_BASE_URL2;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const fetchDataApartments = async () => {
   try {
