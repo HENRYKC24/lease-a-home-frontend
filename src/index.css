@@ -270,7 +270,8 @@ a,
   /* Styles for singleApartment page */
 
   .home-page,
-  .singleapartment-container {
+  .singleapartment-container,
+  .lease-form {
     width: 80%;
   }
 
