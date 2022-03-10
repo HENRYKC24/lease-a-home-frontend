@@ -14,8 +14,6 @@ const LeaseForm = () => {
 
   const [date2, setDate2] = useState('');
 
-  const status = useSelector((state) => state.leaseReducer.lease_status);
-
   const userId = useSelector((state) => state.user.userId);
 
   const apartmentId = location.state.id;
@@ -58,7 +56,6 @@ const LeaseForm = () => {
   return (
     <div className="lease-form" data-testid="leaseForm">
       <div id="color-overlay" />
-      <h5 className="status">{status}</h5>
       <h1 className="lease-text">{details.heading}</h1>
       <hr />
       <p className="lease-text">{details.text}</p>

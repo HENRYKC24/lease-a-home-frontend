@@ -19,6 +19,7 @@ body,
 
 *,
 .navLinks,
+a,
 .navLinks li a {
   list-style: none;
   text-decoration: none;
