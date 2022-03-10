@@ -4,19 +4,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, Link } from 'react-router-dom';
 import { addLeaseToAPI } from '../redux/lease/lease';
 import { login } from '../redux/user/user';
+import fetchApartments from '../redux/apartment/apartment';
+import persistLogin from '../helpers/persistLogin';
 
 const LeaseForm = () => {
   const dispatch = useDispatch();
 
   const location = useLocation();
 
-  const [date1, setDate1] = useState('');
-
-  const [date2, setDate2] = useState('');
-
-  const userId = useSelector((state) => state.user.userId);
-
-  const apartmentId = location.state.id;
+  const { apartment, user } = useSelector((state) => state);
+  const { apartments } = apartment;
+  const { userId } = user;
 
   const [lease] = useState({
     from: '',
