@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { addLeaseToAPI } from '../redux/lease/lease';
 import { login } from '../redux/user/user';
 
@@ -58,7 +58,7 @@ const LeaseForm = () => {
   return (
     <div className="lease-form" data-testid="leaseForm">
       <div id="color-overlay" />
-      <p>{status}</p>
+      <h5 className="status">{status}</h5>
       <h1 className="lease-text">{details.heading}</h1>
       <hr />
       <p className="lease-text">{details.text}</p>
@@ -71,7 +71,7 @@ const LeaseForm = () => {
           <h6>to: </h6>
           <input type="date" id="date" className="form-control fc" onChange={(e) => setDate2(e.target.value)} value={date2} />
         </div>
-        <button type="button" className="mt-3 form-control fc submit-button" onClick={submitLease}>Book Now</button>
+        <button type="button" className="mt-3 form-control fc submit-button" onClick={submitLease}><Link to="/my_leases" className="text-white">Book Now</Link></button>
       </form>
     </div>
   );
