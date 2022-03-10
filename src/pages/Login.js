@@ -80,68 +80,72 @@ const Login = () => {
         <h2 className={h2}>Let&apos;s Login</h2>
       </div>
 
-      <div className={cx('form-group', formGroup)}>
-        {signedInSuccess === 'err' && <p className={noSignedInMessage}>Email/password incorrect or bad connection!</p>}
-        <label style={{ color: colorScheme.textPale }} className={label} htmlFor="email">
-          Email Address
-          <span> *</span>
-          <input
-            onChange={handleInput}
-            value={input.email}
-            type="email"
-            className={cx('form-control', formControl)}
-            name="email"
-            id="email"
-            required="required"
-          />
-        </label>
+      <div>
+        <div className={cx('form-group', formGroup)}>
+          {signedInSuccess === 'err' && <p className={noSignedInMessage}>Email/password incorrect or bad connection!</p>}
+          <label style={{ color: colorScheme.textPale }} className={label} htmlFor="email">
+            Email Address
+            <span> *</span>
+            <input
+              onChange={handleInput}
+              value={input.email}
+              type="email"
+              className={cx('form-control', formControl)}
+              name="email"
+              id="email"
+              required="required"
+            />
+          </label>
+        </div>
+
+        <div className={cx('form-group', formGroup)}>
+          <label style={{ color: colorScheme.textPale }} className={label} htmlFor="password">
+            Password
+            <span> *</span>
+            <input
+              onChange={handleInput}
+              value={input.password}
+              type="password"
+              className={cx('form-control', formControl)}
+              name="password"
+              id="password"
+              required="required"
+            />
+          </label>
+        </div>
       </div>
 
-      <div className={cx('form-group', formGroup)}>
-        <label style={{ color: colorScheme.textPale }} className={label} htmlFor="password">
-          Password
-          <span> *</span>
-          <input
-            onChange={handleInput}
-            value={input.password}
-            type="password"
-            className={cx('form-control', formControl)}
-            name="password"
-            id="password"
-            required="required"
-          />
-        </label>
-      </div>
-
-      <div className={cx('form-group', formGroup)}>
-        <button
-          onClick={handleSubmit}
-          style={{ backgroundColor: colorScheme.blue }}
-          type="submit"
-          className={btn}
-        >
-          {loading
-            ? <ScaleLoader color={color} loading={loading} css={override} size={150} />
-            : 'Login'}
-        </button>
-      </div>
-
-      <div className={cx('form-group', orGroup)}>
-        <hr className={line} />
-        <p className={or}>OR</p>
-        <hr className={line} />
-      </div>
-
-      <div className={cx('form-group', formGroup)}>
-        <NavLink to="/sign_up">
+      <div className="login-buttons">
+        <div className={cx('form-group', formGroup)}>
           <button
+            onClick={handleSubmit}
             style={{ backgroundColor: colorScheme.blue }}
-            type="button"
+            type="submit"
             className={btn}
           >
-            Sign Up
+            {loading
+              ? <ScaleLoader color={color} loading={loading} css={override} size={150} />
+              : 'Login'}
           </button>
-        </NavLink>
+        </div>
+
+        <div className={cx('form-group', orGroup)}>
+          <hr className={line} />
+          <p className={or}>OR</p>
+          <hr className={line} />
+        </div>
+
+        <div className={cx('form-group', formGroup)}>
+          <NavLink to="/sign_up">
+            <button
+              style={{ backgroundColor: colorScheme.blue }}
+              type="button"
+              className={btn}
+            >
+              Sign Up
+            </button>
+          </NavLink>
+        </div>
       </div>
     </form>
   );

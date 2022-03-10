@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getSingleLeaseAction } from '../redux/lease/lease';
 import { login } from '../redux/user/user';
+import persistLogin from '../helpers/persistLogin';
 
 const MyLeaseDetails = () => {
   const dispatch = useDispatch();
@@ -17,16 +18,7 @@ const MyLeaseDetails = () => {
   }, [user]);
 
   useEffect(() => {
-    if (localStorage.getItem('someRandomVitalData')) {
-      const { timestamp, mainUser } = JSON.parse(localStorage.getItem('someRandomVitalData'));
-      const now = new Date().getTime();
-      const oneDayInMillSecs = 86400000;
-      if (now - timestamp < (7 * oneDayInMillSecs)) {
-        dispatch(login(mainUser));
-      } else {
-        localStorage.removeItem('someRandomVitalData');
-      }
-    }
+    persistLogin(login, dispatch);
   }, []);
 
   return (

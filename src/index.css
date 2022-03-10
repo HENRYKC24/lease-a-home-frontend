@@ -225,6 +225,10 @@ a,
   font-weight: 900;
 }
 
+.single-lease {
+  width: auto;
+}
+
 @media only screen and (min-width: 768px) {
   .mobile {
     display: none;
