@@ -63,17 +63,10 @@ const LeaseForm = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem('someRandomVitalData')) {
-      const { timestamp, mainUser } = JSON.parse(localStorage.getItem('someRandomVitalData'));
-      const now = new Date().getTime();
-      const oneDayInMillSecs = 86400000;
-      if (now - timestamp < (7 * oneDayInMillSecs)) {
-        dispatch(login(mainUser));
-      } else {
-        localStorage.removeItem('someRandomVitalData');
-      }
-    }
+    persistLogin(login, dispatch);
   }, []);
+
+  useEffect(() => () => dispatch(fetchApartments()));
 
   return (
     <div className="lease-form" data-testid="leaseForm">
@@ -84,11 +77,21 @@ const LeaseForm = () => {
       <form className="lease-text the-form">
         <div className="datetime mt-3">
           <h6>from: </h6>
-          <input type="date" id="date" className="form-control fc" onChange={(e) => setDate1(e.target.value)} value={date1} />
+          <input
+            type="date"
+            id="date"
+            min={expiryDate}
+            className="form-control fc"
+            onChange={(e) => {
+              setDate1(e.target.value);
+              setDate2(() => day2Value);
+            }}
+            value={date1}
+          />
         </div>
         <div className="datetime mt-3">
           <h6>to: </h6>
-          <input type="date" id="date" className="form-control fc" onChange={(e) => setDate2(e.target.value)} value={date2} />
+          <input type="date" id="date" min={day2Value} className="form-control fc" onChange={(e) => setDate2(e.target.value)} value={day2Value} />
         </div>
         <button type="button" className="mt-3 form-control fc submit-button" onClick={submitLease}><Link to="/my_leases" className="text-white">Book Now</Link></button>
       </form>
