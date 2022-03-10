@@ -28,7 +28,7 @@ npm install
 npm start
 ```
 
-[Link to the live version](https://lease-a-home.herokuapp.com/)
+[Link to the live version](https://lease-a-home.netlify.app/)
 
 
 👤 **Author1**
