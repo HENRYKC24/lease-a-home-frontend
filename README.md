@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Lease A Home
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+>This is an apartment webapp that allows a user to sign up, log in, and make leases on particular apartments. The user, apartments, and leases are stored in this [API](https://lease-a-home-api.herokuapp.com/apartments).
+>
+>Here is a [link](https://github.com/chaw-bot/lease-a-home-API/tree/main) to the API repo.
 
-## Available Scripts
+## Kanban board
+> - [Link](https://github.com/chaw-bot/lease-a-home-API/projects/1) to the Kanban board.
+> - [Link](https://user-images.githubusercontent.com/58692590/155709772-22e11087-de10-4eb6-9b09-dcdd13aa49e6.png
+) the screenshot of the initial state of your Kanban board.
+> - [Link](https://github.com/HENRYKC24/lease-a-home-frontend/tree/main) to the GH repository.
+> - [Link](https://lease-a-home.herokuapp.com/) to the live version.
+>
+>This project consists four members:
+>- [Abdul](@wuyepabdul)
+>- [Chawanzi](@chaw-bot)
+>- [Henry](@HENRYKC24)
+>- [Toluwase](@Whoistolu)
 
-In the project directory, you can run:
+## Screenshots
+> |Home/Apartments Page|Lease Form| Leases Page |
+> |--------------|----------------|----------------|
+> |![Screenshot](src/images/screenshot1.png)|![Screenshot](src/images/screenshot2.png)|![Screenshot](src/images/screenshot3.png)|
 
-### `npm start`
+## Built With
+>- ReactJS
+>- Redux
+>- CSS
+>- BootStrap
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## To get a local copy run the following steps:
+>- Copy this link [https://github.com/chaw-bot/lease-a-home-frontend](https://github.com/chaw-bot/lease-a-home-frontend)
+>- Open your terminal or command line
+>- Run "git clone Paste [https://github.com/chaw-bot/lease-a-home-frontend](https://github.com/chaw-bot/lease-a-home-frontend)"
+>- Open the folder with your code editor
+>- Create a branch to work on
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Setup
 
-### `npm test`
+Run :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm install
+```
 
-### `npm run build`
+```
+npm start
+```
+# 👤👤 **Authors**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Chawanzi Ng'uni**
+  - GitHub: [@chaw-bot](https://github.com/chaw-bot)
+  - Twitter: [@chawfronaut](https://twitter.com/chawfronaut)
+  - LinkedIn: [Chawanzi Ng'uni](https://www.linkedin.com/in/chawanzi-ng-uni-449328212/) 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Henry Kc**
+  - GitHub: [@githubhandle](https://github.com/HENRYKC24)
+  - Twitter: [@twitterhandle](https://twitter.com/henrykc24)
+  - LinkedIn: [LinkedIn](https://linkedin.com/in/henry-kc)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Ajise Toluwase**
+  - GitHub: [@githubhandle](https://github.com/Whoistolu)
+  - Twitter: [@twitterhandle](https://twitter.com/Littletolu)
+  - LinkedIn: [LinkedIn](https://www.linkedin.com/in/toluwase-ajise-9b40411b2/)
 
-### `npm run eject`
+- **Abdul Wuyep**
+  - GitHub: [@wuyepabdul](https://github.com/wuyepabdul)
+  - Twitter: [@AbdulWuyep](https://twitter.com/AbdulWuyep)
+  - LinkedIn: [Abdul Wuyep](https://www.linkedin.com/in/abdul-wuyep/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# 🤝 Contributing
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Contributions, issues, and feature requests are welcome!
 
-## Learn More
+Feel free to check the [issues page](https://github.com/chaw-bot/lease-a-home-frontend/issues).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Acknowledgements
+Original design idea by Gregoire Vella on Behance.
+[Gregoire Vella on Behance](https://creativecommons.org/licenses/by-nc/4.0/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Show your support
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Give a ⭐️ if you like this project!

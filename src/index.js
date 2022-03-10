@@ -1,7 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+window.onbeforeunload = () => {
+  if (localStorage.getItem('someRandomVitalData')) {
+    const data = JSON.parse(localStorage.getItem('someRandomVitalData'));
+    const now = new Date().getTime();
+    data.timestamp = now;
+    localStorage.setItem('someRandomVitalData', JSON.stringify(data));
+  }
+};
 
 ReactDOM.render(
   <React.StrictMode>
