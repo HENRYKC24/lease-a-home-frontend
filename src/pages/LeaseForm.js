@@ -16,6 +16,30 @@ const LeaseForm = () => {
   const { apartments } = apartment;
   const { userId } = user;
 
+  const apartmentId = location.state.id;
+  const apartmentToBook = apartments[0]
+    ? apartments[0].find((each) => each.id === apartmentId) : [];
+
+  const { reservation_expiry_date: expiryDate } = apartmentToBook;
+
+  const [date1, setDate1] = useState(expiryDate);
+  let [year, month, day] = date1.split('-');
+
+  if (Number(month) === 12) {
+    month = '01';
+    year = Number(year) + 1;
+    day = day.toString();
+  } else {
+    month = Number(month) + 1;
+    if (month.toString().length === 1) {
+      month = `0${month}`;
+    }
+  }
+
+  const day2Value = `${year}-${month}-${day}`;
+
+  const [date2, setDate2] = useState(day2Value);
+
   const [lease] = useState({
     from: '',
     to: '',
