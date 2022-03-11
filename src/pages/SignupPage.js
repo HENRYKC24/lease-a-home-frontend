@@ -11,8 +11,8 @@ import hitAPIWithSignupDetails, { userReducer, login } from '../redux/user/user'
 const SignupPage = () => {
   const navigate = useNavigate();
 
-  function goToHomePage() {
-    navigate('/', { replace: true });
+  function goToLogin() {
+    navigate('/login', { replace: true });
   }
 
   const override = css`
@@ -102,7 +102,7 @@ const SignupPage = () => {
           userId: '',
           signedUp: '',
         }));
-        goToHomePage();
+        goToLogin();
       }, 3000);
     }
     setSignUpSucess(() => signedUp);

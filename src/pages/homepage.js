@@ -69,6 +69,14 @@ const Home = () => {
     }
   };
 
+  useEffect(() => {
+    if (window.innerWidth < 1150) {
+      setIsmobile(() => true);
+    } else {
+      setIsmobile(() => false);
+    }
+  }, []);
+
   return (
     <div className="home-page">
       {!apart[0] ? (
