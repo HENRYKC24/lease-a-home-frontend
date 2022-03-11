@@ -227,7 +227,7 @@ a,
 }
 
 .nav-button {
-  width: 130px;
+  width: 40px;
   color: #99c210;
   border: none;
   height: 30px;
@@ -296,7 +296,7 @@ a,
 
   .apartments-container {
     display: flex;
-    padding: 50px;
+    padding: 20px;
     align-items: center;
   }
 
