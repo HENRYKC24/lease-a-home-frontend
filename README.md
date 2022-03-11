@@ -9,7 +9,7 @@
 > - [Link](https://user-images.githubusercontent.com/58692590/155709772-22e11087-de10-4eb6-9b09-dcdd13aa49e6.png
 ) the screenshot of the initial state of your Kanban board.
 > - [Link](https://github.com/HENRYKC24/lease-a-home-frontend/tree/main) to the GH repository.
-> - [Link](https://lease-a-home.herokuapp.com/) to the live version.
+> - [Link](https://duls-lease-home.herokuapp.com/) to the live version.
 >
 >This project consists four members:
 >- [Abdul](@wuyepabdul)
