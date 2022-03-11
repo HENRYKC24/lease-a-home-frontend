@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, Link } from 'react-router-dom';
 import { addLeaseToAPI } from '../redux/lease/lease';
 import { login } from '../redux/user/user';
-import fetchApartments from '../redux/apartment/apartment';
 import persistLogin from '../helpers/persistLogin';
 
 const LeaseForm = () => {
@@ -16,7 +15,7 @@ const LeaseForm = () => {
   const { apartments } = apartment;
   const { userId } = user;
 
-  const apartmentId = location.state.id;
+  const apartmentId = location.state ? location.state.id : 0;
   const apartmentToBook = apartments[0]
     ? apartments[0].find((each) => each.id === apartmentId) : [];
 
@@ -66,8 +65,6 @@ const LeaseForm = () => {
     persistLogin(login, dispatch);
   }, []);
 
-  useEffect(() => () => dispatch(fetchApartments()));
-
   return (
     <div className="lease-form" data-testid="leaseForm">
       <div id="color-overlay" />
@@ -91,7 +88,16 @@ const LeaseForm = () => {
         </div>
         <div className="datetime mt-3">
           <h6>to: </h6>
-          <input type="date" id="date" min={day2Value} className="form-control fc" onChange={(e) => setDate2(e.target.value)} value={day2Value} />
+          <input
+            type="date"
+            id="date"
+            min={day2Value}
+            className="form-control fc"
+            onChange={(e) => {
+              setDate2(e.target.value);
+            }}
+            value={date2}
+          />
         </div>
         <button type="button" className="mt-3 form-control fc submit-button" onClick={submitLease}><Link to="/my_leases" className="text-white">Book Now</Link></button>
       </form>
