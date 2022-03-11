@@ -16,6 +16,8 @@ const Home = () => {
   const start = useRef(0);
   const multiplier = useRef(1);
 
+  const [isMobile, setIsmobile] = useState(false);
+
   const pagination = (numPerPage, isForward, state) => {
     let result = [];
     if (isForward) {
@@ -69,6 +71,14 @@ const Home = () => {
     }
   }, [apartments]);
 
+  window.onresize = () => {
+    if (window.innerWidth < 1150) {
+      setIsmobile(() => true);
+    } else {
+      setIsmobile(() => false);
+    }
+  };
+
   return (
     <div className="home-page">
       {!apart[0] ? (
@@ -79,15 +89,36 @@ const Home = () => {
             Latest Home
           </h1>
           <div className="apartments-container">
-            <FaBackward
-              className="nav-button"
-              onClick={() => {
-                if (apartments[0]) {
-                  pagination(3, false, 'yes');
-                }
-              }}
-              type="button"
-            />
+            <div className={isMobile ? 'nav-box' : ''}>
+              <FaBackward
+                className="nav-button"
+                onClick={() => {
+                  if (apartments[0]) {
+                    pagination(3, false, 'yes');
+                  }
+                }}
+                type="button"
+              />
+              {isMobile && (
+              <FaForward
+                className="nav-button"
+                onClick={() => {
+                  if (apartments[0]) {
+                    if (start.current === 0) {
+                      start.current += 3;
+                      multiplier.current += 1;
+                    }
+                    pagination(3, true, 'yes');
+                    if (start.current + 3 > apartments[0].length) {
+                      start.current -= 3;
+                      multiplier.current -= 1;
+                    }
+                  }
+                }}
+                type="button"
+              />
+              )}
+            </div>
             {apart.map((item) => (
               <div key={item.id}>
                 <Link
@@ -109,23 +140,36 @@ const Home = () => {
                 </Link>
               </div>
             ))}
-            <FaForward
-              className="nav-button"
-              onClick={() => {
-                if (apartments[0]) {
-                  if (start.current === 0) {
-                    start.current += 3;
-                    multiplier.current += 1;
+            <div className={isMobile ? 'nav-box' : ''}>
+              {isMobile && (
+              <FaBackward
+                className="nav-button"
+                onClick={() => {
+                  if (apartments[0]) {
+                    pagination(3, false, 'yes');
                   }
-                  pagination(3, true, 'yes');
-                  if (start.current + 3 > apartments[0].length) {
-                    start.current -= 3;
-                    multiplier.current -= 1;
+                }}
+                type="button"
+              />
+              )}
+              <FaForward
+                className="nav-button"
+                onClick={() => {
+                  if (apartments[0]) {
+                    if (start.current === 0) {
+                      start.current += 3;
+                      multiplier.current += 1;
+                    }
+                    pagination(3, true, 'yes');
+                    if (start.current + 3 > apartments[0].length) {
+                      start.current -= 3;
+                      multiplier.current -= 1;
+                    }
                   }
-                }
-              }}
-              type="button"
-            />
+                }}
+                type="button"
+              />
+            </div>
           </div>
         </section>
       )}

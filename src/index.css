@@ -152,17 +152,26 @@ a,
 
 .homepage-card {
   height: 500px;
-  width: 90%;
+  max-width: 400px;
   border: 10px solid #163d3b;
   border-radius: 10px;
-  margin: 1rem;
+  margin: 10px auto;
   transition: transform 0.2s;
+  overflow: hidden;
 }
 
 .homepage-card:hover {
   -ms-transform: scale(1.2);
   -webkit-transform: scale(1.2);
   transform: scale(1.1);
+}
+
+.home-page .nav-box {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .apartment-image {
@@ -225,7 +234,11 @@ a,
   font-weight: 900;
 }
 
-@media only screen and (min-width: 768px) {
+.single-lease {
+  width: auto;
+}
+
+@media only screen and (min-width: 1150px) {
   .mobile {
     display: none;
   }
@@ -289,6 +302,10 @@ a,
 
   .singleapartment-details {
     background-color: #eee;
+  }
+
+  .homepage-card {
+    margin: 1rem;
   }
 
   .singleapartment-image {
