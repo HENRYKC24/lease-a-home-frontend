@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+import persistLogin from '../../helpers/persistLogin';
 import { login } from '../../redux/user/user';
 
 const Detail = () => {
   const dispatch = useDispatch();
   const apartmentss = useSelector((state) => state.apartment);
+  const user = useSelector((state) => state.user);
   const location = useLocation();
   const { id } = location.state;
   const apartment = apartmentss.apartments;
@@ -19,16 +21,7 @@ const Detail = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem('someRandomVitalData')) {
-      const { timestamp, mainUser } = JSON.parse(localStorage.getItem('someRandomVitalData'));
-      const now = new Date().getTime();
-      const oneDayInMillSecs = 86400000;
-      if (now - timestamp < (7 * oneDayInMillSecs)) {
-        dispatch(login(mainUser));
-      } else {
-        localStorage.removeItem('someRandomVitalData');
-      }
-    }
+    persistLogin(login, dispatch);
   }, []);
 
   if (!apartment) {
@@ -56,7 +49,7 @@ const Detail = () => {
               {city}
             </p>
             <p className="reservation">
-              Reservation Expiry Date:
+              Available From:
               {' '}
               {reservation}
             </p>
@@ -73,13 +66,13 @@ const Detail = () => {
               {rent}
             </p>
             <p>
-              Total Fee:
+              Total Fee/Month:
               {' '}
               $
               {total}
             </p>
             <button className="btn btn-success book-apartment my-4" type="button">
-              <Link style={{ textDecoration: 'none', color: 'white' }} to="/lease_form" state={{ id }}>Book Apartment</Link>
+              <Link style={{ textDecoration: 'none', color: 'white' }} to={user.userId ? '/lease_form' : '/login'} state={{ id }}>Book Apartment</Link>
             </button>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { getMyLeasesAction, deleteLeaseAction } from '../redux/lease/lease';
 import { login } from '../redux/user/user';
+import persistLogin from '../helpers/persistLogin';
 
 const MyLeases = () => {
   const dispatch = useDispatch();
@@ -18,16 +19,7 @@ const MyLeases = () => {
   }, [user, dispatch]);
 
   useEffect(() => {
-    if (localStorage.getItem('someRandomVitalData')) {
-      const { timestamp, mainUser } = JSON.parse(localStorage.getItem('someRandomVitalData'));
-      const now = new Date().getTime();
-      const oneDayInMillSecs = 86400000;
-      if (now - timestamp < (7 * oneDayInMillSecs)) {
-        dispatch(login(mainUser));
-      } else {
-        localStorage.removeItem('someRandomVitalData');
-      }
-    }
+    persistLogin(login, dispatch);
   }, []);
 
   const handleSetId = (lease) => {
@@ -71,7 +63,7 @@ const MyLeases = () => {
           {!loading && leases.length === 0 && <h1 className="text-center text-info">You currently have no leases</h1>}
           {
         loading ? <div> loading ...</div> : leases.map((lease) => (
-          <div key={lease.lease_details.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12 ">
+          <div key={lease.lease_details.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12 single-lease">
             <img src={lease.apartment_details.image} className="lease-img card-img-top h-40" alt="..." />
             <div className="card-body">
               <p className="card-text">

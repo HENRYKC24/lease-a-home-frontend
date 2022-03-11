@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaBackward, FaForward } from 'react-icons/fa';
 import { login } from '../redux/user/user';
+import persistLogin from '../helpers/persistLogin';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -51,18 +52,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem('someRandomVitalData')) {
-      const { timestamp, mainUser } = JSON.parse(
-        localStorage.getItem('someRandomVitalData'),
-      );
-      const now = new Date().getTime();
-      const oneDayInMillSecs = 86400000;
-      if (now - timestamp < 7 * oneDayInMillSecs) {
-        dispatch(login(mainUser));
-      } else {
-        localStorage.removeItem('someRandomVitalData');
-      }
-    }
+    persistLogin(login, dispatch);
   }, []);
 
   useEffect(() => {
